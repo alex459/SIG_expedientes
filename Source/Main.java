@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        JOptionPane.showMessageDialog(null, "probando GIT");
+        JOptionPane.showMessageDialog(null, "SISTEMA DE INFORMACION GERENCIAL");
         
     }
     
