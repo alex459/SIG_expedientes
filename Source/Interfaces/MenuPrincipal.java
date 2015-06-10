@@ -20,6 +20,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
     }
+    
+    ControladorClases cc = new ControladorClases();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,10 +45,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         frmICantidadDeDenunciasPorJuez = new javax.swing.JMenuItem();
         frmICantidadDeJuecesPorGenero = new javax.swing.JMenuItem();
         frmICantidadDeAsignaciones = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        frmMapaDeDenuncias = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        frmRendimientoDeDepartamento = new javax.swing.JMenuItem();
+        frmRendimientoDeExpedientes = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        frmPerfilDeJueces = new javax.swing.JMenuItem();
+        frmPerfilDeColaboradores = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        frmGNuevoUsuario = new javax.swing.JMenuItem();
+        frmGModificarUsuario = new javax.swing.JMenuItem();
+        frmGConsultarUsuario = new javax.swing.JMenuItem();
+        frmGEliminarUsuario = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,16 +131,99 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Índices");
-        jMenuBar1.add(jMenu3);
-
         jMenu4.setText("Mapa");
+
+        frmMapaDeDenuncias.setText("Mapa estadístico de denuncias");
+        frmMapaDeDenuncias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmMapaDeDenunciasActionPerformed(evt);
+            }
+        });
+        jMenu4.add(frmMapaDeDenuncias);
+
         jMenuBar1.add(jMenu4);
 
+        jMenu3.setText("Índices");
+
+        frmRendimientoDeDepartamento.setText("Rendimiento del Departamento");
+        frmRendimientoDeDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmRendimientoDeDepartamentoActionPerformed(evt);
+            }
+        });
+        jMenu3.add(frmRendimientoDeDepartamento);
+
+        frmRendimientoDeExpedientes.setText("Rendimiento de Expedientes");
+        frmRendimientoDeExpedientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmRendimientoDeExpedientesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(frmRendimientoDeExpedientes);
+
+        jMenuBar1.add(jMenu3);
+
         jMenu5.setText("Perfil");
+
+        frmPerfilDeJueces.setText("Perfil de Jueces");
+        frmPerfilDeJueces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmPerfilDeJuecesActionPerformed(evt);
+            }
+        });
+        jMenu5.add(frmPerfilDeJueces);
+
+        frmPerfilDeColaboradores.setText("Perfil de Colaboradores Jurídicos");
+        frmPerfilDeColaboradores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmPerfilDeColaboradoresActionPerformed(evt);
+            }
+        });
+        jMenu5.add(frmPerfilDeColaboradores);
+
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Usuarios");
+
+        jMenu10.setText("Gestionar Usuarios");
+
+        frmGNuevoUsuario.setText("Nuevo Usuario");
+        frmGNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmGNuevoUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu10.add(frmGNuevoUsuario);
+
+        frmGModificarUsuario.setText("Modificar datos de Usuario");
+        frmGModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmGModificarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu10.add(frmGModificarUsuario);
+
+        frmGConsultarUsuario.setText("Consultar Usuarios");
+        frmGConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmGConsultarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu10.add(frmGConsultarUsuario);
+
+        frmGEliminarUsuario.setText("Eliminar Usuarios");
+        frmGEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frmGEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu10.add(frmGEliminarUsuario);
+
+        jMenu6.add(jMenu10);
+
+        jMenuItem5.setText("Modificar datos personales");
+        jMenu6.add(jMenuItem5);
+
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -148,40 +244,94 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void frmICantidadDeDiasExpedientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmICantidadDeDiasExpedientesActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirCantidadDeDiasExpedientes();
     }//GEN-LAST:event_frmICantidadDeDiasExpedientesActionPerformed
 
     private void frmICantidadDeDenunciasPorJuezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmICantidadDeDenunciasPorJuezActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirCantidadDeDenunciasPorJuez();
         
     }//GEN-LAST:event_frmICantidadDeDenunciasPorJuezActionPerformed
 
     private void frmICantidadDeJuecesPorGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmICantidadDeJuecesPorGeneroActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirCantidadDeJuecesPorGenero();
     }//GEN-LAST:event_frmICantidadDeJuecesPorGeneroActionPerformed
 
     private void frmICantidadDeAsignacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmICantidadDeAsignacionesActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirCantidadDeAsignaciones();
     }//GEN-LAST:event_frmICantidadDeAsignacionesActionPerformed
 
     private void frmIExpedientesQueVenceranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmIExpedientesQueVenceranActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirExpedientesQueVenceran();
     }//GEN-LAST:event_frmIExpedientesQueVenceranActionPerformed
 
     private void frmIComparativoDeRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmIComparativoDeRendimientoActionPerformed
         // TODO add your handling code here:
-        ControladorClases cc = new ControladorClases();
+        
         cc.AbrirComparativoDeRendimiento();
     }//GEN-LAST:event_frmIComparativoDeRendimientoActionPerformed
+
+    private void frmMapaDeDenunciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmMapaDeDenunciasActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirMapaDeDenuncias();
+    }//GEN-LAST:event_frmMapaDeDenunciasActionPerformed
+
+    private void frmRendimientoDeDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmRendimientoDeDepartamentoActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirRendimientoDeDepartamento();
+    }//GEN-LAST:event_frmRendimientoDeDepartamentoActionPerformed
+
+    private void frmRendimientoDeExpedientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmRendimientoDeExpedientesActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirRendimientoDeExpedientes();
+    }//GEN-LAST:event_frmRendimientoDeExpedientesActionPerformed
+
+    private void frmPerfilDeJuecesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmPerfilDeJuecesActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirPerfilDeJueces();
+    }//GEN-LAST:event_frmPerfilDeJuecesActionPerformed
+
+    private void frmPerfilDeColaboradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmPerfilDeColaboradoresActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirPerfilDeColaboradores();
+    }//GEN-LAST:event_frmPerfilDeColaboradoresActionPerformed
+
+    private void frmGNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGNuevoUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirNuevoUsuario();
+    }//GEN-LAST:event_frmGNuevoUsuarioActionPerformed
+
+    private void frmGModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGModificarUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirModificarUsuario();
+    }//GEN-LAST:event_frmGModificarUsuarioActionPerformed
+
+    private void frmGConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGConsultarUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirConsultarUsuario();
+    }//GEN-LAST:event_frmGConsultarUsuarioActionPerformed
+
+    private void frmGEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirEliminarUsuario();
+    }//GEN-LAST:event_frmGEliminarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,13 +369,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem frmGConsultarUsuario;
+    private javax.swing.JMenuItem frmGEliminarUsuario;
+    private javax.swing.JMenuItem frmGModificarUsuario;
+    private javax.swing.JMenuItem frmGNuevoUsuario;
     private javax.swing.JMenuItem frmICantidadDeAsignaciones;
     private javax.swing.JMenuItem frmICantidadDeDenunciasPorJuez;
     private javax.swing.JMenuItem frmICantidadDeDiasExpedientes;
     private javax.swing.JMenuItem frmICantidadDeJuecesPorGenero;
     private javax.swing.JMenuItem frmIComparativoDeRendimiento;
     private javax.swing.JMenuItem frmIExpedientesQueVenceran;
+    private javax.swing.JMenuItem frmMapaDeDenuncias;
+    private javax.swing.JMenuItem frmPerfilDeColaboradores;
+    private javax.swing.JMenuItem frmPerfilDeJueces;
+    private javax.swing.JMenuItem frmRendimientoDeDepartamento;
+    private javax.swing.JMenuItem frmRendimientoDeExpedientes;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -235,6 +395,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
