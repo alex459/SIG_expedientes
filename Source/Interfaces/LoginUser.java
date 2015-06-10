@@ -64,7 +64,9 @@ public class LoginUser extends javax.swing.JFrame {
         
         MenuPrincipal menup = new MenuPrincipal();
                 menup.setVisible(true);
+                menup.setLocationRelativeTo(null);
                 this.dispose();
+                
         
     }//GEN-LAST:event_BtnIngresarActionPerformed
 
