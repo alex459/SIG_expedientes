@@ -6,6 +6,8 @@
 
 package Interfaces;
 
+import Controlador.ControladorClases;
+
 /**
  *
  * @author Kevin
@@ -19,6 +21,9 @@ public class LoginUser extends javax.swing.JFrame {
         initComponents();
     }
 
+    //Atributos
+    ControladorClases cc = new ControladorClases();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,6 +34,7 @@ public class LoginUser extends javax.swing.JFrame {
     private void initComponents() {
 
         BtnIngresar = new javax.swing.JButton();
+        BtnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,12 +45,21 @@ public class LoginUser extends javax.swing.JFrame {
             }
         });
 
+        BtnCerrar.setText("Cerrar");
+        BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCerrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(317, Short.MAX_VALUE)
+                .addContainerGap(236, Short.MAX_VALUE)
+                .addComponent(BtnCerrar)
+                .addGap(18, 18, 18)
                 .addComponent(BtnIngresar)
                 .addContainerGap())
         );
@@ -52,7 +67,9 @@ public class LoginUser extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(256, Short.MAX_VALUE)
-                .addComponent(BtnIngresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtnIngresar)
+                    .addComponent(BtnCerrar))
                 .addGap(21, 21, 21))
         );
 
@@ -61,14 +78,17 @@ public class LoginUser extends javax.swing.JFrame {
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
         // TODO add your handling code here:
-        
-        MenuPrincipal menup = new MenuPrincipal();
-                menup.setVisible(true);
-                menup.setLocationRelativeTo(null);
+        cc.AbrirMenuPrincipal();
                 this.dispose();
                 
         
     }//GEN-LAST:event_BtnIngresarActionPerformed
+
+    private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_BtnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,6 +126,7 @@ public class LoginUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton BtnIngresar;
     // End of variables declaration//GEN-END:variables
 }
