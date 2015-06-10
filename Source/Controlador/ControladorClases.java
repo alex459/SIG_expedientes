@@ -1,5 +1,11 @@
 package Controlador;
 
+import Interfaces.ICantidadDeAsignaciones;
+import Interfaces.ICantidadDeDenunciasPorJuez;
+import Interfaces.ICantidadDeDiasExpedientes;
+import Interfaces.ICantidadDeJuecesPorGenero;
+import Interfaces.IComparativoDeRendimiento;
+import Interfaces.IExpedientesQueVenceran;
 import Interfaces.LoginUser;
 
 /*
@@ -16,10 +22,47 @@ public class ControladorClases {
     
     
         public void AbrirLogin(){
-           LoginUser Lgu = new LoginUser();
-            Lgu.setVisible(true);
-            Lgu.setLocationRelativeTo(null);
+           LoginUser abrir = new LoginUser();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
         }
+        
+        public void AbrirCantidadDeDiasExpedientes(){
+            ICantidadDeDiasExpedientes abrir = new ICantidadDeDiasExpedientes();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirCantidadDeDenunciasPorJuez(){
+            ICantidadDeDenunciasPorJuez abrir = new ICantidadDeDenunciasPorJuez();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirCantidadDeJuecesPorGenero(){
+           ICantidadDeJuecesPorGenero abrir = new ICantidadDeJuecesPorGenero();
+           abrir.setVisible(true);
+           abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirCantidadDeAsignaciones(){
+           ICantidadDeAsignaciones abrir = new ICantidadDeAsignaciones();
+           abrir.setVisible(true);
+           abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirExpedientesQueVenceran(){
+            IExpedientesQueVenceran abrir = new IExpedientesQueVenceran();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirComparativoDeRendimiento(){
+            IComparativoDeRendimiento abrir = new IComparativoDeRendimiento();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
         
         public void Cerrar(){
            System.exit(0);
