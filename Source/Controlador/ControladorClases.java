@@ -1,5 +1,9 @@
 package Controlador;
 
+import Interfaces.GConsultarUsuario;
+import Interfaces.GEliminarUsuario;
+import Interfaces.GModificarUsuario;
+import Interfaces.GNuevoUsuario;
 import Interfaces.ICantidadDeAsignaciones;
 import Interfaces.ICantidadDeDenunciasPorJuez;
 import Interfaces.ICantidadDeDiasExpedientes;
@@ -7,6 +11,12 @@ import Interfaces.ICantidadDeJuecesPorGenero;
 import Interfaces.IComparativoDeRendimiento;
 import Interfaces.IExpedientesQueVenceran;
 import Interfaces.LoginUser;
+import Interfaces.MapaDeDenuncias;
+import Interfaces.MenuPrincipal;
+import Interfaces.PerfilDeColaboradores;
+import Interfaces.PerfilDeJueces;
+import Interfaces.RendimientoDeDepartamento;
+import Interfaces.RendimientoDeExpedientes;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +35,13 @@ public class ControladorClases {
            LoginUser abrir = new LoginUser();
             abrir.setVisible(true);
             abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirMenuPrincipal(){
+            MenuPrincipal abrir = new MenuPrincipal();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+            
         }
         
         public void AbrirCantidadDeDiasExpedientes(){
@@ -59,6 +76,60 @@ public class ControladorClases {
         
         public void AbrirComparativoDeRendimiento(){
             IComparativoDeRendimiento abrir = new IComparativoDeRendimiento();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirMapaDeDenuncias(){
+            MapaDeDenuncias abrir = new MapaDeDenuncias();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirRendimientoDeDepartamento(){
+            RendimientoDeDepartamento abrir = new RendimientoDeDepartamento();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirRendimientoDeExpedientes(){
+            RendimientoDeExpedientes abrir = new RendimientoDeExpedientes();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirPerfilDeJueces(){
+            PerfilDeJueces abrir = new PerfilDeJueces();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirPerfilDeColaboradores(){
+            PerfilDeColaboradores abrir = new PerfilDeColaboradores();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirNuevoUsuario(){
+            GNuevoUsuario abrir = new GNuevoUsuario();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirModificarUsuario(){
+            GModificarUsuario abrir = new GModificarUsuario();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirConsultarUsuario(){
+            GConsultarUsuario abrir = new GConsultarUsuario();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirEliminarUsuario(){
+            GEliminarUsuario abrir = new GEliminarUsuario();
             abrir.setVisible(true);
             abrir.setLocationRelativeTo(null);
         }
