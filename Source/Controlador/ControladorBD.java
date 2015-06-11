@@ -39,5 +39,4 @@ public class ControladorBD {
                 JOptionPane.showMessageDialog(null, "ERRROR: "+e.getMessage());
             }
     }
-    
 }
