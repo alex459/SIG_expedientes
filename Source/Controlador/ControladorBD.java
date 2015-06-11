@@ -16,17 +16,16 @@ import javax.swing.JOptionPane;
  */
 public class ControladorBD {
     private Connection con;
-    protected String serverName = "Jbeltran\\sqlexpress";
-    protected String tcpip = "49157";
+    protected String serverName = null;
+    protected String tcpip = null;
     
     public void AbrirConexion(){
-        
         
             try{
                 
                 serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
                 tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
-                String url = "jdbc:sqlserver://"+serverName+":"+tcpip+";database=Expedientes;integratedSecurity=true;";
+                String url = "jdbc:sqlserver://"+serverName+":"+tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
                 con = DriverManager.getConnection(url);
                 JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
@@ -39,7 +38,6 @@ public class ControladorBD {
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null, "ERRROR: "+e.getMessage());
             }
-        
     }
     
 }
