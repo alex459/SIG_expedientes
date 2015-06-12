@@ -1,9 +1,7 @@
 package Controlador;
 
-import Interfaces.GConsultarUsuario;
-import Interfaces.GEliminarUsuario;
-import Interfaces.GModificarUsuario;
-import Interfaces.GNuevoUsuario;
+import Interfaces.GestionarTiposDeUsuarios;
+import Interfaces.GestionarUsuarios;
 import Interfaces.ICantidadDeAsignaciones;
 import Interfaces.ICantidadDeDenunciasPorJuez;
 import Interfaces.ICantidadDeDiasExpedientes;
@@ -110,30 +108,17 @@ public class ControladorClases {
             abrir.setLocationRelativeTo(null);
         }
         
-        public void AbrirNuevoUsuario(){
-            GNuevoUsuario abrir = new GNuevoUsuario();
+        public void AbrirGestionarUsuarios(){
+            GestionarUsuarios abrir = new GestionarUsuarios();
             abrir.setVisible(true);
             abrir.setLocationRelativeTo(null);
         }
         
-        public void AbrirModificarUsuario(){
-            GModificarUsuario abrir = new GModificarUsuario();
+        public void AbrirGestionarTiposDeUsuarios(){
+            GestionarTiposDeUsuarios abrir = new GestionarTiposDeUsuarios();
             abrir.setVisible(true);
             abrir.setLocationRelativeTo(null);
         }
-        
-        public void AbrirConsultarUsuario(){
-            GConsultarUsuario abrir = new GConsultarUsuario();
-            abrir.setVisible(true);
-            abrir.setLocationRelativeTo(null);
-        }
-        
-        public void AbrirEliminarUsuario(){
-            GEliminarUsuario abrir = new GEliminarUsuario();
-            abrir.setVisible(true);
-            abrir.setLocationRelativeTo(null);
-        }
-        
         
         public void Cerrar(){
            System.exit(0);

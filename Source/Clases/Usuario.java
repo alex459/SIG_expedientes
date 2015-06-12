@@ -21,15 +21,15 @@ public class Usuario {
  private String nombreusuario;
  private String clave;
  private int estadousuario;   
- Connection cn;   
+ private Connection cn;   
  
- void Usuario(){
+ public void Usuario(){
      
      ControladorBD con = new ControladorBD();
      cn = con.AbrirConexion();
  }
  
- void Usuario(int idusuario, int idtipousuario, String nombreusuario, String clave, int estadousuario){
+ public void Usuario(int idusuario, int idtipousuario, String nombreusuario, String clave, int estadousuario){
   this.idusuario = idusuario;
   this.idtipousuario = idtipousuario;
   this.nombreusuario = nombreusuario;
@@ -110,13 +110,13 @@ public class Usuario {
     public boolean NuevoUsuario(){
         boolean resp = false;
         try{
-            String sql = "INSERT INTO USUARIO(IDUSUARIO,IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(?,?,?,?,?)";
+            String sql = "INSERT INTO USUARIO(IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(?,?,?,?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            cmd.setInt(1,idusuario);
-            cmd.setInt(2,idtipousuario);
-            cmd.setString(3,nombreusuario);
-            cmd.setString(4,clave);
-            cmd.setInt(5,estadousuario);
+            //cmd.setInt(1,idusuario);
+            cmd.setInt(1,idtipousuario);
+            cmd.setString(2,nombreusuario);
+            cmd.setString(3,clave);
+            cmd.setInt(4,estadousuario);
             if(!cmd.execute()){
                 resp = true;
             }

@@ -54,11 +54,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         frmPerfilDeJueces = new javax.swing.JMenuItem();
         frmPerfilDeColaboradores = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        frmGNuevoUsuario = new javax.swing.JMenuItem();
-        frmGModificarUsuario = new javax.swing.JMenuItem();
-        frmGConsultarUsuario = new javax.swing.JMenuItem();
-        frmGEliminarUsuario = new javax.swing.JMenuItem();
+        frmGestionarUsuarios = new javax.swing.JMenuItem();
+        frmGestionarTiposDeUsuarios = new javax.swing.JCheckBoxMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -185,41 +182,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Usuarios");
 
-        jMenu10.setText("Gestionar Usuarios");
-
-        frmGNuevoUsuario.setText("Nuevo Usuario");
-        frmGNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
+        frmGestionarUsuarios.setText("Gestionar Usuarios");
+        frmGestionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmGNuevoUsuarioActionPerformed(evt);
+                frmGestionarUsuariosActionPerformed(evt);
             }
         });
-        jMenu10.add(frmGNuevoUsuario);
+        jMenu6.add(frmGestionarUsuarios);
 
-        frmGModificarUsuario.setText("Modificar datos de Usuario");
-        frmGModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+        frmGestionarTiposDeUsuarios.setSelected(true);
+        frmGestionarTiposDeUsuarios.setText("Gestionar Tipos de Usuarios");
+        frmGestionarTiposDeUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmGModificarUsuarioActionPerformed(evt);
+                frmGestionarTiposDeUsuariosActionPerformed(evt);
             }
         });
-        jMenu10.add(frmGModificarUsuario);
-
-        frmGConsultarUsuario.setText("Consultar Usuarios");
-        frmGConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmGConsultarUsuarioActionPerformed(evt);
-            }
-        });
-        jMenu10.add(frmGConsultarUsuario);
-
-        frmGEliminarUsuario.setText("Eliminar Usuarios");
-        frmGEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmGEliminarUsuarioActionPerformed(evt);
-            }
-        });
-        jMenu10.add(frmGEliminarUsuario);
-
-        jMenu6.add(jMenu10);
+        jMenu6.add(frmGestionarTiposDeUsuarios);
 
         jMenuItem5.setText("Modificar datos personales");
         jMenu6.add(jMenuItem5);
@@ -309,29 +287,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cc.AbrirPerfilDeColaboradores();
     }//GEN-LAST:event_frmPerfilDeColaboradoresActionPerformed
 
-    private void frmGNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGNuevoUsuarioActionPerformed
+    private void frmGestionarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGestionarUsuariosActionPerformed
         // TODO add your handling code here:
         
-        cc.AbrirNuevoUsuario();
-    }//GEN-LAST:event_frmGNuevoUsuarioActionPerformed
+        cc.AbrirGestionarUsuarios();
+    }//GEN-LAST:event_frmGestionarUsuariosActionPerformed
 
-    private void frmGModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGModificarUsuarioActionPerformed
+    private void frmGestionarTiposDeUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGestionarTiposDeUsuariosActionPerformed
         // TODO add your handling code here:
         
-        cc.AbrirModificarUsuario();
-    }//GEN-LAST:event_frmGModificarUsuarioActionPerformed
-
-    private void frmGConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGConsultarUsuarioActionPerformed
-        // TODO add your handling code here:
-        
-        cc.AbrirConsultarUsuario();
-    }//GEN-LAST:event_frmGConsultarUsuarioActionPerformed
-
-    private void frmGEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGEliminarUsuarioActionPerformed
-        // TODO add your handling code here:
-        
-        cc.AbrirEliminarUsuario();
-    }//GEN-LAST:event_frmGEliminarUsuarioActionPerformed
+        cc.AbrirGestionarTiposDeUsuarios();
+    }//GEN-LAST:event_frmGestionarTiposDeUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,10 +335,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem frmGConsultarUsuario;
-    private javax.swing.JMenuItem frmGEliminarUsuario;
-    private javax.swing.JMenuItem frmGModificarUsuario;
-    private javax.swing.JMenuItem frmGNuevoUsuario;
+    private javax.swing.JCheckBoxMenuItem frmGestionarTiposDeUsuarios;
+    private javax.swing.JMenuItem frmGestionarUsuarios;
     private javax.swing.JMenuItem frmICantidadDeAsignaciones;
     private javax.swing.JMenuItem frmICantidadDeDenunciasPorJuez;
     private javax.swing.JMenuItem frmICantidadDeDiasExpedientes;
@@ -385,7 +349,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem frmRendimientoDeDepartamento;
     private javax.swing.JMenuItem frmRendimientoDeExpedientes;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
