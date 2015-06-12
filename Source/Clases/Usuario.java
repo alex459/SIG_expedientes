@@ -9,7 +9,11 @@ package Clases;
 import Controlador.ControladorBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.lang.String;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -22,11 +26,9 @@ public class Usuario {
  private String clave;
  private int estadousuario;   
  private Connection cn;   
+ private String[][] elementos;
  
  public Usuario(){
-     
-     ControladorBD con = new ControladorBD();
-     cn = con.AbrirConexion();
  }
  
  /*
@@ -109,6 +111,8 @@ public class Usuario {
     }
     
     public boolean NuevoUsuario(){
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();   
         boolean resp = false;
         try{
             String sql = "INSERT INTO USUARIO(IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(? ,? ,? ,?)";
@@ -127,4 +131,83 @@ public class Usuario {
         }
      return resp;
     }
+    
+    public int contarUsuario(){
+        int contador = 0;
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        try{
+            String sql = "SELECT COUNT(*) FROM USUARIO";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error: No se encuentra ningun usuario en la base");
+        }
+        
+        return contador;
+    }
+    
+//    public String[][] consultarUsuario(){
+//        ControladorBD con = new ControladorBD();
+//        cn = con.AbrirConexion();
+//        int contador = 0;
+//        boolean resp = false;
+//        
+//        try{
+//            String sql = "SELECT * FROM USUARIO";
+//            PreparedStatement cmd = cn.prepareStatement(sql);
+//            //cmd.setInt(1, idusuario); si fuera ?
+//            ResultSet rs = cmd.executeQuery();
+//            int filas =rs.getRow();
+//            elementos = new String[filas][5];
+//            while(rs.next()){
+//                resp = true;
+//                elementos[contador][1] = String.valueOf(rs.getInt(1));
+//                elementos[contador][2] = String.valueOf(rs.getInt(2));
+//                elementos[contador][3] = rs.getString(3);
+//                elementos[contador][4] = rs.getString(4);
+//                elementos[contador][5] = String.valueOf(rs.getInt(5));
+//                contador++;
+//            }
+//            cmd.close();
+//            cn.close();
+//            
+//        }catch(Exception ex){
+//            JOptionPane.showMessageDialog(null, "Error: "+ex.getMessage());
+//        }
+//        return elementos;
+//    }
+
+    public TableModel consultarUsuario(){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaUsuarios = new DefaultTableModel();
+        try {
+            TablaUsuarios.addColumn("IDUSUARIO");
+            TablaUsuarios.addColumn("IDTIPOUSUARIO");
+            TablaUsuarios.addColumn("NOMBREUSUARIO");
+            TablaUsuarios.addColumn("CLAVE");
+            TablaUsuarios.addColumn("ESTADOUSUARIO");          
+            String sql = "SELECT * FROM USUARIO";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaUsuarios.getColumnCount()];//antes era 5
+                for (int i = 0; i < TablaUsuarios.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaUsuarios.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaUsuarios;
+    }
+    
+    /**
+     * @return the lista
+     */
 }
