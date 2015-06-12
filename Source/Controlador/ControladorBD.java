@@ -20,14 +20,14 @@ public class ControladorBD {
     protected String tcpip = null;
     
     public Connection AbrirConexion(){
-        Connection con = null;
+        Connection cn = null;
             try{
                 
                 serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
                 tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
                 String url = "jdbc:sqlserver://"+serverName+":"+tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                con = DriverManager.getConnection(url);
+                cn = DriverManager.getConnection(url);
                 JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
                 
                 //String url = "jdbc:sqlserver://Jbeltran\\sqlexpress:49157;database=Expedientes;integratedSecurity=true;";
@@ -38,10 +38,6 @@ public class ControladorBD {
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null, "ERRROR: "+e.getMessage());
             }
-            return con;
+            return cn;
     }
-    
-    Connection cn;
-    
-    
 }

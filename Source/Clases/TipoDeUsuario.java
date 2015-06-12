@@ -16,19 +16,20 @@ import javax.swing.JOptionPane;
  * @author jbeltran2
  */
 public class TipoDeUsuario {
-  private int idtipousuario;
-  private String descripciontipousuario;
-  private Connection cn;   
+  
+  int idtipousuario;
+  String descripciontipousuario;
+  Connection cn;   
   
 public TipoDeUsuario()  {
      ControladorBD con = new ControladorBD();
      cn = con.AbrirConexion();
 }
-  
+/*  
 public void TipoDeUsuario(int idtipousuario, String descripciontipousuario){
     //this.idtipousuario = idtipousuario;
     this.descripciontipousuario = descripciontipousuario;
-}
+}*/
     /**
      * @return the idtipousuario
      */
