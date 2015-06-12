@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  * @author Kevin
  */
 public class ControladorBD {
-    private Connection con;
+    
     protected String serverName = null;
     protected String tcpip = null;
     
-    public void AbrirConexion(){
-        
+    public Connection AbrirConexion(){
+        Connection con = null;
             try{
                 
                 serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
@@ -38,5 +38,10 @@ public class ControladorBD {
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null, "ERRROR: "+e.getMessage());
             }
+            return con;
     }
+    
+    Connection cn;
+    
+    
 }

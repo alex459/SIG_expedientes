@@ -86,8 +86,7 @@ public class LoginUser extends javax.swing.JFrame {
 
     private void BtnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarActionPerformed
         // TODO add your handling code here:
-        
-        
+        cc.Cerrar();
     }//GEN-LAST:event_BtnCerrarActionPerformed
 
     /**
