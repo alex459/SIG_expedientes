@@ -132,21 +132,6 @@ public class Usuario {
      return resp;
     }
     
-    public int contarUsuario(){
-        int contador = 0;
-        ControladorBD con = new ControladorBD();
-        cn = con.AbrirConexion();
-        try{
-            String sql = "SELECT COUNT(*) FROM USUARIO";
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            ResultSet rs = cmd.executeQuery();
-            
-        }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Error: No se encuentra ningun usuario en la base");
-        }
-        
-        return contador;
-    }
     
 //    public String[][] consultarUsuario(){
 //        ControladorBD con = new ControladorBD();
@@ -206,6 +191,34 @@ public class Usuario {
 
         return TablaUsuarios;
     }
+    
+public TableModel consultarUsuario(String usuario, String clave){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaUsuarios = new DefaultTableModel();
+        try {
+            TablaUsuarios.addColumn("IDUSUARIO");
+            TablaUsuarios.addColumn("IDTIPOUSUARIO");
+            TablaUsuarios.addColumn("NOMBREUSUARIO");
+            TablaUsuarios.addColumn("CLAVE");
+            TablaUsuarios.addColumn("ESTADOUSUARIO");          
+            String sql = "SELECT * FROM USUARIO WHERE NOMBREUSUARIO='"+usuario+"' AND CLAVE='"+clave+"'";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaUsuarios.getColumnCount()];//antes era 5
+                for (int i = 0; i < TablaUsuarios.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaUsuarios.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaUsuarios;
+    }    
     
     /**
      * @return the lista
