@@ -55,7 +55,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         frmPerfilDeColaboradores = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         frmGestionarUsuarios = new javax.swing.JMenuItem();
-        frmGestionarTiposDeUsuarios = new javax.swing.JCheckBoxMenuItem();
+        frmGestionarTipoDeUsuario = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -190,14 +190,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(frmGestionarUsuarios);
 
-        frmGestionarTiposDeUsuarios.setSelected(true);
-        frmGestionarTiposDeUsuarios.setText("Gestionar Tipos de Usuarios");
-        frmGestionarTiposDeUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        frmGestionarTipoDeUsuario.setText("Gestionar tipo de Usuario");
+        frmGestionarTipoDeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                frmGestionarTiposDeUsuariosActionPerformed(evt);
+                frmGestionarTipoDeUsuarioActionPerformed(evt);
             }
         });
-        jMenu6.add(frmGestionarTiposDeUsuarios);
+        jMenu6.add(frmGestionarTipoDeUsuario);
 
         jMenuItem5.setText("Modificar datos personales");
         jMenu6.add(jMenuItem5);
@@ -293,11 +292,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cc.AbrirGestionarUsuarios();
     }//GEN-LAST:event_frmGestionarUsuariosActionPerformed
 
-    private void frmGestionarTiposDeUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGestionarTiposDeUsuariosActionPerformed
+    private void frmGestionarTipoDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmGestionarTipoDeUsuarioActionPerformed
         // TODO add your handling code here:
         
         cc.AbrirGestionarTiposDeUsuarios();
-    }//GEN-LAST:event_frmGestionarTiposDeUsuariosActionPerformed
+    }//GEN-LAST:event_frmGestionarTipoDeUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,7 +334,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem frmGestionarTiposDeUsuarios;
+    private javax.swing.JMenuItem frmGestionarTipoDeUsuario;
     private javax.swing.JMenuItem frmGestionarUsuarios;
     private javax.swing.JMenuItem frmICantidadDeAsignaciones;
     private javax.swing.JMenuItem frmICantidadDeDenunciasPorJuez;

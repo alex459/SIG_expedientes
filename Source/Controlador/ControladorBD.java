@@ -26,7 +26,7 @@ public class ControladorBD {
                 serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
                 tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
                 String url = "jdbc:sqlserver://"+serverName+":"+tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 con = DriverManager.getConnection(url);
                 JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
                 

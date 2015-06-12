@@ -23,19 +23,20 @@ public class Usuario {
  private int estadousuario;   
  private Connection cn;   
  
- public void Usuario(){
+ public Usuario(){
      
      ControladorBD con = new ControladorBD();
      cn = con.AbrirConexion();
  }
  
+ /*
  public void Usuario(int idusuario, int idtipousuario, String nombreusuario, String clave, int estadousuario){
   this.idusuario = idusuario;
   this.idtipousuario = idtipousuario;
   this.nombreusuario = nombreusuario;
   this.clave = clave;
   this.estadousuario = estadousuario;
- }
+ }*/
 
     /**
      * @return the idusuario
@@ -110,7 +111,7 @@ public class Usuario {
     public boolean NuevoUsuario(){
         boolean resp = false;
         try{
-            String sql = "INSERT INTO USUARIO(IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO USUARIO(IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(? ,? ,? ,?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
             //cmd.setInt(1,idusuario);
             cmd.setInt(1,idtipousuario);
@@ -125,6 +126,6 @@ public class Usuario {
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
         }
-     return false;
+     return resp;
     }
 }

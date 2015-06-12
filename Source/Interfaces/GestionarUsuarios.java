@@ -40,7 +40,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         txtTipoUsuario = new javax.swing.JTextField();
         txtNombreUsuario = new javax.swing.JTextField();
         txtClave = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnIngresarUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -54,10 +54,10 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
         jLabel5.setText("Clave");
 
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresarUsuario.setText("Ingresar");
+        btnIngresarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIngresarUsuarioActionPerformed(evt);
             }
         });
 
@@ -70,7 +70,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
+                        .addComponent(btnIngresarUsuario)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -108,14 +108,14 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnIngresarUsuario)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIngresarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarUsuarioActionPerformed
         // TODO add your handling code here:
         Usuario user = new Usuario();
         //user.setIdusuario(Integer.parseInt(txtIdUsuario.getText()));
@@ -128,7 +128,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "Error al ingresar usuario");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnIngresarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +166,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnIngresarUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
