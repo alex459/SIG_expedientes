@@ -113,7 +113,6 @@ public class Usuario {
         try{
             String sql = "INSERT INTO USUARIO(IDTIPOUSUARIO, NOMBREUSUARIO, CLAVE, ESTADOUSUARIO) VALUES(? ,? ,? ,?)";
             PreparedStatement cmd = cn.prepareStatement(sql);
-            //cmd.setInt(1,idusuario);
             cmd.setInt(1,idtipousuario);
             cmd.setString(2,nombreusuario);
             cmd.setString(3,clave);
