@@ -8,6 +8,7 @@ package Interfaces;
 
 import Clases.Usuario;
 import Controlador.ControladorClases;
+import Controlador.VariablesGlobales;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,6 +45,8 @@ public class LoginUser extends javax.swing.JFrame {
         jPasswordClave = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTBLU = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +83,20 @@ public class LoginUser extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTBLU);
 
+        jButton1.setText("Servidor");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("jLabel4");
+        jLabel4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jLabel4PropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +108,10 @@ public class LoginUser extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(BtnCerrar)
                         .addGap(18, 18, 18)
                         .addComponent(BtnIngresar))
@@ -124,7 +144,9 @@ public class LoginUser extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnIngresar)
-                    .addComponent(BtnCerrar))
+                    .addComponent(BtnCerrar)
+                    .addComponent(jButton1)
+                    .addComponent(jLabel4))
                 .addContainerGap())
         );
 
@@ -149,6 +171,15 @@ public class LoginUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         cc.Cerrar();
     }//GEN-LAST:event_BtnCerrarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VariablesGlobales.serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
+        VariablesGlobales.tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jLabel4PropertyChange
+        jLabel4.setText("Servidor: "+VariablesGlobales.serverName+" Puerto: "+VariablesGlobales.tcpip);
+    }//GEN-LAST:event_jLabel4PropertyChange
 
     /**
      * @param args the command line arguments
@@ -188,9 +219,11 @@ public class LoginUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;
     private javax.swing.JButton BtnIngresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTBLU;

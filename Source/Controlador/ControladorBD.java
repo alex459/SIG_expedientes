@@ -2,6 +2,9 @@ package Controlador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -16,16 +19,19 @@ import javax.swing.JOptionPane;
  */
 public class ControladorBD {
     
-    protected String serverName = null;
-    protected String tcpip = null;
+    //protected String serverName = null;
+    //protected String tcpip = null;
+    Connection cn = null;
     
     public Connection AbrirConexion(){
-        Connection cn = null;
+        
             try{
                 
-                serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
-                tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
-                String url = "jdbc:sqlserver://"+serverName+":"+tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+                //serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
+                //tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
+                String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+                //JOptionPane.showMessageDialog(null, url);
+                //String url = "jdbc:sqlserver://localhost;databaseName=BDSIGCSJ;user=sig;password=sig1152015;";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 cn = DriverManager.getConnection(url);
                 JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
@@ -40,4 +46,17 @@ public class ControladorBD {
             }
             return cn;
     }
+    
+   public Connection CerrarConexion(Connection cn){
+        try {
+            cn.close();
+            return cn;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERRROR: "+e.getMessage());
+            return cn;
+        }
+    }
+    
 }
+
+
