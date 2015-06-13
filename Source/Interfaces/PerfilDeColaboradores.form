@@ -195,7 +195,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cantidad de expedientes revisados"/>
+        <Property name="text" type="java.lang.String" value="Cantidad de expedientes finalizados"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -205,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Promedio de expedientes revisados"/>
+        <Property name="text" type="java.lang.String" value="Promedio de expedientes finalizados"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">

@@ -64,11 +64,11 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
 
         jLabel5.setText("Cantidad de expedientes asignados");
 
-        jLabel6.setText("Cantidad de expedientes revisados");
+        jLabel6.setText("Cantidad de expedientes finalizados");
 
         jLabel7.setText("Cantidad de expedientes pendientes");
 
-        jLabel8.setText("Promedio de expedientes revisados");
+        jLabel8.setText("Promedio de expedientes finalizados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
