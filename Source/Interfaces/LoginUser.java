@@ -158,7 +158,12 @@ public class LoginUser extends javax.swing.JFrame {
         Usuario user = new Usuario();
         jTBLU.setModel(user.consultarUsuario(jTextFieldUsuario.getText(),jPasswordClave.getText()));
         if(jTBLU.getRowCount()==1){
-        JOptionPane.showMessageDialog(rootPane, "Bienvenido");    
+        VariablesGlobales.IDUSUARIO = (String)jTBLU.getModel().getValueAt(0, 0);
+        VariablesGlobales.IDTIPOUSUARIO = (String)jTBLU.getModel().getValueAt(0, 1);
+        VariablesGlobales.NOMBREUSUARIO = (String)jTBLU.getModel().getValueAt(0, 2);
+        VariablesGlobales.ESTADOUSUARIO = (String)jTBLU.getModel().getValueAt(0, 4); 
+        
+        JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+VariablesGlobales.NOMBREUSUARIO);    
         cc.AbrirMenuPrincipal();
         this.dispose();
         }else
