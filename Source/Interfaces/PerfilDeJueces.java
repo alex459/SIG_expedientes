@@ -271,9 +271,22 @@ public class PerfilDeJueces extends javax.swing.JFrame {
         
          // TODO add your handling code here:
         Juez juez = new Juez();
+        boolean validarJ = false;
         
+        try{
+            
         this.IDJUEZ= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del juez"));
-        if(this.IDJUEZ>=1);
+        if(IDJUEZ<0){
+        this.IDJUEZ= Integer.parseInt(JOptionPane.showInputDialog("Error: El Id de Juez debe ser mayor o igual a 1"));
+        }else{
+         validarJ = true;   
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "Error. El ID del juez debe ser un numero");
+        }
+        
+        
+        if(this.IDJUEZ>=1){
         JTable jTBL = new JTable(juez.consultarJuez(this.IDJUEZ));
         if(jTBL.getRowCount()==1){
         jTextField_IDJUEZ.setText((String)jTBL.getModel().getValueAt(0, 0));
@@ -293,8 +306,10 @@ public class PerfilDeJueces extends javax.swing.JFrame {
         
             
             
-        }else
+        }else{
             JOptionPane.showMessageDialog(rootPane, "Juez no encontrado");
+            }
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
