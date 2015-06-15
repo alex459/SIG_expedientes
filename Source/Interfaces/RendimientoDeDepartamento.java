@@ -111,7 +111,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
                                 .addGap(108, 108, 108)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbIntervalo, 0, 85, Short.MAX_VALUE)
+                                .addComponent(cbIntervalo, 0, 78, Short.MAX_VALUE)
                                 .addGap(58, 58, 58)
                                 .addComponent(jButton1))))
                     .addGroup(layout.createSequentialGroup()
@@ -126,7 +126,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(37, 37, 37))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
