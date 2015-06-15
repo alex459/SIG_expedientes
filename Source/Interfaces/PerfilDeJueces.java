@@ -7,22 +7,21 @@
 package Interfaces;
 
 import Clases.Juez;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import java.util.ArrayList;
 
 /**
  *
  * @author Kevin
  */
 public class PerfilDeJueces extends javax.swing.JFrame {
-
- //   public int IDJUEZ=1;
+    Juez jz = new Juez();
+    ArrayList lista;
     /**
      * Creates new form PerfilDeJueces
      */
     public PerfilDeJueces() {
         initComponents();
-
+        datos();
     }
 
     /**
@@ -36,74 +35,162 @@ public class PerfilDeJueces extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField_NOMBRE = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField_IDJUEZ = new javax.swing.JTextField();
-        jTextField_GENERO = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtIdJuez = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField_IDDEPENDENCIA = new javax.swing.JTextField();
-        jTextField_NOMBREDEPENDENCIA = new javax.swing.JTextField();
-        jTextField_DEPARTAMENTO = new javax.swing.JTextField();
-        jTextField_MUNICIPIO = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtDependencia = new javax.swing.JTextField();
+        txtDepartamento = new javax.swing.JTextField();
+        txtMunicipio = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField_DENUNCIAS_TOTALES = new javax.swing.JTextField();
-        jTextField_DENUNCIASOMITIDAS = new javax.swing.JTextField();
-        jTextField_DENUNCIASADMITIDAS = new javax.swing.JTextField();
-        jTextField_DENUNCIASAMONESTACION = new javax.swing.JTextField();
-        jTextField_DENUNCIASEXONERADAS = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtdenuncias = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         jLabel18 = new javax.swing.JLabel();
-        jTextField_DENUNCIASREMOCION = new javax.swing.JTextField();
-        jTextField_DENUNCIASUSPENCION = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtSuspension = new javax.swing.JTextField();
+        txtAdmitidas = new javax.swing.JTextField();
+        txtOmitidas = new javax.swing.JTextField();
+        txtExoneracion = new javax.swing.JTextField();
+        txtAmonestacion = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        txtRemocion = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 153));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Sistema de informacion gerencial - Perfil de Juez");
-        jLabel1.setOpaque(true);
+        jLabel1.setText("Perfil de Juez");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 19, -1, -1));
 
-        jLabel2.setText("Id de Juez");
+        jLabel2.setFont(new java.awt.Font("Cambria", 2, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search icon.png"))); // NOI18N
+        jLabel2.setText("Id de Juez:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, -1, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 370, -1));
 
-        jLabel3.setText("Id de dependencia");
-
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel4.setText("Nombre de dependencia");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel5.setText("Departamento");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel6.setText("Municipio");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
-        jLabel7.setText("Nombres");
+        jLabel7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel7.setText("Nombre");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        jLabel9.setText("Genero");
+        jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel8.setText("Apellido");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
-        jLabel11.setText("Foto");
+        jLabel9.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel9.setText("Género");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel10.setText("Título");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+
+        txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 86, -1));
+
+        txtApellido.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 370, -1));
+
+        txtGenero.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 100, -1));
+
+        txtTitulo.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 250, -1));
+
+        jLabel11.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("FOTO");
         jLabel11.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.gray));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 84, 140, 150));
 
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 63, 67));
+
+        txtDependencia.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtDependencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 430, -1));
+
+        txtDepartamento.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 200, -1));
+
+        txtMunicipio.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtMunicipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 200, -1));
+
+        jLabel13.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel13.setText("Denuncias totales");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
-        jLabel14.setText("Denuncias omitidas");
+        txtdenuncias.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(txtdenuncias, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 110, -1));
 
-        jLabel15.setText("Denuncias admitidas");
+        jLabel3.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 70));
 
-        jLabel16.setText("Denuncias con exoneracion");
+        jSeparator1.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 600, 10));
 
-        jLabel17.setText("Denuncias con amonestacion");
+        jSeparator2.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 600, 10));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 550, 30));
 
-        jButton1.setText("Informe");
+        jLabel19.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel19.setText("Denuncias con remocion");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel20.setText("Denuncias omitidas");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel21.setText("Denuncias admitidas");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel22.setText("Denuncias con exoneracion");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel23.setText("Denuncias con amonestacion");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
+        getContentPane().add(txtSuspension, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, 110, -1));
+        getContentPane().add(txtAdmitidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 120, -1));
+        getContentPane().add(txtOmitidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 120, -1));
+        getContentPane().add(txtExoneracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, 110, -1));
+        getContentPane().add(txtAmonestacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 110, -1));
 
         jButton2.setText("Buscar por ID de juez");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,206 +198,24 @@ public class PerfilDeJueces extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, -1, -1));
 
-        jLabel18.setText("Denuncias con suspencion");
+        jButton1.setText("Informe");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 570, -1, -1));
+        getContentPane().add(txtRemocion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 120, -1));
 
-        jLabel19.setText("Denuncias con remocion");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel13))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField_NOMBREDEPENDENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASADMITIDAS, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField_IDJUEZ, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField_GENERO, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField_IDDEPENDENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel14)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASOMITIDAS, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel16)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASEXONERADAS, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField_MUNICIPIO, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                                .addComponent(jLabel17)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASAMONESTACION, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField_DENUNCIAS_TOTALES, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASUSPENCION, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField_DENUNCIASREMOCION, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField_IDJUEZ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField_NOMBRE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField_GENERO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField_IDDEPENDENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel14)
-                        .addComponent(jTextField_DENUNCIASOMITIDAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField_NOMBREDEPENDENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField_DENUNCIASADMITIDAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField_DEPARTAMENTO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField_DENUNCIASEXONERADAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel16)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField_MUNICIPIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField_DENUNCIASAMONESTACION, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel17)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jTextField_DENUNCIAS_TOTALES, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_DENUNCIASREMOCION, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_DENUNCIASUSPENCION, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
+        jLabel24.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel24.setText("Denuncias con suspencion");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-         // TODO add your handling code here:
-        Juez juez = new Juez();
-   //     boolean validarJ = false;
+        jz.setIdjueSeleccionado(Integer.parseInt(txtIdJuez.getText()));
+        datos();
         
-    /*    try{
-            
-        this.IDJUEZ= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del juez"));
-        if(IDJUEZ<0){
-        this.IDJUEZ= Integer.parseInt(JOptionPane.showInputDialog("Error: El Id de Juez debe ser mayor o igual a 1"));
-        }else{
-         validarJ = true;   
-        }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Error. El ID del juez debe ser un numero");
-        }
-        
-        
-        if(this.IDJUEZ>=1){
-        JTable jTBL = new JTable(juez.consultarJuez(this.IDJUEZ));
-        if(jTBL.getRowCount()==1){
-        jTextField_IDJUEZ.setText((String)jTBL.getModel().getValueAt(0, 0));
-        jTextField_NOMBRE.setText((String)jTBL.getModel().getValueAt(0, 1));
-        jTextField_GENERO.setText((String)jTBL.getModel().getValueAt(0, 2));
-        jTextField_IDDEPENDENCIA.setText((String)jTBL.getModel().getValueAt(0, 3));
-        jTextField_NOMBREDEPENDENCIA.setText((String)jTBL.getModel().getValueAt(0, 4));
-        jTextField_DEPARTAMENTO.setText((String)jTBL.getModel().getValueAt(0, 5));
-        jTextField_MUNICIPIO.setText((String)jTBL.getModel().getValueAt(0, 6));
-        jTextField_DENUNCIAS_TOTALES.setText((String)jTBL.getModel().getValueAt(0, 7));
-        jTextField_DENUNCIASOMITIDAS.setText((String)jTBL.getModel().getValueAt(0, 8));
-        jTextField_DENUNCIASADMITIDAS.setText((String)jTBL.getModel().getValueAt(0, 9));
-        jTextField_DENUNCIASEXONERADAS.setText((String)jTBL.getModel().getValueAt(0, 10));
-        jTextField_DENUNCIASAMONESTACION.setText((String)jTBL.getModel().getValueAt(0, 11));
-        jTextField_DENUNCIASUSPENCION.setText((String)jTBL.getModel().getValueAt(0, 12));
-        jTextField_DENUNCIASREMOCION.setText((String)jTBL.getModel().getValueAt(0, 13));
-        
-            
-            
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Juez no encontrado");
-            }
-        }
-      */  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -352,34 +257,61 @@ public class PerfilDeJueces extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField_DENUNCIASADMITIDAS;
-    private javax.swing.JTextField jTextField_DENUNCIASAMONESTACION;
-    private javax.swing.JTextField jTextField_DENUNCIASEXONERADAS;
-    private javax.swing.JTextField jTextField_DENUNCIASOMITIDAS;
-    private javax.swing.JTextField jTextField_DENUNCIASREMOCION;
-    private javax.swing.JTextField jTextField_DENUNCIASUSPENCION;
-    private javax.swing.JTextField jTextField_DENUNCIAS_TOTALES;
-    private javax.swing.JTextField jTextField_DEPARTAMENTO;
-    private javax.swing.JTextField jTextField_GENERO;
-    private javax.swing.JTextField jTextField_IDDEPENDENCIA;
-    private javax.swing.JTextField jTextField_IDJUEZ;
-    private javax.swing.JTextField jTextField_MUNICIPIO;
-    private javax.swing.JTextField jTextField_NOMBRE;
-    private javax.swing.JTextField jTextField_NOMBREDEPENDENCIA;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField txtAdmitidas;
+    private javax.swing.JTextField txtAmonestacion;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtDepartamento;
+    private javax.swing.JTextField txtDependencia;
+    private javax.swing.JTextField txtExoneracion;
+    private javax.swing.JTextField txtGenero;
+    private javax.swing.JTextField txtIdJuez;
+    private javax.swing.JTextField txtMunicipio;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtOmitidas;
+    private javax.swing.JTextField txtRemocion;
+    private javax.swing.JTextField txtSuspension;
+    private javax.swing.JTextField txtTitulo;
+    private javax.swing.JTextField txtdenuncias;
     // End of variables declaration//GEN-END:variables
+
+   public void datos(){
+       lista = new ArrayList();
+       lista.addAll(jz.consultarJuez(jz.getIdjueSeleccionado()));
+       txtIdJuez.setText(String.valueOf(jz.getIdjueSeleccionado()));
+       txtNombre.setText((String) lista.get(0));
+       txtApellido.setText((String) lista.get(1));
+       txtGenero.setText((String) lista.get(2));
+       txtTitulo.setText((String) lista.get(3));
+       txtDependencia.setText((String) lista.get(4));
+       txtMunicipio.setText((String) lista.get(5));
+       txtDepartamento.setText((String) lista.get(6));
+       txtdenuncias.setText((String) lista.get(7));
+       txtSuspension.setText((String) lista.get(8));
+       txtAmonestacion.setText((String) lista.get(9));
+       txtExoneracion.setText((String) lista.get(10));
+       txtAdmitidas.setText((String) lista.get(11));
+       txtOmitidas.setText((String) lista.get(12));
+       txtRemocion.setText((String) lista.get(13));
+   }
 }

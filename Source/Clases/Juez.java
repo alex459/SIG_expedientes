@@ -5,6 +5,7 @@ import Controlador.ControladorBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -41,7 +42,7 @@ private int Denuncias_con_amonestacion;
 private int Denuncias_con_suspencion;
 private int Denuncias_con_remocion;
 private Connection cn;   
-private String[][] elementos;
+
 
     /**
      * @return the IDJUEZ
@@ -269,61 +270,37 @@ public TableModel consultarJuez(){
         return TablaJuez;
     }
     
-public TableModel consultarJuez(int IDJUEZ){
+  public ArrayList consultarJuez(int id){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
-        DefaultTableModel TablaAux = new DefaultTableModel();
-        try {
-            TablaAux.addColumn("IDJUEZ");
-            TablaAux.addColumn("JUEZ");
-            TablaAux.addColumn("GENERO");
-            TablaAux.addColumn("IDDEPENDENCIA");
-            TablaAux.addColumn("NOMBREDEPENDENCIA");
-            TablaAux.addColumn("MUNICIPIO");
-            TablaAux.addColumn("DEPARTAMENTO");
-            TablaAux.addColumn("Denuncias_totales");
-            TablaAux.addColumn("Denuncias_omitidas");
-            TablaAux.addColumn("Denuncias_admitidas");
-            TablaAux.addColumn("Denuncias_con_exoneracion");
-            TablaAux.addColumn("Denuncias_con_amonestacion");
-            TablaAux.addColumn("Denuncias_con_suspencion");
-            TablaAux.addColumn("Denuncias_con_remocion");
-            
-            String sql = "select j.IDJUEZ,"
-                    + " j.TITULO+'. '+j.NOMBREJUEZ+' '+j.APELLIDOJUEZ AS 'JUEZ',"
-                    + " j.GENERO,"
-                    + " dc.IDDEPENDENCIA,"
-                    + " dc.NOMBREDEPENDENCIA,"
-                    + " MUNICIPIO, DEPARTAMENTO,"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ) as 'Denuncias totales',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=1) as 'Denuncias omitidas',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=2) as 'Denuncias admitidas',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=3) as 'Denuncias con exoneracion',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=4) as 'Denuncias con amonestacion',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=5) as 'Denuncias con suspencion',"
-                    + " (select count(*) from EXPEDIENTE s1, JUEZ j1 where s1.IDJUEZ=j1.IDJUEZ AND j1.IDJUEZ=j.IDJUEZ AND IDRESOLUCION=6) as 'Denuncias con remocion'"
-                    + " from JUEZ j,"
-                    + " DEPENDENCIA dc,"
-                    + " MUNICIPIO m,"
-                    + " DEPARTAMENTO d"
-                    + " where j.IDJUEZ="+IDJUEZ+" AND j.IDDEPENDENCIA=dc.IDDEPENDENCIA"
-                    + " AND dc.IDMUNICIPIO=m.IDMUNICIPIO AND m.IDDEPARTAMENTO=d.IDDEPARTAMENTO;";
-            
+        ArrayList dato = new ArrayList();
+        try {           
+
+            String sql = "EXECUTE PerfilDeJuez "+ id;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
-                Object dato[] = new Object[TablaAux.getColumnCount()];//antes era 5
-                for (int i = 0; i < TablaAux.getColumnCount(); i++) {
-                    dato[i] = rs.getString(i + 1);
-                }
-                TablaAux.addRow(dato);
+                dato.add(rs.getString(1));
+                dato.add(rs.getString(2));
+                dato.add(rs.getString(3));
+                dato.add(rs.getString(4));
+                dato.add(rs.getString(5));
+                dato.add(rs.getString(6));
+                dato.add(rs.getString(7));
+                dato.add(rs.getString(8));
+                dato.add(rs.getString(9));
+                dato.add(rs.getString(10));
+                dato.add(rs.getString(11));
+                dato.add(rs.getString(12));
+                dato.add(rs.getString(13));
+                dato.add(rs.getString(14));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
 
-        return TablaAux;
+        return dato;
     }
     
 }

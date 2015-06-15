@@ -71,13 +71,13 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 63, -1));
+        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 63, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search icon.png"))); // NOI18N
         jLabel2.setText("Id Juez :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(47, 72, 85));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bgr.png"))); // NOI18N
