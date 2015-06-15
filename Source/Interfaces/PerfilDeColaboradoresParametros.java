@@ -7,6 +7,7 @@
 package Interfaces;
 
 import Clases.Juez;
+import Clases.Juridico;
 import Controlador.ControladorClases;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author FlordeMaria
  */
-public class PerfilDeJuecesParametros extends javax.swing.JFrame {
+public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
     DefaultTableModel modelo;
-    Juez juez = new Juez();
+    Juridico jco = new Juridico();
     ControladorClases cc = new ControladorClases();
     /**
      * Creates new form PerfilDeJuecesParametros
      */
-    public PerfilDeJuecesParametros() {
+    public PerfilDeColaboradoresParametros() {
         initComponents();
         datos();
     }
@@ -37,9 +38,9 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblJuez = new javax.swing.JTable();
+        tblJuridicos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        txtIdJuez = new javax.swing.JTextField();
+        txtIdJuridicos = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -48,8 +49,8 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         setBackground(new java.awt.Color(47, 72, 85));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        tblJuez.setModel(new javax.swing.table.DefaultTableModel(
+        tblJuridicos.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        tblJuridicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -60,24 +61,24 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
 
             }
         ));
-        tblJuez.setSelectionBackground(new java.awt.Color(255, 255, 168));
-        jScrollPane1.setViewportView(tblJuez);
+        tblJuridicos.setSelectionBackground(new java.awt.Color(255, 255, 168));
+        jScrollPane1.setViewportView(tblJuridicos);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 375, 245));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("JUECES");
+        jLabel1.setText("JURIDICOS");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
-        txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 63, -1));
+        txtIdJuridicos.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtIdJuridicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 63, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search icon.png"))); // NOI18N
-        jLabel2.setText("Id Juez :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        jLabel2.setText("Id Juridicos :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         txtBuscar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtBuscar.setText("Buscar");
@@ -98,13 +99,13 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
 
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
-    if(txtIdJuez.getText().equals(""))
+    if(txtIdJuridicos.getText().equals(""))
     {
     JOptionPane.showMessageDialog(this, "Ingrese un id de Juez");
     }
     else{
-         juez.setIdjueSeleccionado(Integer.parseInt(txtIdJuez.getText()));
-         cc.AbrirPerfilDeJueces();
+         jco.setIdJuridicoSeleccionado(Integer.parseInt(txtIdJuridicos.getText()));
+         cc.AbrirPerfilDeColaboradores();
         }
     }//GEN-LAST:event_txtBuscarActionPerformed
 
@@ -125,20 +126,20 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PerfilDeJuecesParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilDeColaboradoresParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PerfilDeJuecesParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilDeColaboradoresParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PerfilDeJuecesParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilDeColaboradoresParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PerfilDeJuecesParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerfilDeColaboradoresParametros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PerfilDeJuecesParametros().setVisible(true);
+                new PerfilDeColaboradoresParametros().setVisible(true);
             }
         });
     }
@@ -148,13 +149,13 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblJuez;
+    private javax.swing.JTable tblJuridicos;
     private javax.swing.JButton txtBuscar;
-    private javax.swing.JTextField txtIdJuez;
+    private javax.swing.JTextField txtIdJuridicos;
     // End of variables declaration//GEN-END:variables
  
     public void datos(){
-             tblJuez.setModel(juez.consultarJuez());
+             tblJuridicos.setModel(jco.consultarJuridico());
     }
 
 }
