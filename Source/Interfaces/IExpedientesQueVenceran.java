@@ -6,17 +6,28 @@
 
 package Interfaces;
 
+import Clases.Expediente;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class IExpedientesQueVenceran extends javax.swing.JFrame {
-
+    Expediente exp = new Expediente();
+    int dia;
+    Date fecha;
+    SimpleDateFormat formato;
     /**
      * Creates new form IExpedientesQueVenceran
      */
     public IExpedientesQueVenceran() {
-        initComponents();
+        initComponents();   
+        llenarIntervalo();
+        //cbIntervalo.getModel(Intervalo);
     }
 
     /**
@@ -28,21 +39,129 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblVencimiento = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        cbIntervalo = new javax.swing.JComboBox();
+        txtImprimir = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        txtGenerar = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel10.setText("Parámetros");
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel1.setText("Vencimiento de Expedientes");
+
+        tblVencimiento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblVencimiento);
+
+        jLabel5.setText("Intervalo");
+
+        cbIntervalo.setEditable(true);
+        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        txtImprimir.setText("Imprimir");
+
+        jLabel11.setText("Fecha desde");
+
+        txtGenerar.setText("Generar");
+        txtGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenerarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtGenerar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtImprimir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbIntervalo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(204, 204, 204)
+                                .addComponent(jLabel1))
+                            .addComponent(jLabel10))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(cbIntervalo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtImprimir)
+                        .addComponent(txtGenerar)
+                        .addComponent(jLabel11))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
+        // TODO add your handling code here:
+        fecha = jDateChooser1.getDate();
+        
+         formato = new SimpleDateFormat("yyyyMMd");
+        
+        //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
+        
+             if(cbIntervalo.getSelectedIndex() == 0){
+                dia = 0;
+            }else if(cbIntervalo.getSelectedIndex() == 1){
+                dia = 5; 
+            }else if(cbIntervalo.getSelectedIndex() == 2){
+                dia = 10;
+            }else if(cbIntervalo.getSelectedIndex() == 3){
+                dia = 15;
+            } 
+        //tblVencimiento.getModel(exp.consultarVencimiento(null, dia);
+        // JOptionPane.showMessageDialog(null, "el dia" + dia);       
+        
+    }//GEN-LAST:event_txtGenerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +199,23 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cbIntervalo;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblVencimiento;
+    private javax.swing.JButton txtGenerar;
+    private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
+
+    public void llenarIntervalo(){
+        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Todos", "5", "10", "15" }));
+    }
+
+    public void datos(){
+        
+    }
 }
