@@ -108,7 +108,7 @@ public class Expediente {
             TablaVencimiento.addColumn("FECHADENUNCIA");
             TablaVencimiento.addColumn("FECHAVENCIMIENTO");          
             TablaVencimiento.addColumn("VENCE EN (DIAS)");          
-            String sql = "EXECUTE ExpedientesQueVenceran "+fecha+", "+day;
+            String sql = "EXECUTE ExpedientesQueVenceran "+"'"+fecha+"'"+", "+day;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
