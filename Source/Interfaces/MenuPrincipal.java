@@ -38,6 +38,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -69,23 +70,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CORTE SUPREMA DE JUSTICIA - CONTROL DE DENUNCIAS A LOS JUECES- SISTEMA DE INFORMACION GERENCIAL");
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 153));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CORTE SUPREMA DE JUSTICIA - CONTROL DE DENUNCIAS A LOS JUECES");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel1.setText("CORTE SUPREMA DE JUSTICIA");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jLabel1.setOpaque(true);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel3.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(31, 33, 32));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("usuario: ______  fecha: ______  Privilegios: ______");
+        jLabel3.setText("Usuario: ______  Fecha: ______  Privilegios: ______");
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel3.setOpaque(true);
         jLabel3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -94,8 +95,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Inicio");
+        jLabel4.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("CONTROL DE DENUNCIAS A JUECES");
+        jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel4.setOpaque(true);
 
+        jMenuBar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+
+        jMenu1.setText("Inicio");
+        jMenu1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jMenuItem1.setText("Cerrar sesión");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +117,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jMenuItem2.setText("Salir");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,9 +129,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Informes");
+        jMenu2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
         jMenu7.setText("Informes comparativos");
+        jMenu7.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmIComparativoDeRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmIComparativoDeRendimiento.setText("Comparativo de rendimientos de colaboradores juridicos");
         frmIComparativoDeRendimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +146,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenu7);
 
         jMenu8.setText("Informes de Expedientes");
+        jMenu8.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmIExpedientesQueVenceran.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmIExpedientesQueVenceran.setText("Expedientes que venceran en cierto periodo de tiempo");
         frmIExpedientesQueVenceran.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +161,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jSeparator1);
 
         jMenu9.setText("Informes de cantidad");
+        jMenu9.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmICantidadDeDiasExpedientes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmICantidadDeDiasExpedientes.setText("Cantidad de dias de los expedientes por fases");
         frmICantidadDeDiasExpedientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +172,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu9.add(frmICantidadDeDiasExpedientes);
 
+        frmICantidadDeDenunciasPorJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmICantidadDeDenunciasPorJuez.setText("Cantidad de denuncias por Juez en periodos de tiempo");
         frmICantidadDeDenunciasPorJuez.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +181,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu9.add(frmICantidadDeDenunciasPorJuez);
 
+        frmICantidadDeJuecesPorGenero.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmICantidadDeJuecesPorGenero.setText("Cantidad de jueces procesados por genero");
         frmICantidadDeJuecesPorGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,6 +190,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu9.add(frmICantidadDeJuecesPorGenero);
 
+        frmICantidadDeAsignaciones.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmICantidadDeAsignaciones.setText("Cantidad de expedientes asignados a colaboradores juridicos");
         frmICantidadDeAsignaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +204,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Mapa");
+        jMenu4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmMapaDeDenuncias.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmMapaDeDenuncias.setText("Mapa estadístico de denuncias");
         frmMapaDeDenuncias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +218,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu3.setText("Índices");
+        jMenu3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmRendimientoDeDepartamento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmRendimientoDeDepartamento.setText("Rendimiento del Departamento");
         frmRendimientoDeDepartamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +229,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(frmRendimientoDeDepartamento);
 
+        frmRendimientoDeExpedientes.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmRendimientoDeExpedientes.setText("Rendimiento de Expedientes");
         frmRendimientoDeExpedientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +241,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu5.setText("Perfil");
+        jMenu5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmPerfilDeJueces.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmPerfilDeJueces.setText("Perfil de Jueces");
         frmPerfilDeJueces.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,6 +252,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(frmPerfilDeJueces);
 
+        frmPerfilDeColaboradores.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmPerfilDeColaboradores.setText("Perfil de Colaboradores Jurídicos");
         frmPerfilDeColaboradores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +264,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Usuarios");
+        jMenu6.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
 
+        frmGestionarUsuarios.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmGestionarUsuarios.setText("Gestionar Usuarios");
         frmGestionarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +275,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(frmGestionarUsuarios);
 
+        frmGestionarTipoDeUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         frmGestionarTipoDeUsuario.setText("Gestionar tipo de Usuario");
         frmGestionarTipoDeUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +284,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(frmGestionarTipoDeUsuario);
 
+        jMenuItem5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jMenuItem5.setText("Modificar datos personales");
         jMenu6.add(jMenuItem5);
 
@@ -265,19 +301,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1123, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1123, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(48, 48, 48)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(525, Short.MAX_VALUE)))
         );
 
         pack();
@@ -341,7 +387,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void frmPerfilDeJuecesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmPerfilDeJuecesActionPerformed
         // TODO add your handling code here:
         
-        cc.AbrirPerfilDeJueces();
+        cc.AbrirPerfilDeJuecesParametros();
     }//GEN-LAST:event_frmPerfilDeJuecesActionPerformed
 
     private void frmPerfilDeColaboradoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frmPerfilDeColaboradoresActionPerformed
@@ -435,6 +481,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

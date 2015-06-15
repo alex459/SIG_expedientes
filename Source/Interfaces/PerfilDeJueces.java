@@ -16,7 +16,7 @@ import javax.swing.JTable;
  */
 public class PerfilDeJueces extends javax.swing.JFrame {
 
-    public int IDJUEZ=1;
+ //   public int IDJUEZ=1;
     /**
      * Creates new form PerfilDeJueces
      */
@@ -271,9 +271,9 @@ public class PerfilDeJueces extends javax.swing.JFrame {
         
          // TODO add your handling code here:
         Juez juez = new Juez();
-        boolean validarJ = false;
+   //     boolean validarJ = false;
         
-        try{
+    /*    try{
             
         this.IDJUEZ= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del juez"));
         if(IDJUEZ<0){
@@ -310,7 +310,7 @@ public class PerfilDeJueces extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Juez no encontrado");
             }
         }
-        
+      */  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

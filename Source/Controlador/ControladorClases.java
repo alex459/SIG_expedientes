@@ -13,6 +13,7 @@ import Interfaces.MapaDeDenuncias;
 import Interfaces.MenuPrincipal;
 import Interfaces.PerfilDeColaboradores;
 import Interfaces.PerfilDeJueces;
+import Interfaces.PerfilDeJuecesParametros;
 import Interfaces.RendimientoDeDepartamento;
 import Interfaces.RendimientoDeExpedientes;
 
@@ -116,6 +117,12 @@ public class ControladorClases {
         
         public void AbrirGestionarTiposDeUsuarios(){
             GestionarTiposDeUsuarios abrir = new GestionarTiposDeUsuarios();
+            abrir.setVisible(true);
+            abrir.setLocationRelativeTo(null);
+        }
+        
+        public void AbrirPerfilDeJuecesParametros(){
+            PerfilDeJuecesParametros abrir = new PerfilDeJuecesParametros();
             abrir.setVisible(true);
             abrir.setLocationRelativeTo(null);
         }

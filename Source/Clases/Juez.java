@@ -11,6 +11,21 @@ import javax.swing.table.TableModel;
 
 
 public class Juez {
+private static int IdjueSeleccionado; //global
+
+    /**
+     * @return the IdjueSeleccionado
+     */
+    public static int getIdjueSeleccionado() {
+        return IdjueSeleccionado;
+    }
+
+    /**
+     * @param aIdjueSeleccionado the IdjueSeleccionado to set
+     */
+    public static void setIdjueSeleccionado(int aIdjueSeleccionado) {
+        IdjueSeleccionado = aIdjueSeleccionado;
+    }
 private int IDJUEZ;
 private String JUEZ;
 private String GENERO;
@@ -224,6 +239,35 @@ private String[][] elementos;
         this.Denuncias_con_remocion = Denuncias_con_remocion;
     }
 
+    
+public TableModel consultarJuez(){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaJuez = new DefaultTableModel();
+        try {
+            TablaJuez.addColumn("IDJUEZ");
+            TablaJuez.addColumn("IDDEPENDENCIA");
+            TablaJuez.addColumn("NOMBREJUEZ");
+            TablaJuez.addColumn("APELLIDOJUEZ");
+            TablaJuez.addColumn("GENERO");          
+            TablaJuez.addColumn("TITULO");          
+            String sql = "SELECT * FROM JUEZ";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaJuez.getColumnCount()];//antes era 5
+                for (int i = 0; i < TablaJuez.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaJuez.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaJuez;
+    }
     
 public TableModel consultarJuez(int IDJUEZ){
         

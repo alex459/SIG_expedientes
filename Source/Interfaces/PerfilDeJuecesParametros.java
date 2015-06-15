@@ -6,17 +6,25 @@
 
 package Interfaces;
 
+import Clases.Juez;
+import Controlador.ControladorClases;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author jbeltran2
+ * @author FlordeMaria
  */
 public class PerfilDeJuecesParametros extends javax.swing.JFrame {
-
+    DefaultTableModel modelo;
+    Juez juez = new Juez();
+    ControladorClases cc = new ControladorClases();
     /**
      * Creates new form PerfilDeJuecesParametros
      */
     public PerfilDeJuecesParametros() {
         initComponents();
+        datos();
     }
 
     /**
@@ -28,52 +36,77 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblJuez = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        txtIdJuez = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(47, 72, 85));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Parámetros Jueces");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        tblJuez.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblJuez.setSelectionBackground(new java.awt.Color(255, 255, 168));
+        jScrollPane1.setViewportView(tblJuez);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 375, 245));
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("JUECES");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
+
+        txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 63, -1));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search icon.png"))); // NOI18N
+        jLabel2.setText("Id Juez :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
+
+        jLabel3.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bgr.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 310));
+
+        txtBuscar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtBuscar.setText("Buscar");
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 18, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    if(txtIdJuez.getText().equals(""))
+    {
+    JOptionPane.showMessageDialog(this, "Ingrese un id de Juez");
+    }
+    else{
+         juez.setIdjueSeleccionado(Integer.parseInt(txtIdJuez.getText()));
+         cc.AbrirPerfilDeJueces();
+        }
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,7 +145,16 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblJuez;
+    private javax.swing.JButton txtBuscar;
+    private javax.swing.JTextField txtIdJuez;
     // End of variables declaration//GEN-END:variables
+ 
+    public void datos(){
+             tblJuez.setModel(juez.consultarJuez());
+    }
+
 }
