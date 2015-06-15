@@ -144,21 +144,18 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
         fecha = jDateChooser1.getDate();
-        
-         formato = new SimpleDateFormat("yyyyMMd");
+        formato = new SimpleDateFormat("yyyyMMd");
         
         //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
         
-             if(cbIntervalo.getSelectedIndex() == 0){
-                dia = 0;
-            }else if(cbIntervalo.getSelectedIndex() == 1){
+            if(cbIntervalo.getSelectedIndex() == 0){
                 dia = 5; 
-            }else if(cbIntervalo.getSelectedIndex() == 2){
+            }else if(cbIntervalo.getSelectedIndex() == 1){
                 dia = 10;
-            }else if(cbIntervalo.getSelectedIndex() == 3){
+            }else if(cbIntervalo.getSelectedIndex() == 2){
                 dia = 15;
             } 
-        //tblVencimiento.getModel(exp.consultarVencimiento(null, dia);
+                     datos();
         // JOptionPane.showMessageDialog(null, "el dia" + dia);       
         
     }//GEN-LAST:event_txtGenerarActionPerformed
@@ -212,10 +209,12 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void llenarIntervalo(){
-        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Todos", "5", "10", "15" }));
+        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"5", "10", "15" }));
     }
 
     public void datos(){
-        
+        String hola = formato.format(fecha);
+        tblVencimiento.setModel(exp.consultarVencimiento(hola, dia));
+        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }
