@@ -47,28 +47,60 @@ public class LoginUser extends javax.swing.JFrame {
         jTBLU = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 540, 250));
+        setMinimumSize(new java.awt.Dimension(540, 250));
+        setPreferredSize(new java.awt.Dimension(540, 250));
+        setResizable(false);
+        setSize(new java.awt.Dimension(540, 250));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnIngresar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         BtnIngresar.setText("Ingresar");
         BtnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnIngresarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
 
+        BtnCerrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         BtnCerrar.setText("Cerrar");
+        BtnCerrar.setMaximumSize(new java.awt.Dimension(77, 23));
+        BtnCerrar.setMinimumSize(new java.awt.Dimension(77, 23));
+        BtnCerrar.setPreferredSize(new java.awt.Dimension(77, 23));
         BtnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
 
-        jLabel1.setText("SISTEMA DE INFORMACION GERENCIAL - CONTROL DE EXPEDIENTES A LOS JUECES");
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SISTEMA DE INFORMACION GERENCIAL  ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, 40));
 
-        jLabel2.setText("usuario :");
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jLabel2.setText("Usuario :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
-        jLabel3.setText("clave :");
+        jTextFieldUsuario.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 370, -1));
+
+        jLabel3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jLabel3.setText("Clave :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        jPasswordClave.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        jPasswordClave.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        getContentPane().add(jPasswordClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 370, -1));
 
         jTBLU.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,72 +115,39 @@ public class LoginUser extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTBLU);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 145, 0, 0));
+
+        jButton1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButton1.setText("Servidor");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Cambria", 2, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("jLabel4");
         jLabel4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jLabel4PropertyChange(evt);
             }
         });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnCerrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnIngresar))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldUsuario))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(28, 28, 28)
-                        .addComponent(jPasswordClave)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jPasswordClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtnIngresar)
-                    .addComponent(BtnCerrar)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel4))
-                .addContainerGap())
-        );
+        jLabel5.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("CONTROL DE EXPEDIENTES A JUECES");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 680, 10));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -229,6 +228,10 @@ public class LoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTBLU;
