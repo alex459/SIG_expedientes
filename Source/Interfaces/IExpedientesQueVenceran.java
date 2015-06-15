@@ -213,8 +213,8 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
     }
 
     public void datos(){
-        String hola = formato.format(fecha);
-        tblVencimiento.setModel(exp.consultarVencimiento(hola, dia));
+        
+        tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }

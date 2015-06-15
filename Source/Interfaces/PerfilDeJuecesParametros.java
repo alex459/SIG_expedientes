@@ -44,7 +44,7 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         txtBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(47, 72, 85));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

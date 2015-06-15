@@ -125,5 +125,33 @@ public class Expediente {
         return TablaVencimiento;
     }
     
+
+     public TableModel consultarFases(int YEAR){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaFases = new DefaultTableModel();
+        try {
+            TablaFases.addColumn("FASE INCIO");
+            TablaFases.addColumn("FASE PROCESO");
+            TablaFases.addColumn("FASE SENTENCIA");
+            
+            String sql = "EXECUTE Fases "+ YEAR;
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaFases.getColumnCount()];
+                for (int i = 0; i < TablaFases.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaFases.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaFases;
+    }
+     
     
 }
