@@ -6,12 +6,20 @@
 
 package Interfaces;
 
+import Clases.Expediente;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class RendimientoDeExpedientes extends javax.swing.JFrame {
-
+Expediente exp = new Expediente();
+    int intervalo;
+    Date fecha;
+    SimpleDateFormat formato;
     
     /**
      * Creates new form RendimientoDeExpediente
@@ -30,7 +38,7 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblRendimientoDto = new javax.swing.JTable();
+        tblRendimientoExp = new javax.swing.JTable();
         txtGenerar = new javax.swing.JButton();
         txtImprimir = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -38,24 +46,20 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbIntervalo1 = new javax.swing.JComboBox();
-        cbDiaDesde1 = new javax.swing.JComboBox();
-        cbMesDesde1 = new javax.swing.JComboBox();
-        cbYearDesde1 = new javax.swing.JComboBox();
-        jComboBox4 = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
-        jComboBox6 = new javax.swing.JComboBox();
+        cbIntervaloRendimiento = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblRendimientoDto.setModel(new javax.swing.table.DefaultTableModel(
+        tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -66,7 +70,7 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(tblRendimientoDto);
+        jScrollPane1.setViewportView(tblRendimientoExp);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 199, 616, 280));
 
@@ -77,7 +81,7 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
                 txtGenerarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 80, -1));
 
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtImprimir.setText("Imprimir");
@@ -93,53 +97,24 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel14.setText("Fecha desde");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 125, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel15.setText("Fecha hasta");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 165, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel6.setText("Intervalo");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
-        cbIntervalo1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbIntervalo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbIntervalo1.addActionListener(new java.awt.event.ActionListener() {
+        cbIntervaloRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbIntervaloRendimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbIntervalo1ActionPerformed(evt);
+                cbIntervaloRendimientoActionPerformed(evt);
             }
         });
-        getContentPane().add(cbIntervalo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
-
-        cbDiaDesde1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbDiaDesde1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbDiaDesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
-
-        cbMesDesde1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbMesDesde1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbMesDesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
-
-        cbYearDesde1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbYearDesde1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbYearDesde1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbYearDesde1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbYearDesde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
-
-        jComboBox4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-
-        jComboBox5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
-
-        jComboBox6.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+        getContentPane().add(cbIntervaloRendimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 33, 32));
@@ -160,21 +135,36 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 140, -1));
+        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
+     
+        if(jDateChooser1.getDate() == null){
+
+            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
+            
+        }else{
+                    
+        fecha = jDateChooser1.getDate();
+        //formato = new SimpleDateFormat("yyyyMMd");
+        
+        if(cbIntervaloRendimiento.getSelectedIndex()==0){
+            intervalo = 1;
+            
+        }else if (cbIntervaloRendimiento.getSelectedIndex()==1){
+            intervalo = 2;            
+            }
+        }
     }//GEN-LAST:event_txtGenerarActionPerformed
 
-    private void cbIntervalo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervalo1ActionPerformed
+    private void cbIntervaloRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervaloRendimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbIntervalo1ActionPerformed
-
-    private void cbYearDesde1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbYearDesde1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbYearDesde1ActionPerformed
+    }//GEN-LAST:event_cbIntervaloRendimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,13 +202,9 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbDiaDesde1;
-    private javax.swing.JComboBox cbIntervalo1;
-    private javax.swing.JComboBox cbMesDesde1;
-    private javax.swing.JComboBox cbYearDesde1;
-    private javax.swing.JComboBox jComboBox4;
-    private javax.swing.JComboBox jComboBox5;
-    private javax.swing.JComboBox jComboBox6;
+    private javax.swing.JComboBox cbIntervaloRendimiento;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -231,8 +217,19 @@ public class RendimientoDeExpedientes extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable tblRendimientoDto;
+    private javax.swing.JTable tblRendimientoExp;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
+
+    public void llenarIntervalo(){
+        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
+    }
+    
+    public void datos(){
+        
+    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
+        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
+    }
+    
 }
