@@ -30,53 +30,34 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRendimientoDto = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         txtImprimir = new javax.swing.JButton();
         txtGenerar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblRendimientoDto1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        cbOrden = new javax.swing.JComboBox();
+        jrAdmitidos = new javax.swing.JRadioButton();
+        jrOmitidas = new javax.swing.JRadioButton();
+        jLabel16 = new javax.swing.JLabel();
+        cbOrden1 = new javax.swing.JComboBox();
+        jrOmitidas1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("RENDIMIENTO DEL DEPARTAMENTO");
+        jLabel1.setText("JUECES POR GENERO");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel11.setText("Fecha desde");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel12.setText("Fecha hasta");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
-
-        tblRendimientoDto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tblRendimientoDto);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 410, 280));
+        jLabel11.setText("Mostrar");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 33, 32));
@@ -87,19 +68,15 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 10));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, 20, 60));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 20, 60));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 63, 67));
 
-        jLabel6.setBackground(new java.awt.Color(47, 72, 85));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 850, 70));
-
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtImprimir.setText("Imprimir");
-        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 130, -1, -1));
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
         txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtGenerar.setText("Generar");
@@ -108,7 +85,7 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
                 txtGenerarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 90, -1, -1));
+        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 640, 20));
 
         tblRendimientoDto1.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,13 +101,30 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblRendimientoDto1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 410, 280));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 660, 280));
 
         jLabel7.setBackground(new java.awt.Color(47, 72, 85));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 70));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 130, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 130, 130, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 70));
+
+        cbOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 100, -1));
+
+        jrAdmitidos.setText("Denuncias Admitidos");
+        getContentPane().add(jrAdmitidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, 20));
+
+        jrOmitidas.setText("Denuncias Totales");
+        getContentPane().add(jrOmitidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel16.setText("Genero");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        cbOrden1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbOrden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, -1));
+
+        jrOmitidas1.setText("Denuncias Omitidos");
+        getContentPane().add(jrOmitidas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,21 +170,21 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JComboBox cbOrden;
+    private javax.swing.JComboBox cbOrden1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable tblRendimientoDto;
+    private javax.swing.JRadioButton jrAdmitidos;
+    private javax.swing.JRadioButton jrOmitidas;
+    private javax.swing.JRadioButton jrOmitidas1;
     private javax.swing.JTable tblRendimientoDto1;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
