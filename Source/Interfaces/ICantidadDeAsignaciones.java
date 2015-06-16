@@ -6,14 +6,29 @@
 
 package Interfaces;
 
+import Clases.Expediente;
+import Controlador.ControladorClases;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class ICantidadDeAsignaciones extends javax.swing.JFrame {
-
+    ControladorClases cc = new ControladorClases();
+    Expediente exp = new Expediente();
+    String[] Meses = new String[] {"Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", "Octubre","Noviembre", "Diciembre"};
+    String[] Anios = new String[] {"1995", "1996","1997", "1998","1999", "2000","2001", "2002","2003", "2004","2005", "2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"};
+    int intervalo;
+    Date fecha;
+    SimpleDateFormat formato;
+    
     /**
-     * Creates new form ICantidadDeAsignaciones
+     * Creates new form RendimientoDeExpediente
      */
     public ICantidadDeAsignaciones() {
         initComponents();
@@ -28,21 +43,143 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRendimientoExp = new javax.swing.JTable();
+        txtGenerar = new javax.swing.JButton();
+        txtImprimir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btnConsulta = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        cbIntervalo = new javax.swing.JComboBox();
+        cbAnioHasta = new javax.swing.JComboBox();
+        cbMesDesde = new javax.swing.JComboBox();
+        cbAnioDesde = new javax.swing.JComboBox();
+        cbMesHasta = new javax.swing.JComboBox();
+        txtConsultar = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblRendimientoExp);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 199, 616, 280));
+
+        txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtGenerar.setText("Generar");
+        txtGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenerarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, 80, -1));
+
+        txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtImprimir.setText("Imprimir");
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ASIGNACIONES DE EXPEDIENTES A COLABORADORES");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel14.setText("Fecha desde");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel15.setText("Fecha hasta");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel6.setText("Intervalo");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(31, 33, 32));
+        jLabel16.setText("Parámetros");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jSeparator3.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 10));
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 20, 60));
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 63, 67));
+
+        jLabel7.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
+
+        btnConsulta.setText("Consultar");
+        btnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel8.setText("Seleccionar Colaboradores");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
+
+        cbIntervalo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 90, -1));
+
+        cbAnioHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbAnioHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+
+        cbMesDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbMesDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+
+        cbAnioDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+
+        cbMesHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cbMesHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        getContentPane().add(txtConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
+        // TODO add your handling code here:
+     
+    }//GEN-LAST:event_txtGenerarActionPerformed
+
+    private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
+        // TODO add your handling code here:
+        
+        cc.AbrirPerfilDeColaboradoresParametros();
+    }//GEN-LAST:event_btnConsultaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +217,54 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsulta;
+    private javax.swing.JComboBox cbAnioDesde;
+    private javax.swing.JComboBox cbAnioHasta;
+    private javax.swing.JComboBox cbIntervalo;
+    private javax.swing.JComboBox cbMesDesde;
+    private javax.swing.JComboBox cbMesHasta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTable tblRendimientoExp;
+    private javax.swing.JTextField txtConsultar;
+    private javax.swing.JButton txtGenerar;
+    private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
+
+    public void llenarIntervalo(){
+        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
+        cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(Meses));
+        cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(Anios));
+        
+        cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(Meses));
+        cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(Anios));    
+    }
+    
+    public void CambiarParametros(){
+        if(cbIntervalo.getSelectedIndex() == 1){
+            cbMesDesde.setEnabled(FALSE);
+            cbMesHasta.setEnabled(FALSE);
+        }else{
+            cbMesDesde.setEnabled(TRUE);
+            cbMesHasta.setEnabled(TRUE);
+        }
+        
+    }
+    
+    public void datos(){
+        
+    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
+        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
+    }
+    
 }
