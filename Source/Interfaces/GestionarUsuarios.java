@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 public class GestionarUsuarios extends javax.swing.JFrame {
     DefaultTableModel modelo;
     Usuario user = new Usuario();
-    String [][]usuario;
     /**
      * Creates new form GNuevoUsuario
      */
@@ -58,35 +57,71 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUsuarios = new javax.swing.JTable();
         btnConsultar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        jLabel1.setText("Nuevo Usuario");
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("NUEVO USUARIO");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel2.setText("ID Usuario");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel3.setText("Tipo de Usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel4.setText("Nombre de Usuario");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 125, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel5.setText("Clave");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
+        txtIdUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 40, -1));
+
+        txtTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTipoUsuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 120, -1));
+
+        txtNombreUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 122, 225, -1));
+
+        txtClave.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        getContentPane().add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 225, -1));
+
+        btnIngresarUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnIngresarUsuario.setText("Ingresar");
         btnIngresarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarUsuarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnIngresarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 200, -1, -1));
 
+        btnLimpiar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(77, 23));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 200, -1, -1));
 
+        tblUsuarios.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -98,85 +133,28 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
             }
         ));
+        tblUsuarios.setSelectionBackground(new java.awt.Color(255, 255, 168));
         jScrollPane1.setViewportView(tblUsuarios);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 241, 680, 215));
+
+        btnConsultar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 200, -1, -1));
 
-        jButton1.setText("Desactivar");
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 63, 67));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(9, 9, 9)
-                                    .addComponent(jButton1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btnConsultar)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnLimpiar)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnIngresarUsuario))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addGap(28, 28, 28)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtIdUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                            .addComponent(txtTipoUsuario))
-                                        .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLimpiar)
-                    .addComponent(btnIngresarUsuario)
-                    .addComponent(btnConsultar)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
+        jLabel6.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 70));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 700, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -208,6 +186,10 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
         tblUsuarios.setModel(user.consultarUsuario());
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void txtTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTipoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTipoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,12 +230,14 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnIngresarUsuario;
     private javax.swing.JButton btnLimpiar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblUsuarios;
     private javax.swing.JTextField txtClave;
