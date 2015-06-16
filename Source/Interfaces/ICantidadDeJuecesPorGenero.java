@@ -42,10 +42,10 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cbOrden = new javax.swing.JComboBox();
         jrAdmitidos = new javax.swing.JRadioButton();
-        jrOmitidas = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
         cbOrden1 = new javax.swing.JComboBox();
-        jrOmitidas1 = new javax.swing.JRadioButton();
+        jrAdmitidos1 = new javax.swing.JRadioButton();
+        jrAdmitidos2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,11 +110,9 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         cbOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 100, -1));
 
-        jrAdmitidos.setText("Denuncias Admitidos");
-        getContentPane().add(jrAdmitidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, 20));
-
-        jrOmitidas.setText("Denuncias Totales");
-        getContentPane().add(jrOmitidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jrAdmitidos.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jrAdmitidos.setText("Denuncias Omitidas");
+        getContentPane().add(jrAdmitidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, 20));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel16.setText("Genero");
@@ -123,8 +121,13 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         cbOrden1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbOrden1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, -1));
 
-        jrOmitidas1.setText("Denuncias Omitidos");
-        getContentPane().add(jrOmitidas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
+        jrAdmitidos1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jrAdmitidos1.setText("Denuncias Totales");
+        getContentPane().add(jrAdmitidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, 20));
+
+        jrAdmitidos2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jrAdmitidos2.setText("Denuncias Admitidos");
+        getContentPane().add(jrAdmitidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,8 +186,8 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JRadioButton jrAdmitidos;
-    private javax.swing.JRadioButton jrOmitidas;
-    private javax.swing.JRadioButton jrOmitidas1;
+    private javax.swing.JRadioButton jrAdmitidos1;
+    private javax.swing.JRadioButton jrAdmitidos2;
     private javax.swing.JTable tblRendimientoDto1;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
