@@ -8,14 +8,12 @@ package Interfaces;
 
 import Clases.ComparativoDeRendimiento;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 
 /**
  *
  * @author Kevin
  */
 public class IComparativoDeRendimiento extends javax.swing.JFrame {
-
     public int ANIO=1995;
     /**
      * Creates new form IComparativoDeRendimiento
@@ -33,26 +31,60 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtImprimir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTBL = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 204));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtImprimir.setText("Imprimir");
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SISTEMA DE INFORMACION GERENCIAL - INFORME COMPARATIVO DE RENDIMIENTO");
-        jLabel1.setOpaque(true);
+        jLabel1.setText("COLABORADORES JURÍDICOS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
-        jButton1.setText("Buscar por año");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel11.setText("Fecha desde");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(31, 33, 32));
+        jLabel10.setText("Parámetros");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
+
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 63, 67));
+
+        jSeparator1.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 210, 10));
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 20, 60));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("COMPARATIVO DE RENDIMIENTO ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 70));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 710, 10));
 
         jTBL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -72,60 +104,44 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTBL);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 640, 310));
+
+        jButton1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jButton1.setText("Buscar por año");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        boolean validarA = false;   
+
+        boolean validarA = false;
         ComparativoDeRendimiento cr = new ComparativoDeRendimiento();
-               
+
         try{
             this.ANIO= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año a consultar (desde 1995 hasta la fecha):"));
-            
+
             if(ANIO<1995 && ANIO > 2015){
-            this.ANIO= Integer.parseInt(JOptionPane.showInputDialog("Error. El año debe estar entre 1995 hasta 2015:"));
+                this.ANIO= Integer.parseInt(JOptionPane.showInputDialog("Error. El año debe estar entre 1995 hasta 2015:"));
             }else{
                 validarA = true;
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(rootPane, "Error. El Año debe ser numerico desde 1995");
         }
-        
+
         if(validarA){
-        jTBL.setModel(cr.consultarRendimientoComparativo(this.ANIO));
-        if(jTBL.getRowCount()<1){
-           JOptionPane.showMessageDialog(rootPane, "El año ingresado no posee registros");
+            jTBL.setModel(cr.consultarRendimientoComparativo(this.ANIO));
+            if(jTBL.getRowCount()<1){
+                JOptionPane.showMessageDialog(rootPane, "El año ingresado no posee registros");
+            }
         }
-        }
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -166,7 +182,16 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTable jTBL;
+    private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
 }
