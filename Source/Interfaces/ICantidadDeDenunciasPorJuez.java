@@ -6,14 +6,23 @@
 
 package Interfaces;
 
+import Clases.Expediente;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin
  */
 public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
-
+Expediente exp = new Expediente();
+    int intervalo;
+    Date fecha;
+    SimpleDateFormat formato;
+    
     /**
-     * Creates new form ICantidadDeDenunciasPorJuez
+     * Creates new form RendimientoDeExpediente
      */
     public ICantidadDeDenunciasPorJuez() {
         initComponents();
@@ -28,21 +37,134 @@ public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRendimientoExp = new javax.swing.JTable();
+        txtGenerar = new javax.swing.JButton();
+        txtImprimir = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cbIntervaloRendimiento = new javax.swing.JComboBox();
+        jLabel16 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tblRendimientoExp);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 199, 616, 280));
+
+        txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtGenerar.setText("Generar");
+        txtGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGenerarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 80, -1));
+
+        txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtImprimir.setText("Imprimir");
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 20, 60));
+
+        jLabel2.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CANTIDAD DE DENUNCIAS POR JUEZ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel14.setText("Fecha desde");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel15.setText("Fecha hasta");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel6.setText("Intervalo");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+
+        cbIntervaloRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbIntervaloRendimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbIntervaloRendimientoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cbIntervaloRendimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
+
+        jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(31, 33, 32));
+        jLabel16.setText("Parámetros");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jSeparator3.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 10));
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 20, 60));
+
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 63, 67));
+
+        jLabel7.setBackground(new java.awt.Color(47, 72, 85));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 140, -1));
+        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
+        // TODO add your handling code here:
+     
+        if(jDateChooser1.getDate() == null){
+
+            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
+            
+        }else{
+                    
+        fecha = jDateChooser1.getDate();
+        //formato = new SimpleDateFormat("yyyyMMd");
+        
+        if(cbIntervaloRendimiento.getSelectedIndex()==0){
+            intervalo = 1;
+            
+        }else if (cbIntervaloRendimiento.getSelectedIndex()==1){
+            intervalo = 2;            
+            }
+        }
+    }//GEN-LAST:event_txtGenerarActionPerformed
+
+    private void cbIntervaloRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervaloRendimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbIntervaloRendimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +202,34 @@ public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cbIntervaloRendimiento;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTable tblRendimientoExp;
+    private javax.swing.JButton txtGenerar;
+    private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
+
+    public void llenarIntervalo(){
+        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
+    }
+    
+    public void datos(){
+        
+    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
+        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
+    }
+    
 }

@@ -131,7 +131,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(47, 72, 85));
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 70));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
 
         btnConsulta.setText("Consultar");
