@@ -8,11 +8,15 @@ package Interfaces;
 
 import Clases.Expediente;
 import Controlador.ControladorClases;
+import Controlador.Validar;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,17 +25,31 @@ import javax.swing.JOptionPane;
 public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     ControladorClases cc = new ControladorClases();
     Expediente exp = new Expediente();
+    Validar val = new Validar();
+    ArrayList lista;
     String[] Meses = new String[] {"Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", "Octubre","Noviembre", "Diciembre"};
     String[] Anios = new String[] {"1995", "1996","1997", "1998","1999", "2000","2001", "2002","2003", "2004","2005", "2006","2007","2008","2009","2010","2011","2012","2013","2014","2015"};
     int intervalo;
     Date fecha;
     SimpleDateFormat formato;
+
+    String[] columnNames = {"Nombres","Apellidos","Total Expedientes","X Holgura","X Vencimiento"};
+    Object data[][] = {};
+   DefaultTableModel md;    
+
+    String MesDesde = "";
+    String MesHasta = "";
+    String AnioDesde = "";
+    String AnioHasta = "";
     
     /**
      * Creates new form RendimientoDeExpediente
      */
     public ICantidadDeAsignaciones() {
         initComponents();
+        llenarIntervalo();
+        md = new DefaultTableModel(data, columnNames);
+        tblRendimientoExp.setModel(md);
     }
 
     /**
@@ -85,7 +103,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 199, 616, 280));
 
         txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtGenerar.setText("Generar");
+        txtGenerar.setText("Agregar");
         txtGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenerarActionPerformed(evt);
@@ -112,7 +130,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel6.setText("Intervalo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 33, 32));
@@ -123,7 +141,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 10));
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 20, 60));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 120, 10, 60));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
@@ -140,19 +158,19 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
                 btnConsultaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
+        getContentPane().add(btnConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel8.setText("Seleccionar Colaboradores");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, -1, -1));
+        jLabel8.setText("Consultar Colaboradores");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
         cbIntervalo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 90, -1));
+        getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 90, -1));
 
         cbAnioHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbAnioHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
+        getContentPane().add(cbAnioHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         cbMesDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -160,19 +178,60 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         cbAnioDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+        getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
 
         cbMesHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbMesHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-        getContentPane().add(txtConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 80, -1));
+        getContentPane().add(txtConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
-     
+
+        String MesDesde = "";
+        String MesHasta = "";
+        String AnioDesde = "";
+        String AnioHasta = "";
+        
+        if(cbMesDesde.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+        }else{
+            MesDesde = (String) cbMesDesde.getSelectedItem();
+        }
+        
+        if(cbMesHasta.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+        }else{
+            MesHasta = (String) cbMesHasta.getSelectedItem();
+        }
+        
+        if(cbAnioDesde.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+        }else{
+            AnioDesde = (String) cbAnioDesde.getSelectedItem();
+        }
+
+        if(cbAnioHasta.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+        }else{
+            AnioHasta = (String) cbAnioDesde.getSelectedItem();
+        }
+        
+        if(MesDesde.equals("") & MesHasta.equals("") & AnioDesde.equals("") & AnioHasta.equals("")){
+            JOptionPane.showMessageDialog(this, "Selecciones los parametros de fecha requeridos");    
+        }else{     
+                datos();
+        }
+        
+//        if(cbIntervalo.getSelectedIndex() == 0){
+//            exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), null, null, null, null);
+//            
+//        } else if(cbIntervalo.getSelectedIndex() == 1){
+//        
+//        }
     }//GEN-LAST:event_txtGenerarActionPerformed
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
@@ -262,9 +321,19 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     }
     
     public void datos(){
+        lista = new ArrayList();
+        lista.addAll(exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), MesDesde, AnioDesde, MesHasta, AnioHasta, cbIntervalo.getSelectedIndex()));
         
-    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
-        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
+        String a = (String) lista.get(0);
+        String b = (String) lista.get(1);
+        String c = (String) lista.get(2);
+        String d = (String) lista.get(3);
+        String f = (String) lista.get(4);
+        
+        String elementos[] = {a,b,c,d,f};
+        md.addRow(elementos);
+        
+        
     }
     
 }

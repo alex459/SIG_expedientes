@@ -129,8 +129,7 @@ Expediente exp = new Expediente();
     private void txtGenerar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerar1ActionPerformed
         // TODO add your handling code here:
         fecha = jDateChooser1.getDate();
-        formato = new SimpleDateFormat("yyyyMMd");
-
+        //formato = new SimpleDateFormat("yyyyMMd");
         //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
 
         if(cbIntervalo.getSelectedIndex() == 0){
@@ -204,7 +203,7 @@ Expediente exp = new Expediente();
 
     public void datos(){
         
-        tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
+        tblVencimiento.setModel(exp.consultarVencimiento(fecha, dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }

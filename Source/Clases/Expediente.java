@@ -97,7 +97,7 @@ public class Expediente {
         this.diasparavencerse = diasparavencerse;
     }
 
-     public TableModel consultarVencimiento(String fecha, int day){
+     public TableModel consultarVencimiento(java.util.Date fecha , int day){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
@@ -153,5 +153,25 @@ public class Expediente {
         return TablaFases;
     }
      
-    
+      public ArrayList consultarAsignados(int id, String MesDesde, String AnioDesde, String MesHasta, String AnioHasta, int parametro){
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        ArrayList dato = new ArrayList();
+        try {           
+            String sql = "EXECUTE AsignacionesJuridicos "+id+", "+MesDesde+", "+AnioDesde+", "+MesHasta+", "+AnioHasta+", "+parametro;
+            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA FROM EXPEDIENTE WHERE NUMEROEXPEDIENTE = 500";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                dato.add(rs.getString(1)); //nombre
+                dato.add(rs.getString(2)); //apellido
+                dato.add(rs.getString(3)); //total entre fechas
+                dato.add(rs.getString(4)); //promedio de holgura
+                dato.add(rs.getString(5)); //promedio de vencidos
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+       return dato;
+    }     
 }
