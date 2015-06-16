@@ -71,22 +71,22 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel2.setText("ID Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel3.setText("Tipo de Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel4.setText("Nombre de Usuario");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 125, -1, -1));
+        jLabel4.setText("Usuario");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel5.setText("Clave");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         txtIdUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 40, -1));
+        getContentPane().add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 40, -1));
 
         txtTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -97,10 +97,10 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 120, -1));
 
         txtNombreUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 122, 225, -1));
+        getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 225, -1));
 
         txtClave.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 225, -1));
+        getContentPane().add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 225, -1));
 
         btnIngresarUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnIngresarUsuario.setText("Ingresar");
@@ -109,7 +109,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 btnIngresarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(394, 200, -1, -1));
+        getContentPane().add(btnIngresarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, -1, -1));
 
         btnLimpiar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnLimpiar.setText("Limpiar");
@@ -119,7 +119,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 200, -1, -1));
+        getContentPane().add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, -1));
 
         tblUsuarios.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         tblUsuarios.setModel(new javax.swing.table.DefaultTableModel(
@@ -136,7 +136,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         tblUsuarios.setSelectionBackground(new java.awt.Color(255, 255, 168));
         jScrollPane1.setViewportView(tblUsuarios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 241, 680, 215));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 241, 630, 190));
 
         btnConsultar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnConsultar.setText("Consultar");
@@ -145,7 +145,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 200, -1, -1));
+        getContentPane().add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, -1, -1));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
