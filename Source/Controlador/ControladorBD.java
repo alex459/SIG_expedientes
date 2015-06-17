@@ -35,7 +35,7 @@ public class ControladorBD {
                 //String url = "jdbc:sqlserver://localhost;databaseName=BDSIGCSJ;user=sig;password=sig1152015;";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 cn = DriverManager.getConnection(url);
-                JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
+                //JOptionPane.showMessageDialog(null, "Conexion con la base de datos establecida");
                 
                 //String url = "jdbc:sqlserver://Jbeltran\\sqlexpress:49157;database=Expedientes;integratedSecurity=true;";
                 //Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();

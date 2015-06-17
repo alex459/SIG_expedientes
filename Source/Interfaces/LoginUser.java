@@ -8,6 +8,7 @@ package Interfaces;
 
 import Clases.Usuario;
 import Controlador.ControladorClases;
+import Controlador.Validar;
 import Controlador.VariablesGlobales;
 import javax.swing.JOptionPane;
 
@@ -54,10 +55,8 @@ public class LoginUser extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 540, 250));
-        setMinimumSize(new java.awt.Dimension(540, 250));
-        setPreferredSize(new java.awt.Dimension(540, 250));
-        setResizable(false);
-        setSize(new java.awt.Dimension(540, 250));
+        setMinimumSize(new java.awt.Dimension(519, 250));
+        setPreferredSize(new java.awt.Dimension(519, 220));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnIngresar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -91,6 +90,7 @@ public class LoginUser extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         jTextFieldUsuario.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        jTextFieldUsuario.setToolTipText("");
         jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 370, -1));
 
@@ -154,20 +154,33 @@ public class LoginUser extends javax.swing.JFrame {
 
     private void BtnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarActionPerformed
         // TODO add your handling code here:
+        
+        Validar v = new Validar();
         Usuario user = new Usuario();
+        if(   v.ValidarTexto(jTextFieldUsuario.getText()) 
+           && v.ValidarAlfanumerico(jPasswordClave.getText())     
+           && jTextFieldUsuario.getText().length()>0
+           && jTextFieldUsuario.getText().length()<=20
+           && jPasswordClave.getText().length()>0 
+           && jPasswordClave.getText().length()<=20
+           )     
+        {
+            
         jTBLU.setModel(user.consultarUsuario(jTextFieldUsuario.getText(),jPasswordClave.getText()));
         if(jTBLU.getRowCount()==1){
         VariablesGlobales.IDUSUARIO = (String)jTBLU.getModel().getValueAt(0, 0);
         VariablesGlobales.IDTIPOUSUARIO = (String)jTBLU.getModel().getValueAt(0, 1);
         VariablesGlobales.NOMBREUSUARIO = (String)jTBLU.getModel().getValueAt(0, 2);
         VariablesGlobales.ESTADOUSUARIO = (String)jTBLU.getModel().getValueAt(0, 4); 
-        
         JOptionPane.showMessageDialog(rootPane, "Bienvenido: "+VariablesGlobales.NOMBREUSUARIO);    
         cc.AbrirMenuPrincipal();
         this.dispose();
         }else
-            JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña no valida");
-                
+            JOptionPane.showMessageDialog(rootPane, "Usuario o contraseña no valida"); 
+            
+        }else
+            JOptionPane.showMessageDialog(rootPane, "El usuario debe ser texto y no debe estar vacio y ser menor a 20 letras.\nLa clave debe ser alfanumerico y no debe estar vacio y ser menor a 20 letras.\nIntente nuevamente."); 
+                 
         
     }//GEN-LAST:event_BtnIngresarActionPerformed
 
