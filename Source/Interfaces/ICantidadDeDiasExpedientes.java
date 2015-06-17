@@ -101,7 +101,7 @@ int anio;
                 txtBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 80, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel11.setText("Año de Evaluacion");

@@ -143,7 +143,6 @@ Expediente exp = new Expediente();
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
-     
         if(jDateChooser1.getDate() == null){
 
             JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
