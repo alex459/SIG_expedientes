@@ -38,9 +38,9 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
    DefaultTableModel md;    
 
     String MesDesde = "";
-    String MesHasta = "";
+//    String MesHasta = "";
     String AnioDesde = "";
-    String AnioHasta = "";
+//    String AnioHasta = "";
     
     /**
      * Creates new form RendimientoDeExpediente
@@ -67,7 +67,6 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         txtImprimir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -78,10 +77,8 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         btnConsulta = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         cbIntervalo = new javax.swing.JComboBox();
-        cbAnioHasta = new javax.swing.JComboBox();
         cbMesDesde = new javax.swing.JComboBox();
         cbAnioDesde = new javax.swing.JComboBox();
-        cbMesHasta = new javax.swing.JComboBox();
         txtConsultar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -122,11 +119,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel14.setText("Fecha desde");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel15.setText("Fecha hasta");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel6.setText("Intervalo");
@@ -168,21 +161,13 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 90, -1));
 
-        cbAnioHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbAnioHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
-
         cbMesDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbMesDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
+        getContentPane().add(cbMesDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         cbAnioDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, -1));
-
-        cbMesHasta.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbMesHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
         getContentPane().add(txtConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 80, -1));
 
         pack();
@@ -192,9 +177,9 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         String MesDesde = "";
-        String MesHasta = "";
+        //String MesHasta = "";
         String AnioDesde = "";
-        String AnioHasta = "";
+        //String AnioHasta = "";
         
         if(cbMesDesde.getSelectedItem() == ""){
             JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
@@ -202,11 +187,11 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
             MesDesde = (String) cbMesDesde.getSelectedItem();
         }
         
-        if(cbMesHasta.getSelectedItem() == ""){
-            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
-        }else{
-            MesHasta = (String) cbMesHasta.getSelectedItem();
-        }
+//        if(cbMesHasta.getSelectedItem() == ""){
+//            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+//        }else{
+//            MesHasta = (String) cbMesHasta.getSelectedItem();
+//        }
         
         if(cbAnioDesde.getSelectedItem() == ""){
             JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
@@ -214,13 +199,13 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
             AnioDesde = (String) cbAnioDesde.getSelectedItem();
         }
 
-        if(cbAnioHasta.getSelectedItem() == ""){
-            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
-        }else{
-            AnioHasta = (String) cbAnioDesde.getSelectedItem();
-        }
+//        if(cbAnioHasta.getSelectedItem() == ""){
+//            JOptionPane.showMessageDialog(this, "Seleccione un mes de inicio");
+//        }else{
+//            AnioHasta = (String) cbAnioDesde.getSelectedItem();
+//        }
         
-        if(MesDesde.equals("") & MesHasta.equals("") & AnioDesde.equals("") & AnioHasta.equals("")){
+        if(MesDesde.equals("") & AnioDesde.equals("") ){
             JOptionPane.showMessageDialog(this, "Selecciones los parametros de fecha requeridos");    
         }else{     
                 datos();
@@ -278,13 +263,10 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsulta;
     private javax.swing.JComboBox cbAnioDesde;
-    private javax.swing.JComboBox cbAnioHasta;
     private javax.swing.JComboBox cbIntervalo;
     private javax.swing.JComboBox cbMesDesde;
-    private javax.swing.JComboBox cbMesHasta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -300,37 +282,42 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
 
-    public void llenarIntervalo(){
+    private void llenarIntervalo(){
         cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
         cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(Meses));
         cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(Anios));
         
-        cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(Meses));
-        cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(Anios));    
+//        cbMesHasta.setModel(new javax.swing.DefaultComboBoxModel(Meses));
+//        cbAnioHasta.setModel(new javax.swing.DefaultComboBoxModel(Anios));    
     }
     
     public void CambiarParametros(){
         if(cbIntervalo.getSelectedIndex() == 1){
             cbMesDesde.setEnabled(FALSE);
-            cbMesHasta.setEnabled(FALSE);
+//            cbMesHasta.setEnabled(FALSE);
         }else{
             cbMesDesde.setEnabled(TRUE);
-            cbMesHasta.setEnabled(TRUE);
+//            cbMesHasta.setEnabled(TRUE);
         }
         
     }
     
     public void datos(){
         lista = new ArrayList();
-        lista.addAll(exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), MesDesde, AnioDesde, MesHasta, AnioHasta, cbIntervalo.getSelectedIndex()));
+        lista.addAll(exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), cbMesDesde.getSelectedIndex()+1 , Integer.parseInt((String) cbAnioDesde.getSelectedItem()), cbIntervalo.getSelectedIndex()));
         
-        String a = (String) lista.get(0);
-        String b = (String) lista.get(1);
-        String c = (String) lista.get(2);
-        String d = (String) lista.get(3);
-        String f = (String) lista.get(4);
         
-        String elementos[] = {a,b,c,d,f};
+        System.out.println(cbMesDesde.getSelectedIndex()+1);
+        System.out.println(cbAnioDesde.getSelectedItem());
+        System.out.println(cbIntervalo.getSelectedIndex());
+        
+        String a = (String) lista.get(0); System.out.println(lista.get(0));
+        String b = (String) lista.get(1); System.out.println(lista.get(1));
+        int c = (int) lista.get(2); System.out.println(lista.get(2));
+        int d = (int) lista.get(3); System.out.println(lista.get(3));
+        int f = (int) lista.get(4); System.out.println(lista.get(4));
+        
+        Object elementos[] = {a,b,c,d,f};
         md.addRow(elementos);
         
         

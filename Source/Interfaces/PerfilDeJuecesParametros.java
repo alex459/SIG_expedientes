@@ -63,7 +63,7 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         tblJuez.setSelectionBackground(new java.awt.Color(255, 255, 168));
         jScrollPane1.setViewportView(tblJuez);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 375, 245));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 520, 245));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,13 +71,13 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 63, -1));
+        getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 63, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search icon.png"))); // NOI18N
         jLabel2.setText("Id Juez :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
         txtBuscar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtBuscar.setText("Buscar");
@@ -86,12 +86,12 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
                 txtBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 18, -1, -1));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(47, 72, 85));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bgr.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 310));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
