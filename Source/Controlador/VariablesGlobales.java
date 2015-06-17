@@ -12,12 +12,15 @@ package Controlador;
  */
 public class VariablesGlobales {
     
-   public static String serverName = "Jbeltran\\SQLEXPRESS";
-   public static String tcpip = "49157";
+   public static String serverName = "ZERBERUS\\SQLEXPRESS";
+   public static String tcpip = "1029";
    public static String IDUSUARIO = "";
    public static String IDTIPOUSUARIO = "";
    public static String NOMBREUSUARIO = "";
    public static String CLAVE = "";
    public static String ESTADOUSUARIO = "";  
+   public static String VARAUX1 = "";
+   public static String VARAUX2 = "";
+   public static String VARAUX3 = "";
     
 }

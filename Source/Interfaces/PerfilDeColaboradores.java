@@ -7,10 +7,27 @@
 package Interfaces;
 
 import Clases.Juridico;
+import Controlador.ControladorClases;
 import Controlador.Validar;
+import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRHtmlExporter;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author Kevin
@@ -19,11 +36,20 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
 
     public int IDJURIDICO=1;
     public int ANIO=2005;
+    PerfilDeColaboradoresParametros pcj = new PerfilDeColaboradoresParametros();
+    public boolean reporte=false;
+    
     /**
      * Creates new form PerfilDeColaboradores
      */
     public PerfilDeColaboradores() {
         initComponents();
+        pcj.setVisible(true);
+        pcj.setLocationRelativeTo(null);
+        pcj.requestFocus();
+        
+        
+             
     }
 
     /**
@@ -57,6 +83,8 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,9 +117,11 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         jLabel4.setText("Apellidos");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, -1));
 
+        jTextField_NOMBRE.setEditable(false);
         jTextField_NOMBRE.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_NOMBRE, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 250, -1));
 
+        jTextField_APELLIDO.setEditable(false);
         jTextField_APELLIDO.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_APELLIDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 250, -1));
 
@@ -111,15 +141,19 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         jLabel8.setText("Año");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, -1, -1));
 
+        jTextField_EXPEDIENTES.setEditable(false);
         jTextField_EXPEDIENTES.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_EXPEDIENTES, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 150, -1));
 
+        jTextField_EXPEDIENTESFINALIZADOS.setEditable(false);
         jTextField_EXPEDIENTESFINALIZADOS.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_EXPEDIENTESFINALIZADOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 150, -1));
 
+        jTextField_ANIO.setEditable(false);
         jTextField_ANIO.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_ANIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 150, -1));
 
+        jTextField_EXPEDIENTESPENDIENTES.setEditable(false);
         jTextField_EXPEDIENTESPENDIENTES.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         getContentPane().add(jTextField_EXPEDIENTESPENDIENTES, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 150, -1));
 
@@ -140,20 +174,36 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 70));
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 590, 10));
 
-        jButton1.setText("Buscar");
+        jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 330, 80, -1));
+
+        jButton2.setText("Consultar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
+
+        jButton3.setText("Informe");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 410, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        boolean validarJ = false;
+       /* boolean validarJ = false;
         boolean validarA = false;
         Validar v = new Validar();
         
@@ -196,8 +246,61 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "Juez no encontrado");
             }
-        }
+        }*/
+        
+        
+        Juridico juridico = new Juridico();
+        this.IDJURIDICO=Integer.parseInt(VariablesGlobales.VARAUX1);
+        this.ANIO=Integer.parseInt(VariablesGlobales.VARAUX2);
+        JTable jTBL = new JTable(juridico.consultarJuridico(this.IDJURIDICO, this.ANIO));
+        jTextField_IDJURIDICO.setText((String)jTBL.getModel().getValueAt(0, 0));
+        jTextField_NOMBRE.setText((String)jTBL.getModel().getValueAt(0, 1));
+        jTextField_APELLIDO.setText((String)jTBL.getModel().getValueAt(0, 2));
+        jTextField_EXPEDIENTES.setText((String)jTBL.getModel().getValueAt(0, 3));
+        jTextField_EXPEDIENTESFINALIZADOS.setText((String)jTBL.getModel().getValueAt(0, 4));
+        jTextField_EXPEDIENTESPENDIENTES.setText((String)jTBL.getModel().getValueAt(0, 5));
+        jTextField_ANIO.setText(Integer.toString(this.ANIO)); 
+        reporte=true;
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        ControladorClases cc = new ControladorClases();
+        cc.AbrirPerfilDeColaboradores();
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        try{
+            if(reporte){
+            
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("PerfilColaborador.jasper");
+            Map parametros = new HashMap();
+            parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("IDJURIDICO", Integer.parseInt(jTextField_IDJURIDICO.getText())); //metiendo variables
+            parametros.put("ANIO", Integer.parseInt(jTextField_ANIO.getText())); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);    
+            //fin proceso jasper ---------------------------------------------------------------------------------
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
+            }
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +339,8 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
