@@ -309,14 +309,13 @@ public TableModel consultarJuez(){
         cn = con.AbrirConexion();
         DefaultTableModel TablaJuez = new DefaultTableModel();
         try {
+            TablaJuez.addColumn("IDJUEZ");
             TablaJuez.addColumn("NOMBRE");
             TablaJuez.addColumn("APELLIDO");
-            TablaJuez.addColumn("APELLIDOJUEZ");
-            TablaJuez.addColumn("DENUNCIAS ADMITIDAS");          
-            TablaJuez.addColumn("DENUNCIAS OMITIDAS");          
             TablaJuez.addColumn("DENUNCIAS TOTALES");          
-            String sql = "EXECUTE JuecesPorGenero "+ genero +", "+ tipoOrden +", "+ Orden;
-            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA, IDRESOLUCION FROM EXPEDIENTE";
+            String sql = "execute JuecesPorGenero 'M',1,1";
+            //String sql = "execute JuecesPorGenero "+"'"+genero+"'"+", "+tipoOrden+", "+ Orden;
+            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO FROM EXPEDIENTE";
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {

@@ -227,7 +227,7 @@ Expediente exp = new Expediente();
     
     public void datos(){
         
-    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
+        //tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
     

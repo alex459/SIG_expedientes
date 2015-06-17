@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     Juez jz = new Juez();
     String genero;
-    int tipoorden, orden;
+    int tipoorden = 0;
+    int orden = 0;
     
     /**
      * Creates new form RendimientoDeDepartamento
@@ -49,9 +50,9 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cbOrden = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
-        cbTipoOrden = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         cbGenero = new javax.swing.JComboBox();
+        txtTipoOrden = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,15 +121,13 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         jLabel16.setText("Tipo de Orden");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
 
-        cbTipoOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbTipoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 100, -1));
-
         jLabel17.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel17.setText("Genero");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         cbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, -1));
+        getContentPane().add(txtTipoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 100, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,9 +135,16 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
 
-        genero = (String) cbGenero.getSelectedItem();
-        tipoorden = cbTipoOrden.getSelectedIndex();
+        if(cbGenero.getSelectedIndex()==0){
+            genero = "M";
+        }else if(cbGenero.getSelectedIndex()==1){
+            genero = "F";
+        }
+        
+        tipoorden = Integer.parseInt(txtTipoOrden.getText());
+        
         orden = cbOrden.getSelectedIndex();
+        
         JOptionPane.showMessageDialog(this, genero+tipoorden+orden);
         
         datos();
@@ -182,7 +188,6 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbGenero;
     private javax.swing.JComboBox cbOrden;
-    private javax.swing.JComboBox cbTipoOrden;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
@@ -197,12 +202,12 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
     private javax.swing.JTable tblGenero;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
+    private javax.swing.JTextField txtTipoOrden;
     // End of variables declaration//GEN-END:variables
 
 
 public void llenarIntervalo(){
         cbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Masculino", "Femenino"}));
-        cbTipoOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Admitidas","Omitidas","Totales"}));
         cbOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Ascendiente","Descendiente"}));
     }
 

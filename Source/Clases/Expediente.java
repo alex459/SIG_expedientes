@@ -136,7 +136,7 @@ public class Expediente {
             TablaFases.addColumn("FASE PROCESO");
             TablaFases.addColumn("FASE SENTENCIA");
             
-            String sql = "EXECUTE Fases "+ YEAR;
+            String sql = "EXECUTE FASECURSOR "+ YEAR;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
@@ -153,25 +153,48 @@ public class Expediente {
         return TablaFases;
     }
      
-      public ArrayList consultarAsignados(int id, String MesDesde, String AnioDesde, String MesHasta, String AnioHasta, int parametro){
+      public ArrayList consultarAsignados(int id, int MesDesde, int AnioDesde, int parametro){
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
         ArrayList dato = new ArrayList();
-        try {           
-            String sql = "EXECUTE AsignacionesJuridicos "+id+", "+MesDesde+", "+AnioDesde+", "+MesHasta+", "+AnioHasta+", "+parametro;
+        try {           //1,3,2003,0
+            String sql = "EXECUTE Asignaciones  "+id+", "+MesDesde+", "+AnioDesde+", "+parametro;
             //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA FROM EXPEDIENTE WHERE NUMEROEXPEDIENTE = 500";
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
                 dato.add(rs.getString(1)); //nombre
                 dato.add(rs.getString(2)); //apellido
-                dato.add(rs.getString(3)); //total entre fechas
-                dato.add(rs.getString(4)); //promedio de holgura
-                dato.add(rs.getString(5)); //promedio de vencidos
+                dato.add(rs.getInt(3)); //total entre fechas
+                dato.add(rs.getInt(4)); //promedio de holgura
+                dato.add(rs.getInt(5)); //promedio de vencidos
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
        return dato;
     }     
+
+       public ArrayList Mapa(int id, int MesDesde, int AnioDesde, int parametro){
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        ArrayList dato = new ArrayList();
+        try {           //1,3,2003,0
+            String sql = "EXECUTE Asignaciones  "+id+", "+MesDesde+", "+AnioDesde+", "+parametro;
+            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA FROM EXPEDIENTE WHERE NUMEROEXPEDIENTE = 500";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                dato.add(rs.getString(1)); //nombre
+                dato.add(rs.getString(2)); //apellido
+                dato.add(rs.getInt(3)); //total entre fechas
+                dato.add(rs.getInt(4)); //promedio de holgura
+                dato.add(rs.getInt(5)); //promedio de vencidos
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+       return dato;
+    } 
+      
 }
