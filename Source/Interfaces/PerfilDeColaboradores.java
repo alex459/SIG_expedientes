@@ -10,9 +10,24 @@ import Clases.Juridico;
 import Controlador.ControladorClases;
 import Controlador.Validar;
 import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.export.JRHtmlExporter;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 /**
  *
  * @author Kevin
@@ -22,6 +37,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
     public int IDJURIDICO=1;
     public int ANIO=2005;
     PerfilDeColaboradoresParametros pcj = new PerfilDeColaboradoresParametros();
+    public boolean reporte=false;
     
     /**
      * Creates new form PerfilDeColaboradores
@@ -175,6 +191,11 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
 
         jButton3.setText("Informe");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(521, 410, 80, -1));
 
         pack();
@@ -229,6 +250,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         
         
         Juridico juridico = new Juridico();
+        this.IDJURIDICO=Integer.parseInt(VariablesGlobales.VARAUX1);
         this.ANIO=Integer.parseInt(VariablesGlobales.VARAUX2);
         JTable jTBL = new JTable(juridico.consultarJuridico(this.IDJURIDICO, this.ANIO));
         jTextField_IDJURIDICO.setText((String)jTBL.getModel().getValueAt(0, 0));
@@ -238,7 +260,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         jTextField_EXPEDIENTESFINALIZADOS.setText((String)jTBL.getModel().getValueAt(0, 4));
         jTextField_EXPEDIENTESPENDIENTES.setText((String)jTBL.getModel().getValueAt(0, 5));
         jTextField_ANIO.setText(Integer.toString(this.ANIO)); 
-        
+        reporte=true;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -248,6 +270,37 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        try{
+            if(reporte){
+            
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("PerfilColaborador.jasper");
+            Map parametros = new HashMap();
+            parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("IDJURIDICO", Integer.parseInt(jTextField_IDJURIDICO.getText())); //metiendo variables
+            parametros.put("ANIO", Integer.parseInt(jTextField_ANIO.getText())); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);    
+            //fin proceso jasper ---------------------------------------------------------------------------------
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
+            }
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
