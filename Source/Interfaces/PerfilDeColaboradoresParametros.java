@@ -9,7 +9,10 @@ package Interfaces;
 import Clases.Juez;
 import Clases.Juridico;
 import Controlador.ControladorClases;
+import Controlador.Validar;
+import Controlador.VariablesGlobales;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,11 +44,14 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
         tblJuridicos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtIdJuridicos = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JButton();
+        jComboBox_anio = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(47, 72, 85));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,9 +68,14 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
             }
         ));
         tblJuridicos.setSelectionBackground(new java.awt.Color(255, 255, 168));
+        tblJuridicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblJuridicosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblJuridicos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 375, 245));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 520, 245));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,7 +83,13 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         txtIdJuridicos.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        getContentPane().add(txtIdJuridicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 63, -1));
+        getContentPane().add(txtIdJuridicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 63, -1));
+
+        jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Año:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,27 +104,56 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
                 txtBuscarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 18, -1, -1));
+        getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
+
+        jComboBox_anio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+        getContentPane().add(jComboBox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, -1));
 
         jLabel3.setBackground(new java.awt.Color(47, 72, 85));
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bgr.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 310));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
-    if(txtIdJuridicos.getText().equals(""))
-    {
-    JOptionPane.showMessageDialog(this, "Ingrese un id de Juez");
+    Juridico juridico = new Juridico();
+    Validar v = new Validar();
+    
+    if(v.ValidarNumerico(txtIdJuridicos.getText()) && txtIdJuridicos.getText()!=""){
+        
+        JTable jTBL = new JTable(juridico.consultarJuridico
+        (
+                Integer.parseInt(txtIdJuridicos.getText()),
+                Integer.parseInt(jComboBox_anio.getSelectedItem().toString())
+        )
+       );
+       if(jTBL.getRowCount()==1){
+           
+         VariablesGlobales.VARAUX1=txtIdJuridicos.getText();
+         VariablesGlobales.VARAUX2=jComboBox_anio.getSelectedItem().toString();
+         this.dispose();
+       }else{
+           JOptionPane.showMessageDialog(null, "No hay informacion para ese año.\n Intente nuevamente.");
+       }   
+    
     }
-    else{
-         jco.setIdJuridicoSeleccionado(Integer.parseInt(txtIdJuridicos.getText()));
-         cc.AbrirPerfilDeColaboradores();
-        }
+
+             
+        
+    
+         
+       
     }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void tblJuridicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblJuridicosMouseClicked
+
+        //SELECCIONAR FILA DE LA TABLA Y AGREGARLA AL CAMPO ID JURIDICO.
+        txtIdJuridicos.setText(tblJuridicos.getValueAt(tblJuridicos.getSelectedRow(), 0).toString());
+        
+    }//GEN-LAST:event_tblJuridicosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -145,9 +191,11 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBox_anio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblJuridicos;
     private javax.swing.JButton txtBuscar;
