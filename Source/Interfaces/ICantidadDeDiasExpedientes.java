@@ -174,6 +174,5 @@ int anio;
 
   public void datos(){
       tblFases.setModel(exp.consultarFases(anio));      
-  }
-    
+  }  
 }
