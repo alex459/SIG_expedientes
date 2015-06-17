@@ -303,4 +303,34 @@ public TableModel consultarJuez(){
         return dato;
     }
     
+  public TableModel consultarJuezPorGenero(String genero, int tipoOrden, int Orden){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaJuez = new DefaultTableModel();
+        try {
+            TablaJuez.addColumn("NOMBRE");
+            TablaJuez.addColumn("APELLIDO");
+            TablaJuez.addColumn("APELLIDOJUEZ");
+            TablaJuez.addColumn("DENUNCIAS ADMITIDAS");          
+            TablaJuez.addColumn("DENUNCIAS OMITIDAS");          
+            TablaJuez.addColumn("DENUNCIAS TOTALES");          
+            String sql = "EXECUTE JuecesPorGenero "+ genero +", "+ tipoOrden +", "+ Orden;
+            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA, IDRESOLUCION FROM EXPEDIENTE";
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaJuez.getColumnCount()];//antes era 5
+                for (int i = 0; i < TablaJuez.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaJuez.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaJuez;
+    }
+  
 }
