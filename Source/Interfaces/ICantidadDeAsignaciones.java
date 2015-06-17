@@ -304,7 +304,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
     
     public void datos(){
         lista = new ArrayList();
-        lista.addAll(exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), cbMesDesde.getSelectedIndex()+1 , Integer.parseInt((String) cbAnioDesde.getSelectedItem()), cbIntervalo.getSelectedIndex()));
+        //lista.addAll(exp.consultarAsignados(Integer.parseInt(txtConsultar.getText()), cbMesDesde.getSelectedIndex()+1 , Integer.parseInt((String) cbAnioDesde.getSelectedItem()), cbIntervalo.getSelectedIndex()));
         
         
         System.out.println(cbMesDesde.getSelectedIndex()+1);
