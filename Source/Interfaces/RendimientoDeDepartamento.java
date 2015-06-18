@@ -185,8 +185,8 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel16.setText("Denuncias exoneradas:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 150, -1));
+        jLabel16.setText("Rendimiento del departamento");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 180, -1));
         getContentPane().add(jTextField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 80, -1));
         getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 80, -1));
         getContentPane().add(jTextField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 80, -1));
