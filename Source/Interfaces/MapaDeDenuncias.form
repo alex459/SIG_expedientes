@@ -117,7 +117,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -131,7 +131,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -145,7 +145,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -159,7 +159,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -173,7 +173,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -187,7 +187,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -201,7 +201,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -215,7 +215,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -229,7 +229,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -243,7 +243,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -257,7 +257,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -271,7 +271,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -285,7 +285,7 @@
               <Font name="Cambria" size="12" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;Ahuachapan &lt;br&gt; 15 denuncias &lt;br&gt; 7 omitidas &lt;br&gt; 6 admitidas &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;departamento &lt;br&gt; N# denuncias &lt;br&gt; N# omitidas &lt;br&gt; N# admitidas&lt;/center&gt; &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

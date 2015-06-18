@@ -88,67 +88,67 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel4.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 110, 70));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel6.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 110, 70));
 
         jLabel7.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel7.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, 70));
 
         jLabel8.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel8.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 110, 70));
 
         jLabel9.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel9.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, 70));
 
         jLabel10.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel10.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 110, 70));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel11.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 110, 70));
 
         jLabel12.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel12.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 110, 70));
 
         jLabel13.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel13.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, 70));
 
         jLabel14.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel14.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 110, 70));
 
         jLabel15.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel15.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 110, 70));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel16.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 110, 70));
 
         jLabel17.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("<html>Ahuachapan <br> 15 denuncias <br> 7 omitidas <br> 6 admitidas </html>");
+        jLabel17.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 110, 70));
 
         jLabel_mapa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
