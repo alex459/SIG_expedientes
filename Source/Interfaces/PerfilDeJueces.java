@@ -254,7 +254,7 @@ public class PerfilDeJueces extends javax.swing.JFrame {
             ventanavisor.setVisible(true);
                
            }catch(Exception e){
-               JOptionPane.showMessageDialog(null, "Error: "+e);
+               JOptionPane.showMessageDialog(null, "jasper error:"+e);
                }
                     
 

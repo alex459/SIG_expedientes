@@ -256,7 +256,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "error"+e);
+            JOptionPane.showMessageDialog(null, "jasper error:"+e);
         }
         
     }//GEN-LAST:event_txtImprimirActionPerformed
