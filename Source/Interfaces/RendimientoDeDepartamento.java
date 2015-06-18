@@ -6,12 +6,31 @@
 
 package Interfaces;
 
+import Clases.RendimientoDepartamento;
+import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author Kevin
  */
 public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
+    
+    public boolean reporteV=false;
+    
+    
+    
     /**
      * Creates new form RendimientoDeDepartamento
      */
@@ -30,104 +49,62 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        cbIntervalo = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblRendimientoDto = new javax.swing.JTable();
         cbDiaDesde = new javax.swing.JComboBox();
-        cbMesDesde = new javax.swing.JComboBox();
-        cbYearDesde = new javax.swing.JComboBox();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel14 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtImprimir = new javax.swing.JButton();
         txtGenerar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField04 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField02 = new javax.swing.JTextField();
+        jTextField03 = new javax.swing.JTextField();
+        jTextField07 = new javax.swing.JTextField();
+        jTextField05 = new javax.swing.JTextField();
+        jTextField06 = new javax.swing.JTextField();
+        jTextField01 = new javax.swing.JTextField();
+        jTextField08 = new javax.swing.JTextField();
+        jTextField09 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(574, 500));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("RENDIMIENTO DEL DEPARTAMENTO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel11.setText("Fecha desde");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 125, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel12.setText("Fecha hasta");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 165, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel5.setText("Intervalo");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
-
-        cbIntervalo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 140, 110, -1));
-
-        tblRendimientoDto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tblRendimientoDto);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 205, 618, 280));
+        jLabel11.setText("Año");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 70, -1));
 
         cbDiaDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbDiaDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbDiaDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
-
-        cbMesDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(cbMesDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
-
-        cbYearDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbYearDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbYearDesde.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbYearDesdeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbYearDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
-
-        jComboBox1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-
-        jComboBox2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
-
-        jComboBox3.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+        cbDiaDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", " " }));
+        getContentPane().add(cbDiaDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 70, -1));
 
         jLabel13.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 33, 32));
-        jLabel13.setText("Parámetros");
+        jLabel13.setText("Seleccione el año.");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jSeparator1.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 10));
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 20, 60));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 510, 10));
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
@@ -135,33 +112,154 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(47, 72, 85));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 70));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 70));
 
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtImprimir.setText("Imprimir");
-        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, -1, -1));
+        txtImprimir.setText("Informe");
+        txtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, -1, -1));
 
         txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtGenerar.setText("Generar");
+        txtGenerar.setText("Consultar");
         txtGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenerarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
+        getContentPane().add(txtGenerar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 640, 20));
+
+        jSeparator3.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 510, 10));
+
+        jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Denuncias omitidas:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 150, -1));
+
+        jLabel4.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Total de denuncias: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 150, -1));
+
+        jLabel5.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel5.setText("Denuncias admitidas:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 150, -1));
+
+        jLabel7.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Denuncias exoneradas:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 150, -1));
+
+        jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel8.setText("Denuncias con amonestacion");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 150, -1));
+
+        jLabel9.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel9.setText("Denuncias con suspencion:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 150, -1));
+
+        jLabel10.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel10.setText("Denuncias con remoscion:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 150, -1));
+
+        jLabel12.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel12.setText("Denuncias vencidas:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 150, -1));
+
+        jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("Denuncias enviadas a tiempo:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 170, -1));
+
+        jLabel16.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel16.setText("Denuncias exoneradas:");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 150, -1));
+        getContentPane().add(jTextField04, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 80, -1));
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 80, -1));
+        getContentPane().add(jTextField02, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 80, -1));
+        getContentPane().add(jTextField03, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 80, -1));
+        getContentPane().add(jTextField07, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 80, -1));
+        getContentPane().add(jTextField05, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 80, -1));
+        getContentPane().add(jTextField06, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 80, -1));
+        getContentPane().add(jTextField01, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 80, -1));
+        getContentPane().add(jTextField08, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 240, 80, -1));
+        getContentPane().add(jTextField09, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 80, -1));
+
+        jLabel17.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("<html><center>Calculo del rendimiento Es igual a la division <br>de las denuncias enviadas a tiempo entre <br> denuncias totales.</center></html>");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 260, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
-        // TODO add your handling code here:
+        
+        RendimientoDepartamento rd = new RendimientoDepartamento();
+        
+        JTable jTBL = new JTable(rd.consultarRendimientoDepartamentoPorAnio(Integer.parseInt(cbDiaDesde.getSelectedItem().toString()) ));
+
+        if(jTBL.getRowCount()==1){
+        jTextField01.setText((String)jTBL.getModel().getValueAt(0, 1));
+        jTextField02.setText((String)jTBL.getModel().getValueAt(0, 2));
+        jTextField03.setText((String)jTBL.getModel().getValueAt(0, 3));
+        jTextField04.setText((String)jTBL.getModel().getValueAt(0, 4));
+        jTextField05.setText((String)jTBL.getModel().getValueAt(0, 5));
+        jTextField06.setText((String)jTBL.getModel().getValueAt(0, 6));
+        jTextField07.setText((String)jTBL.getModel().getValueAt(0, 7));
+        jTextField08.setText((String)jTBL.getModel().getValueAt(0, 8));
+        jTextField09.setText((String)jTBL.getModel().getValueAt(0, 9));
+        jTextField10.setText((String)jTBL.getModel().getValueAt(0, 10));
+        reporteV=true;
+                
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Juez no encontrado");
+            }
+        
+        
 
     }//GEN-LAST:event_txtGenerarActionPerformed
 
-    private void cbYearDesdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbYearDesdeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbYearDesdeActionPerformed
+    private void txtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirActionPerformed
+        
+        try{
+            if(reporteV){
+            
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("RendimientoDepartamento.jasper");
+            Map parametros = new HashMap();
+            parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("ANIO", Integer.parseInt(cbDiaDesde.getSelectedItem().toString())); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);    
+            //fin proceso jasper ---------------------------------------------------------------------------------
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error"+e);
+        }
+        
+    }//GEN-LAST:event_txtImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,24 +298,35 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbDiaDesde;
-    private javax.swing.JComboBox cbIntervalo;
-    private javax.swing.JComboBox cbMesDesde;
-    private javax.swing.JComboBox cbYearDesde;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable tblRendimientoDto;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField jTextField01;
+    private javax.swing.JTextField jTextField02;
+    private javax.swing.JTextField jTextField03;
+    private javax.swing.JTextField jTextField04;
+    private javax.swing.JTextField jTextField05;
+    private javax.swing.JTextField jTextField06;
+    private javax.swing.JTextField jTextField07;
+    private javax.swing.JTextField jTextField08;
+    private javax.swing.JTextField jTextField09;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
