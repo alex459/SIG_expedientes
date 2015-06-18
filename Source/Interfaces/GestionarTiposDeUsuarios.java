@@ -41,8 +41,13 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
         btnIngresarTipo = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblConsultar = new javax.swing.JTable();
+        btnIngresarTipo1 = new javax.swing.JButton();
+        txtDescripcionTipoUsuario1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel4.setBackground(new java.awt.Color(47, 72, 85));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
@@ -61,28 +66,28 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         jLabel2.setText("ID Tipo De Usuario");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel3.setText("Descripción ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jLabel3.setText("Privilegio");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         txtIdTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtIdTipoUsuario.setToolTipText("Ej: 01");
-        getContentPane().add(txtIdTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 50, -1));
+        getContentPane().add(txtIdTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 50, -1));
 
         txtDescripcionTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtDescripcionTipoUsuario.setToolTipText("Ej: Usuario técnico");
-        getContentPane().add(txtDescripcionTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 200, -1));
+        getContentPane().add(txtDescripcionTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 80, -1));
 
         btnIngresarTipo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        btnIngresarTipo.setText("Ingresar");
+        btnIngresarTipo.setText("Eliminar");
         btnIngresarTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIngresarTipoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnIngresarTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+        getContentPane().add(btnIngresarTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
@@ -91,8 +96,39 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(47, 72, 85));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 70));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 410, 50));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 410, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 410, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 410, 50));
+
+        tblConsultar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "Administrador", "1"},
+                {"2", "Gerencial", "2"},
+                {"3", "Táctico", "3"}
+            },
+            new String [] {
+                "ID TIPO", "DESCRIPCION", "PRIVILEGIO"
+            }
+        ));
+        jScrollPane1.setViewportView(tblConsultar);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 370, 90));
+
+        btnIngresarTipo1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        btnIngresarTipo1.setText("Agregar");
+        btnIngresarTipo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarTipo1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIngresarTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
+
+        txtDescripcionTipoUsuario1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtDescripcionTipoUsuario1.setToolTipText("Ej: Usuario técnico");
+        getContentPane().add(txtDescripcionTipoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 230, -1));
+
+        jLabel8.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        jLabel8.setText("Descripción ");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -109,6 +145,10 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error al ingresar el tipo de usuario");
         }
     }//GEN-LAST:event_btnIngresarTipoActionPerformed
+
+    private void btnIngresarTipo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarTipo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIngresarTipo1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +187,7 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresarTipo;
+    private javax.swing.JButton btnIngresarTipo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -156,7 +197,11 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblConsultar;
     private javax.swing.JTextField txtDescripcionTipoUsuario;
+    private javax.swing.JTextField txtDescripcionTipoUsuario1;
     private javax.swing.JTextField txtIdTipoUsuario;
     // End of variables declaration//GEN-END:variables
 }
