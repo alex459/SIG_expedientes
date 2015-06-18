@@ -133,7 +133,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         jComboBox_anio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
-        getContentPane().add(jComboBox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 50, -1));
+        getContentPane().add(jComboBox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,8 +142,8 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
 
         
         ComparativoDeRendimiento cr = new ComparativoDeRendimiento();
-            if(jTBL.getRowCount()>1){
             jTBL.setModel(cr.consultarRendimientoComparativo(this.ANIO));
+            if(jTBL.getRowCount()>=1){
             reporteV=true;
             }else{
                 JOptionPane.showMessageDialog(rootPane, "El año ingresado no posee registros");
