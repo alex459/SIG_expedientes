@@ -97,7 +97,7 @@ public class Expediente {
         this.diasparavencerse = diasparavencerse;
     }
 
-     public TableModel consultarVencimiento(java.util.Date fecha , int day){
+     public TableModel consultarVencimiento(int fechaA,int fechaM, int fechaD , int day){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
@@ -108,7 +108,8 @@ public class Expediente {
             TablaVencimiento.addColumn("FECHADENUNCIA");
             TablaVencimiento.addColumn("FECHAVENCIMIENTO");          
             TablaVencimiento.addColumn("VENCE EN (DIAS)");          
-            String sql = "EXECUTE ExpedientesQueVenceran "+"'"+fecha+"'"+", "+day;
+           // String sql = "EXECUTE ExpedientesQueVenceran "+"'"+fecha+"'"+", "+day;
+              String sql = "EXECUTE ExpedientesQueVenceran '01-01-2010' , "+day;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
@@ -124,21 +125,36 @@ public class Expediente {
 
         return TablaVencimiento;
     }
-    
 
      public TableModel consultarFases(int YEAR){
-        
+        String sql;
+        PreparedStatement cmd;
+        ResultSet rs;
         ControladorBD con = new ControladorBD();
-        cn = con.AbrirConexion();
+//        try {
+//        cn = con.AbrirConexion();
+//            sql = "TRUNCATE TABLE TEMPORAL";
+//            cmd = cn.prepareStatement(sql);
+//            rs = cmd.executeQuery();
+//        }catch(Exception ex){
+//            JOptionPane.showMessageDialog(null, "ERROR:" + ex);
+//        }
         DefaultTableModel TablaFases = new DefaultTableModel();
         try {
-            TablaFases.addColumn("FASE INCIO");
-            TablaFases.addColumn("FASE PROCESO");
-            TablaFases.addColumn("FASE SENTENCIA");
+           // TablaFases.addColumn("fase");
+           // TablaFases.addColumn("promedio");
+           // TablaFases.addColumn("mes");
             
-            String sql = "EXECUTE FASECURSOR "+ YEAR;
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            ResultSet rs = cmd.executeQuery();
+            TablaFases.addColumn("Fase Inicial");
+            TablaFases.addColumn("Fase de Proceso");
+            TablaFases.addColumn("Fase de Sentencia");
+            
+            
+        cn = con.AbrirConexion();
+            //sql = "EXECUTE FASECURSOR "+ YEAR;
+              sql = "EXECUTE FASES "+ YEAR;
+            cmd = cn.prepareStatement(sql);
+            rs = cmd.executeQuery();
             while (rs.next()) {
                 Object dato[] = new Object[TablaFases.getColumnCount()];
                 for (int i = 0; i < TablaFases.getColumnCount(); i++) {
@@ -196,5 +212,65 @@ public class Expediente {
         }
        return dato;
     } 
-      
+        public TableModel RedimientoExp(java.util.Date fecha1,java.util.Date fecha2, int orden){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaVencimiento = new DefaultTableModel();
+        try {
+            TablaVencimiento.addColumn("Numero de Expediente");
+            TablaVencimiento.addColumn("Nombre Juridico");
+            TablaVencimiento.addColumn("Apellido Juridico");
+            TablaVencimiento.addColumn("Nombre Juez");
+            TablaVencimiento.addColumn("Apellido Juez");
+            
+            String sql = "EXECUTE RENDIMIENTOEXPEDIENTE '20100101', '20110101', "+orden;
+       //   String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 +", "+ fecha2 + ", " + 1;
+       //   String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 + ", "+ fecha2 + ", " + orden;
+            
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaVencimiento.getColumnCount()];
+                for (int i = 0; i < TablaVencimiento.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaVencimiento.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaVencimiento;
+    }
+
+     public TableModel MapaDenuncias(java.util.Date fecha1,java.util.Date fecha2, int dep){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaDenuncias = new DefaultTableModel();
+        try {
+            TablaDenuncias.addColumn("CantTotal");
+            TablaDenuncias.addColumn("DenunciasOmitidas");
+            TablaDenuncias.addColumn("DenunciasAdmitidas");
+            
+          String sql = "EXECUTE MAPA "+ dep +" '20000101', '20110101'";
+           // String sql = "EXECUTE MAPA "+fecha1+","+fecha2+","+ dep;
+           // String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 +", "+ fecha2 + ", " + 1;
+           // String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 + ", "+ fecha2 + ", " + orden;
+            
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaDenuncias.getColumnCount()];
+                for (int i = 0; i < TablaDenuncias.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaDenuncias.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }      
+        return TablaDenuncias;
+    }  
 }

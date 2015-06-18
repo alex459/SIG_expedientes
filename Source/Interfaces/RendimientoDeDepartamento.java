@@ -81,6 +81,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("RENDIMINETO DEL DEPARTAMENTO");
         setPreferredSize(new java.awt.Dimension(574, 500));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,6 +97,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
 
         cbDiaDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbDiaDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", " " }));
+        cbDiaDesde.setToolTipText("Seleccionar");
         getContentPane().add(cbDiaDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 70, -1));
 
         jLabel13.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N

@@ -85,12 +85,13 @@ public class PerfilDeJueces extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("PERFIL DE JUEZ");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(47, 72, 85));
-        jLabel1.setFont(new java.awt.Font("Cambria", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Perfil de Juez");
+        jLabel1.setText("PERFIL DE JUEZ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 19, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 2, 14)); // NOI18N
@@ -130,6 +131,7 @@ public class PerfilDeJueces extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
         txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        txtIdJuez.setToolTipText("Ingrese un Id de un juez");
         getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 86, -1));
 
         txtApellido.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
@@ -235,7 +237,7 @@ public class PerfilDeJueces extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+      
            try{
                
             //conectandose a la base
@@ -257,7 +259,6 @@ public class PerfilDeJueces extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null, "jasper error:"+e);
                }
                     
-
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -48,6 +48,7 @@ int anio;
         jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("PROMEDIO DE FASES DE LOS EXPEDIENTES");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblFases.setModel(new javax.swing.table.DefaultTableModel(
@@ -116,6 +117,7 @@ int anio;
     private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
         // TODO add your handling code here:
         anio = jyearEvaluacion.getYear();
+       // System.out.println(anio);
         datos();
 
     }//GEN-LAST:event_txtBuscarActionPerformed

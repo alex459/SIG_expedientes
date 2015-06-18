@@ -62,6 +62,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("GESTIONAR USUARIO");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
@@ -86,9 +87,11 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         txtIdUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtIdUsuario.setToolTipText("Ej: 01");
         getContentPane().add(txtIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 40, -1));
 
         txtTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtTipoUsuario.setToolTipText("");
         txtTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTipoUsuarioActionPerformed(evt);
@@ -97,9 +100,11 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         getContentPane().add(txtTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 120, -1));
 
         txtNombreUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtNombreUsuario.setToolTipText("Ej: Usuario01");
         getContentPane().add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 225, -1));
 
         txtClave.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtClave.setToolTipText("");
         getContentPane().add(txtClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 225, -1));
 
         btnIngresarUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -113,6 +118,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
         btnLimpiar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setToolTipText("Limpia los campos de la pantalla");
         btnLimpiar.setPreferredSize(new java.awt.Dimension(77, 23));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +146,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
 
         btnConsultar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         btnConsultar.setText("Consultar");
+        btnConsultar.setToolTipText("Consulta los usuarios existentes en la base de datos");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultarActionPerformed(evt);

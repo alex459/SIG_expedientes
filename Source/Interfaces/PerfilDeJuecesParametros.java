@@ -45,6 +45,7 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CONSULTA JUECES");
         setBackground(new java.awt.Color(47, 72, 85));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -71,6 +72,7 @@ public class PerfilDeJuecesParametros extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         txtIdJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtIdJuez.setToolTipText("Ingrese un Id ");
         getContentPane().add(txtIdJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 63, -1));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N

@@ -50,13 +50,15 @@ public class LoginUser extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LOGIN DE USUARIO");
         setBounds(new java.awt.Rectangle(0, 0, 540, 250));
-        setMinimumSize(new java.awt.Dimension(519, 250));
-        setPreferredSize(new java.awt.Dimension(519, 220));
+        setMinimumSize(new java.awt.Dimension(549, 250));
+        setPreferredSize(new java.awt.Dimension(510, 240));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BtnIngresar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -66,10 +68,11 @@ public class LoginUser extends javax.swing.JFrame {
                 BtnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, -1, -1));
+        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
         BtnCerrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         BtnCerrar.setText("Cerrar");
+        BtnCerrar.setToolTipText("Salir");
         BtnCerrar.setMaximumSize(new java.awt.Dimension(77, 23));
         BtnCerrar.setMinimumSize(new java.awt.Dimension(77, 23));
         BtnCerrar.setPreferredSize(new java.awt.Dimension(77, 23));
@@ -78,7 +81,7 @@ public class LoginUser extends javax.swing.JFrame {
                 BtnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        getContentPane().add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +93,7 @@ public class LoginUser extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         jTextFieldUsuario.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
-        jTextFieldUsuario.setToolTipText("");
+        jTextFieldUsuario.setToolTipText("Escriba su nombre de usuario");
         jTextFieldUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 370, -1));
 
@@ -99,6 +102,7 @@ public class LoginUser extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jPasswordClave.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
+        jPasswordClave.setToolTipText("Escriba su contraseña");
         jPasswordClave.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jPasswordClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 370, -1));
 
@@ -118,13 +122,15 @@ public class LoginUser extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 145, 0, 0));
 
         jButton1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Tuerca_de_opciones_16.png"))); // NOI18N
         jButton1.setText("Servidor");
+        jButton1.setToolTipText("Cambia el servidor de conexión");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 2, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
@@ -134,20 +140,21 @@ public class LoginUser extends javax.swing.JFrame {
                 jLabel4PropertyChange(evt);
             }
         });
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CONTROL DE EXPEDIENTES A JUECES");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 680, 10));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 0, 240));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 70));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -244,6 +251,7 @@ public class LoginUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordClave;
     private javax.swing.JScrollPane jScrollPane1;

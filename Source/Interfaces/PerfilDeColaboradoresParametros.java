@@ -6,7 +6,6 @@
 
 package Interfaces;
 
-import Clases.Juez;
 import Clases.Juridico;
 import Controlador.ControladorClases;
 import Controlador.Validar;
@@ -51,6 +50,7 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CONSULTA COLABORADORES JURIDICOS");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(47, 72, 85));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,6 +83,7 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 11, -1, -1));
 
         txtIdJuridicos.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtIdJuridicos.setToolTipText("Ingrese un ID");
         getContentPane().add(txtIdJuridicos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 63, -1));
 
         jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -107,6 +108,7 @@ public class PerfilDeColaboradoresParametros extends javax.swing.JFrame {
         getContentPane().add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
 
         jComboBox_anio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+        jComboBox_anio.setToolTipText("Seleccionar");
         getContentPane().add(jComboBox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 70, -1));
 
         jLabel3.setBackground(new java.awt.Color(47, 72, 85));

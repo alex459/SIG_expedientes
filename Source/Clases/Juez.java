@@ -331,5 +331,33 @@ public TableModel consultarJuez(){
 
         return TablaJuez;
     }
+    public TableModel consultarDenunciasPorJuez(java.util.Date fecha1 , java.util.Date fecha2, int parametro){
+        
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaJuez = new DefaultTableModel();
+        try {
+            TablaJuez.addColumn("Fecha denuncia");    
+            TablaJuez.addColumn("Nombre");
+            TablaJuez.addColumn("Apellido");
+            TablaJuez.addColumn("Dependencia");
+                  
+            //String sql = "execute JuecesPorGenero 'M',1,1";
+            String sql = "EXECUTE DenunciasPorJuez '01-jun-2000', '01-may-2010', "+ parametro;
+            PreparedStatement cmd = cn.prepareStatement(sql);
+            ResultSet rs = cmd.executeQuery();
+            while (rs.next()) {
+                Object dato[] = new Object[TablaJuez.getColumnCount()];//antes era 5
+                for (int i = 0; i < TablaJuez.getColumnCount(); i++) {
+                    dato[i] = rs.getString(i + 1);
+                }
+                TablaJuez.addRow(dato);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
+
+        return TablaJuez;
+    }
   
 }

@@ -51,6 +51,7 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/little logo.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("TIPOS DE USUARIO");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
@@ -67,9 +68,11 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         txtIdTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtIdTipoUsuario.setToolTipText("Ej: 01");
         getContentPane().add(txtIdTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 50, -1));
 
         txtDescripcionTipoUsuario.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        txtDescripcionTipoUsuario.setToolTipText("Ej: Usuario técnico");
         getContentPane().add(txtDescripcionTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 200, -1));
 
         btnIngresarTipo.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N

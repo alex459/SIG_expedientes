@@ -82,6 +82,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         txtConsultar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ASIGNACIONES DE EXPEDIENTES");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
@@ -101,6 +102,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         txtGenerar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtGenerar.setText("Agregar");
+        txtGenerar.setToolTipText("Agrega un nuevo colaborador al listado");
         txtGenerar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenerarActionPerformed(evt);
@@ -146,6 +148,7 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
 
         btnConsulta.setText("Consultar");
+        btnConsulta.setToolTipText("Consulta los colaboradores existentes en la base de datos");
         btnConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultaActionPerformed(evt);
@@ -163,10 +166,12 @@ public class ICantidadDeAsignaciones extends javax.swing.JFrame {
 
         cbMesDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbMesDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbMesDesde.setToolTipText("Mes");
         getContentPane().add(cbMesDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         cbAnioDesde.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbAnioDesde.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbAnioDesde.setToolTipText("Año");
         getContentPane().add(cbAnioDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
         getContentPane().add(txtConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 80, -1));
 

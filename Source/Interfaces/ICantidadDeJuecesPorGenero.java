@@ -55,6 +55,7 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         txtTipoOrden = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("JUECES POR GENERO");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
@@ -115,6 +116,7 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 70));
 
         cbOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbOrden.setToolTipText("ASC o DESC");
         getContentPane().add(cbOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 100, -1));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -127,6 +129,8 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
 
         cbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 100, -1));
+
+        txtTipoOrden.setToolTipText("Seleccione la cantidad de denuncias");
         getContentPane().add(txtTipoOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 100, -1));
 
         pack();

@@ -6,26 +6,27 @@
 
 package Interfaces;
 
-import Clases.Expediente;
-import java.text.SimpleDateFormat;
+import Clases.Juez;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Kevin
  */
 public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
-Expediente exp = new Expediente();
+    
+    Juez jz = new Juez();
     int intervalo;
-    Date fecha;
-    SimpleDateFormat formato;
+    Date fecha1;
+    Date fecha2;
+//  SimpleDateFormat formato;
     
     /**
      * Creates new form RendimientoDeExpediente
      */
     public ICantidadDeDenunciasPorJuez() {
         initComponents();
+        llenarIntervalo();
     }
 
     /**
@@ -38,7 +39,7 @@ Expediente exp = new Expediente();
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblRendimientoExp = new javax.swing.JTable();
+        tblDenunciaPorJuez = new javax.swing.JTable();
         txtGenerar = new javax.swing.JButton();
         txtImprimir = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -46,7 +47,7 @@ Expediente exp = new Expediente();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cbIntervaloRendimiento = new javax.swing.JComboBox();
+        cbDenunciaPorJuez = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
@@ -57,9 +58,10 @@ Expediente exp = new Expediente();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("CANTIDAD DE DENUNCIAS POR JUEZ");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
+        tblDenunciaPorJuez.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -70,7 +72,7 @@ Expediente exp = new Expediente();
 
             }
         ));
-        jScrollPane1.setViewportView(tblRendimientoExp);
+        jScrollPane1.setViewportView(tblDenunciaPorJuez);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 199, 616, 280));
 
@@ -104,17 +106,17 @@ Expediente exp = new Expediente();
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel6.setText("Intervalo");
+        jLabel6.setText("Denuncia");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
-        cbIntervaloRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbIntervaloRendimiento.addActionListener(new java.awt.event.ActionListener() {
+        cbDenunciaPorJuez.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cbDenunciaPorJuez.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbDenunciaPorJuez.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbIntervaloRendimientoActionPerformed(evt);
+                cbDenunciaPorJuezActionPerformed(evt);
             }
         });
-        getContentPane().add(cbIntervaloRendimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
+        getContentPane().add(cbDenunciaPorJuez, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 33, 32));
@@ -135,6 +137,8 @@ Expediente exp = new Expediente();
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
+
+        jDateChooser1.setToolTipText("07-11-2014");
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 140, -1));
         getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
 
@@ -143,27 +147,18 @@ Expediente exp = new Expediente();
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
-        if(jDateChooser1.getDate() == null){
-
-            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
-            
-        }else{
-                    
-        fecha = jDateChooser1.getDate();
-        //formato = new SimpleDateFormat("yyyyMMd");
         
-        if(cbIntervaloRendimiento.getSelectedIndex()==0){
-            intervalo = 1;
-            
-        }else if (cbIntervaloRendimiento.getSelectedIndex()==1){
-            intervalo = 2;            
-            }
-        }
+        fecha1 =jDateChooser1.getDate();
+        fecha2 =jDateChooser1.getDate();
+        intervalo = cbDenunciaPorJuez.getSelectedIndex();
+        
+        datos();
+        
     }//GEN-LAST:event_txtGenerarActionPerformed
 
-    private void cbIntervaloRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervaloRendimientoActionPerformed
+    private void cbDenunciaPorJuezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbDenunciaPorJuezActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbIntervaloRendimientoActionPerformed
+    }//GEN-LAST:event_cbDenunciaPorJuezActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,7 +196,7 @@ Expediente exp = new Expediente();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbIntervaloRendimiento;
+    private javax.swing.JComboBox cbDenunciaPorJuez;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -216,19 +211,19 @@ Expediente exp = new Expediente();
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable tblRendimientoExp;
+    private javax.swing.JTable tblDenunciaPorJuez;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
 
     public void llenarIntervalo(){
-        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
+        cbDenunciaPorJuez.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Omisión", "Admisión","Exoneración","Amonestacion","Suspension","Remoción"}));
     }
     
     public void datos(){
         
-        //tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
-        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
-    }
+        tblDenunciaPorJuez.setModel(jz.consultarDenunciasPorJuez(fecha1, fecha2, intervalo));
+                
+   }
     
 }

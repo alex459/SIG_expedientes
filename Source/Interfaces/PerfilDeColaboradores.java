@@ -87,6 +87,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("PERFIL DE COLABORADOR JURIDICO");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
@@ -107,6 +108,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         jTextField_IDJURIDICO.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        jTextField_IDJURIDICO.setToolTipText("Buscar por Id");
         getContentPane().add(jTextField_IDJURIDICO, new org.netbeans.lib.awtextra.AbsoluteConstraints(515, 40, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -297,7 +299,7 @@ public class PerfilDeColaboradores extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "jasper error:"+e);
+            
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed

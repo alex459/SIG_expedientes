@@ -18,14 +18,18 @@ import javax.swing.JOptionPane;
 public class RendimientoDeExpedientes extends javax.swing.JFrame {
 Expediente exp = new Expediente();
     int intervalo;
-    Date fecha;
+    Date fecha1;
+    Date fecha2;
+    
     SimpleDateFormat formato;
+    
     
     /**
      * Creates new form RendimientoDeExpediente
      */
     public RendimientoDeExpedientes() {
         initComponents();
+        llenarIntervalo();
     }
 
     /**
@@ -57,6 +61,7 @@ Expediente exp = new Expediente();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("RENDIMIENTO DE EXPEDIENTES");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblRendimientoExp.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,11 +109,12 @@ Expediente exp = new Expediente();
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel6.setText("Intervalo");
+        jLabel6.setText("Denuncias");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         cbIntervaloRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbIntervaloRendimiento.setToolTipText("Seleccionar");
         cbIntervaloRendimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbIntervaloRendimientoActionPerformed(evt);
@@ -145,21 +151,24 @@ Expediente exp = new Expediente();
         // TODO add your handling code here:
      
         if(jDateChooser1.getDate() == null){
-
             JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
-            
         }else{
-                    
-        fecha = jDateChooser1.getDate();
-        //formato = new SimpleDateFormat("yyyyMMd");
-        
-        if(cbIntervaloRendimiento.getSelectedIndex()==0){
-            intervalo = 1;
-            
-        }else if (cbIntervaloRendimiento.getSelectedIndex()==1){
-            intervalo = 2;            
-            }
+                fecha1 = jDateChooser1.getDate();
+                
         }
+        if(jDateChooser2.getDate() == null){
+            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
+        }else{
+                fecha2 = jDateChooser2.getDate();
+        }
+        
+        if(jDateChooser1.getDate() == null & jDateChooser2.getDate() == null){
+            JOptionPane.showMessageDialog(this, "Llene los parametro de fechas");
+        }else{
+            datos();
+        }
+       
+        
     }//GEN-LAST:event_txtGenerarActionPerformed
 
     private void cbIntervaloRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervaloRendimientoActionPerformed
@@ -223,13 +232,15 @@ Expediente exp = new Expediente();
     // End of variables declaration//GEN-END:variables
 
     public void llenarIntervalo(){
-        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Mensual", "Anual"}));
+        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"ADMITIDOS", "OMITIDOS"}));
     }
     
     public void datos(){
+    SimpleDateFormat formato = new SimpleDateFormat("d-MMM-YYYY");
+        formato.format(fecha1);
+        formato.format(fecha2);
+    tblRendimientoExp.setModel(exp.RedimientoExp(fecha1, fecha2, cbIntervaloRendimiento.getSelectedIndex()));    
         
-    //    tblVencimiento.setModel(exp.consultarVencimiento(formato.format(fecha), dia));
-        //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
     
 }

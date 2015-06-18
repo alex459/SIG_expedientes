@@ -18,7 +18,9 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
 Expediente exp = new Expediente();
     int dia;
     Date fecha;
-    SimpleDateFormat formato;
+    SimpleDateFormat formatoA;
+    SimpleDateFormat formatoM;
+    SimpleDateFormat formatoD;
     /**
      * Creates new form IExpedientesQueVenceran
      */
@@ -53,6 +55,7 @@ Expediente exp = new Expediente();
         txtGenerar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("EXPEDIENTES QUE VENCERAN");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
@@ -112,6 +115,7 @@ Expediente exp = new Expediente();
 
         cbIntervalo.setEditable(true);
         cbIntervalo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbIntervalo.setToolTipText("Seleccione");
         getContentPane().add(cbIntervalo, new org.netbeans.lib.awtextra.AbsoluteConstraints(338, 140, 130, -1));
 
         txtGenerar1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
@@ -129,9 +133,15 @@ Expediente exp = new Expediente();
     private void txtGenerar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerar1ActionPerformed
         // TODO add your handling code here:
         fecha = jDateChooser1.getDate();
-        //formato = new SimpleDateFormat("yyyyMMd");
+        
+        formatoA = new SimpleDateFormat("yyyy");
+        formatoM = new SimpleDateFormat("MM");
+        formatoD = new SimpleDateFormat("d");
+        
+        
         //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
 
+       
         if(cbIntervalo.getSelectedIndex() == 0){
             dia = 5;
         }else if(cbIntervalo.getSelectedIndex() == 1){
@@ -203,7 +213,7 @@ Expediente exp = new Expediente();
 
     public void datos(){
         
-        tblVencimiento.setModel(exp.consultarVencimiento(fecha, dia));
+        tblVencimiento.setModel(exp.consultarVencimiento(Integer.parseInt(formatoA.toString()),Integer.parseInt(formatoM.toString()),Integer.parseInt(formatoD.toString()), dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }

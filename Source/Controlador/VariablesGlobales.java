@@ -12,8 +12,8 @@ package Controlador;
  */
 public class VariablesGlobales {
     
-   public static String serverName = "ZERBERUS\\SQLEXPRESS";
-   public static String tcpip = "1029";
+   public static String serverName = "KEVINPC\\SQLEXPRESS";
+   public static String tcpip = "51116";
    public static String IDUSUARIO = "";
    public static String IDTIPOUSUARIO = "";
    public static String NOMBREUSUARIO = "";
@@ -21,6 +21,5 @@ public class VariablesGlobales {
    public static String ESTADOUSUARIO = "";  
    public static String VARAUX1 = "";
    public static String VARAUX2 = "";
-   public static String VARAUX3 = "";
-    
+   public static String VARAUX3 = "";  
 }
