@@ -7,7 +7,17 @@
 package Interfaces;
 
 import Clases.ComparativoDeRendimiento;
+import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -15,9 +25,10 @@ import javax.swing.JOptionPane;
  */
 public class IComparativoDeRendimiento extends javax.swing.JFrame {
     public int ANIO=1995;
-    /**
-     * Creates new form IComparativoDeRendimiento
-     */
+   
+    public boolean reporteV=false;
+    
+    
     public IComparativoDeRendimiento() {
         initComponents();
     }
@@ -44,13 +55,19 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTBL = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jComboBox_anio = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        txtImprimir.setText("Imprimir");
-        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, -1, -1));
+        txtImprimir.setText("Informe");
+        txtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -58,7 +75,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel11.setText("Fecha desde");
+        jLabel11.setText("Año:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
@@ -74,7 +91,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 210, 10));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 20, 60));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 20, 60));
 
         jLabel2.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,7 +100,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(47, 72, 85));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 70));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 70));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 710, 10));
 
         jTBL.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,7 +121,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTBL);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 640, 310));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 760, 330));
 
         jButton1.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         jButton1.setText("Buscar por año");
@@ -113,36 +130,60 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
+
+        jComboBox_anio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015" }));
+        getContentPane().add(jComboBox_anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 50, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        boolean validarA = false;
+        
         ComparativoDeRendimiento cr = new ComparativoDeRendimiento();
-
-        try{
-            this.ANIO= Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año a consultar (desde 1995 hasta la fecha):"));
-
-            if(ANIO<1995 && ANIO > 2015){
-                this.ANIO= Integer.parseInt(JOptionPane.showInputDialog("Error. El año debe estar entre 1995 hasta 2015:"));
-            }else{
-                validarA = true;
-            }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Error. El Año debe ser numerico desde 1995");
-        }
-
-        if(validarA){
+            if(jTBL.getRowCount()>1){
             jTBL.setModel(cr.consultarRendimientoComparativo(this.ANIO));
-            if(jTBL.getRowCount()<1){
+            reporteV=true;
+            }else{
                 JOptionPane.showMessageDialog(rootPane, "El año ingresado no posee registros");
+                reporteV=false;
             }
-        }
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirActionPerformed
+       
+        
+        try{
+            if(reporteV){
+            
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("ComparativoDeRendimiento.jasper");
+            Map parametros = new HashMap();
+            parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("ANIO", Integer.parseInt(jComboBox_anio.getSelectedItem().toString())); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);    
+            //fin proceso jasper ---------------------------------------------------------------------------------
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Para generar un reporte primero oprima el Aceptar");
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error"+e);
+        }
+        
+        
+    }//GEN-LAST:event_txtImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +222,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox jComboBox_anio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
