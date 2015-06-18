@@ -18,9 +18,7 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
 Expediente exp = new Expediente();
     int dia;
     Date fecha;
-    SimpleDateFormat formatoA;
-    SimpleDateFormat formatoM;
-    SimpleDateFormat formatoD;
+
     /**
      * Creates new form IExpedientesQueVenceran
      */
@@ -133,12 +131,7 @@ Expediente exp = new Expediente();
     private void txtGenerar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerar1ActionPerformed
         // TODO add your handling code here:
         fecha = jDateChooser1.getDate();
-        
-        formatoA = new SimpleDateFormat("yyyy");
-        formatoM = new SimpleDateFormat("MM");
-        formatoD = new SimpleDateFormat("d");
-        
-        
+      
         //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
 
        
@@ -213,7 +206,7 @@ Expediente exp = new Expediente();
 
     public void datos(){
         
-        tblVencimiento.setModel(exp.consultarVencimiento(Integer.parseInt(formatoA.toString()),Integer.parseInt(formatoM.toString()),Integer.parseInt(formatoD.toString()), dia));
+        tblVencimiento.setModel(exp.consultarVencimiento(fecha, dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }

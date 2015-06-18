@@ -97,7 +97,7 @@ public class Expediente {
         this.diasparavencerse = diasparavencerse;
     }
 
-     public TableModel consultarVencimiento(int fechaA,int fechaM, int fechaD , int day){
+     public TableModel consultarVencimiento(java.util.Date fecha, int day){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
@@ -191,12 +191,14 @@ public class Expediente {
        return dato;
     }     
 
-       public ArrayList Mapa(int id, int MesDesde, int AnioDesde, int parametro){
+       public ArrayList Mapa(int dep, java.util.Date f1, java.util.Date f2){
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
         ArrayList dato = new ArrayList();
         try {           //1,3,2003,0
-            String sql = "EXECUTE Asignaciones  "+id+", "+MesDesde+", "+AnioDesde+", "+parametro;
+            
+            String sql = "EXECUTE Mapa  "+dep+", 19950101, 20110101";
+            //String sql = "EXECUTE Mapa  "+dep+", "+f1+", "+f2;
             //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO, IDDENUNCIA FROM EXPEDIENTE WHERE NUMEROEXPEDIENTE = 500";
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
@@ -254,7 +256,7 @@ public class Expediente {
             TablaDenuncias.addColumn("DenunciasOmitidas");
             TablaDenuncias.addColumn("DenunciasAdmitidas");
             
-          String sql = "EXECUTE MAPA "+ dep +" '20000101', '20110101'";
+          String sql = "EXECUTE MAPA "+ dep +", '20000101', '20110101'";
            // String sql = "EXECUTE MAPA "+fecha1+","+fecha2+","+ dep;
            // String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 +", "+ fecha2 + ", " + 1;
            // String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 + ", "+ fecha2 + ", " + orden;

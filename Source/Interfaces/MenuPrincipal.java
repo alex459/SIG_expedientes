@@ -65,7 +65,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         frmGestionarUsuarios = new javax.swing.JMenuItem();
         frmGestionarTipoDeUsuario = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("CORTE SUPREMA DE JUSTICIA - CONTROL DE DENUNCIAS A LOS JUECES- SISTEMA DE INFORMACION GERENCIAL");
@@ -284,10 +283,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(frmGestionarTipoDeUsuario);
 
-        jMenuItem5.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jMenuItem5.setText("Modificar datos personales");
-        jMenu6.add(jMenuItem5);
-
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -494,7 +489,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
