@@ -313,9 +313,9 @@ public TableModel consultarJuez(){
             TablaJuez.addColumn("NOMBRE");
             TablaJuez.addColumn("APELLIDO");
             TablaJuez.addColumn("DENUNCIAS TOTALES");          
-            String sql = "execute JuecesPorGenero 'M',1,1";
+            //String sql = "execute JuecesPorGenero 'M',1,1";
             //String sql = "execute JuecesPorGenero "+"'"+genero+"'"+", "+tipoOrden+", "+ Orden;
-            //String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO FROM EXPEDIENTE";
+            String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO FROM EXPEDIENTE";
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
