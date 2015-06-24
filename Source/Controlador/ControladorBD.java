@@ -30,7 +30,7 @@ public class ControladorBD {
                 //serverName = JOptionPane.showInputDialog("Ingrese su ServerName");
                 //tcpip = JOptionPane.showInputDialog("Ingrese su TCPIP");
                 String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"
-                +VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+                +VariablesGlobales.tcpip+";database=BDSIGCSJ;user=SIGCSJ;password=sig115;";
                 //JOptionPane.showMessageDialog(null, url);
                 //String url = "jdbc:sqlserver://localhost;databaseName=BDSIGCSJ;user=sig;password=sig1152015;";
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
