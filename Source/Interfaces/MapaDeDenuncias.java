@@ -7,7 +7,16 @@
 package Interfaces;
 
 import Clases.Expediente;
+import Clases.Mapa;
+import Controlador.Validar;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import sun.util.calendar.LocalGregorianCalendar.Date;
 
 /**
@@ -16,11 +25,20 @@ import sun.util.calendar.LocalGregorianCalendar.Date;
  */
 public class MapaDeDenuncias extends javax.swing.JFrame {
     Expediente exp = new Expediente();
+    
     /**
      * Creates new form MapaDeDenuncias
      */
     public MapaDeDenuncias() {
         initComponents();
+          datos();
+          cargarLista();
+    }
+    
+    public void cargarDatosMapa(){
+        
+        
+        
     }
 
     /**
@@ -36,19 +54,20 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
         tblMapa = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        santaana = new javax.swing.JLabel();
+        chalatenango = new javax.swing.JLabel();
+        sonsonate = new javax.swing.JLabel();
+        lalibertad = new javax.swing.JLabel();
+        lapaz = new javax.swing.JLabel();
+        usulutan = new javax.swing.JLabel();
+        sanmiguel = new javax.swing.JLabel();
+        sanvicente = new javax.swing.JLabel();
+        morazan = new javax.swing.JLabel();
+        cabañas = new javax.swing.JLabel();
+        sansalvador = new javax.swing.JLabel();
+        cuscatlan = new javax.swing.JLabel();
+        auachapan = new javax.swing.JLabel();
+        launion = new javax.swing.JLabel();
         jLabel_mapa = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -58,7 +77,7 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        txtdep = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MAPA DE DENUNCIAS");
@@ -86,74 +105,79 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 110, 70));
+        santaana.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        santaana.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        santaana.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(santaana, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 110, 100));
 
-        jLabel6.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 110, 70));
+        chalatenango.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        chalatenango.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chalatenango.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(chalatenango, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 110, 100));
 
-        jLabel7.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, 70));
+        sonsonate.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        sonsonate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sonsonate.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(sonsonate, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 110, 100));
 
-        jLabel8.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 110, 70));
+        lalibertad.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        lalibertad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lalibertad.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(lalibertad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 110, 100));
 
-        jLabel9.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, 70));
+        lapaz.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        lapaz.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lapaz.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(lapaz, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 110, 100));
 
-        jLabel10.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 110, 70));
+        usulutan.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        usulutan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        usulutan.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(usulutan, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 110, 100));
 
-        jLabel11.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 110, 70));
+        sanmiguel.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        sanmiguel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sanmiguel.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(sanmiguel, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 110, 100));
 
-        jLabel12.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 110, 70));
+        sanvicente.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        sanvicente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sanvicente.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(sanvicente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 110, 100));
 
-        jLabel13.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 110, 70));
+        morazan.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        morazan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        morazan.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(morazan, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 110, 100));
 
-        jLabel14.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 110, 70));
+        cabañas.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cabañas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cabañas.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(cabañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 110, 100));
 
-        jLabel15.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 110, 70));
+        sansalvador.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        sansalvador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sansalvador.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(sansalvador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 110, 100));
 
-        jLabel16.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 110, 70));
+        cuscatlan.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        cuscatlan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cuscatlan.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(cuscatlan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 110, 100));
 
-        jLabel17.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 110, 70));
+        auachapan.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        auachapan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        auachapan.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(auachapan, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 110, 100));
+
+        launion.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
+        launion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        launion.setText("<html><center>departamento <br> N# denuncias <br> N# omitidas <br> N# admitidas</center> </html>");
+        jPanel3.add(launion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 110, 100));
 
         jLabel_mapa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ELSALVADORfondo.PNG"))); // NOI18N
-        jPanel3.add(jLabel_mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 330));
+        jLabel_mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ElSalvador.PNG"))); // NOI18N
+        jPanel3.add(jLabel_mapa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 390));
 
         jButton1.setText("Informe");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +190,17 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha fin: ");
 
-        jButton2.setText("Generar");
+        jDateChooser1.setDate(new java.util.Date(788940000000L));
+        jDateChooser1.setDateFormatString("dd-MM-yyyy");
+        jDateChooser1.setMaxSelectableDate(new java.util.Date(1577862115000L));
+        jDateChooser1.setMinSelectableDate(new java.util.Date(788943715000L));
+
+        jDateChooser2.setDate(new java.util.Date(1451628000000L));
+        jDateChooser2.setDateFormatString("dd-MM-yyyy");
+        jDateChooser2.setMaxSelectableDate(new java.util.Date(1577862115000L));
+        jDateChooser2.setMinSelectableDate(new java.util.Date(788943715000L));
+
+        jButton2.setText("Consultar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -175,26 +209,28 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
 
         jLabel5.setText("Departamento");
 
-        txtdep.setToolTipText("Ej:01");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtdep))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,17 +241,17 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(txtdep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -225,14 +261,15 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -242,10 +279,10 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -257,9 +294,16 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       
         
-        datos();
+        datosPorFecha();
+        cargarTabla();
+        /*java.util.Date fechax = jDateChooser1.getDate();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+        JOptionPane.showMessageDialog(null, f.format(fechax).toString());*/
+        
+        
+      
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -299,41 +343,350 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel auachapan;
+    private javax.swing.JLabel cabañas;
+    private javax.swing.JLabel chalatenango;
+    private javax.swing.JLabel cuscatlan;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_mapa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lalibertad;
+    private javax.swing.JLabel lapaz;
+    private javax.swing.JLabel launion;
+    private javax.swing.JLabel morazan;
+    private javax.swing.JLabel sanmiguel;
+    private javax.swing.JLabel sansalvador;
+    private javax.swing.JLabel santaana;
+    private javax.swing.JLabel sanvicente;
+    private javax.swing.JLabel sonsonate;
     private javax.swing.JTable tblMapa;
-    private javax.swing.JTextField txtdep;
+    private javax.swing.JLabel usulutan;
     // End of variables declaration//GEN-END:variables
 
 private void datos(){
+        
+        Mapa m = new Mapa();
+        
+        JTable table = new JTable(m.consultarDenunciasPorDepartamentoTotal("SANTA ANA"));
+        santaana.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("AHUACHAPAN"));
+        auachapan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("SONSONATE"));
+        sonsonate.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("LA LIBERTAD"));
+        lalibertad.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("SAN SALVADOR"));
+        sansalvador.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("LA PAZ"));
+        lapaz.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("CUSCATLAN"));
+        cuscatlan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("CABAÑAS"));
+        cabañas.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("SAN VICENTE"));
+        sanvicente.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("SAN MIGUEL"));
+        sanmiguel.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("LA UNION"));
+        launion.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("MORAZAN"));
+        morazan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("CHALATENANGO"));
+        chalatenango.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamentoTotal("USULUTAN"));
+        usulutan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        
+        }
+
+private void cargarLista(){
+    
+    Mapa m = new Mapa();
+    JTable table = new JTable(m.consultarDepartamentos()); 
+    
+    for(int i=0; i < table.getModel().getRowCount(); i++)
+        jComboBox1.addItem(table.getModel().getValueAt(i, 1));
+
+}
+
+private void cargarTabla(){
+    
+    java.util.Date fecha1 = jDateChooser1.getDate();
+    java.util.Date fecha2 = jDateChooser2.getDate();
+    SimpleDateFormat f = new SimpleDateFormat("yyyy-dd-MM");
+    Validar v = new Validar();
+        
+       if(v.validarFecha2MayorQueFecha1(fecha1, fecha2)){
+    
+        Mapa m = new Mapa();
+        JTable table = new JTable(m.consultarDenunciasPorMunicipio(jComboBox1.getSelectedIndex(), f.format(fecha1).toString(), f.format(fecha2).toString())); 
+        tblMapa.setModel(table.getModel());
+    
+       }
+
+}
+
+
+ private void datosPorFecha(){       
+   
+    
         java.util.Date fecha1 = jDateChooser1.getDate();
         java.util.Date fecha2 = jDateChooser2.getDate();
-    
-    tblMapa.setModel(exp.MapaDenuncias(fecha1, fecha2, Integer.parseInt(txtdep.getText())));
-    
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-dd-MM");
+        Validar v = new Validar();
+        
+       if(v.validarFecha2MayorQueFecha1(fecha1, fecha2)){
+        
+        
+        
+        Mapa m = new Mapa();
+        
+        
+        JOptionPane.showMessageDialog(null, f.format(fecha1).toString() + f.format(fecha2).toString());
+        JTable table = new JTable(m.consultarDenunciasPorDepartamento("SANTA ANA", f.format(fecha1).toString(), f.format(fecha2).toString()));    
+        santaana.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("AHUACHAPAN", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        auachapan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("SONSONATE", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        sonsonate.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("LA LIBERTAD", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        lalibertad.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("SAN SALVADOR", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        sansalvador.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("LA PAZ", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        lapaz.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("CUSCATLAN", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        cuscatlan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("CABAÑAS", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        cabañas.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("SAN VICENTE", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        sanvicente.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("SAN MIGUEL", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        sanmiguel.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("LA UNION", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        launion.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("MORAZAN", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        morazan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("CHALATENANGO", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        chalatenango.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        table = new JTable(m.consultarDenunciasPorDepartamento("USULUTAN", f.format(fecha1).toString(), f.format(fecha2).toString()));
+        usulutan.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
+                               "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+
+                               "jueces: "+table.getModel().getValueAt(0, 2).toString()+"<br>"+
+                               table.getModel().getValueAt(0, 3).toString()+" admitidas<br>"+
+                               table.getModel().getValueAt(0, 4).toString()+" omitidas<br>"+
+                               table.getModel().getValueAt(0, 5).toString()+" otras<br>"+
+                               "</center></html>");
+        
+        
+        }else
+           JOptionPane.showMessageDialog(null, "Verifique que la fecha fin sea mayor que la fecha de inicio.");
+     
+ }
+ 
+ 
+ 
+ 
 }
     
-}
+
