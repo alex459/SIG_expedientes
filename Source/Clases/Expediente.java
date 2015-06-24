@@ -127,9 +127,9 @@ public class Expediente {
     }
 
      public TableModel consultarFases(int YEAR){
-        String sql;
-        PreparedStatement cmd;
-        ResultSet rs;
+        String sql, sql0;
+        PreparedStatement cmd, cmd0;
+        ResultSet rs, rs0;
         ControladorBD con = new ControladorBD();
 //        try {
 //        cn = con.AbrirConexion();
@@ -140,21 +140,32 @@ public class Expediente {
 //            JOptionPane.showMessageDialog(null, "ERROR:" + ex);
 //        }
         DefaultTableModel TablaFases = new DefaultTableModel();
-        try {
-           // TablaFases.addColumn("fase");
-           // TablaFases.addColumn("promedio");
-           // TablaFases.addColumn("mes");
+            TablaFases.addColumn("FASE");
+            TablaFases.addColumn("MES");
+            TablaFases.addColumn("PROMEDIO (EN DIAS)");
             
-            TablaFases.addColumn("Fase Inicial");
-            TablaFases.addColumn("Fase de Proceso");
-            TablaFases.addColumn("Fase de Sentencia");
+          //  TablaFases.addColumn("Fase Inicial");
+          //  TablaFases.addColumn("Fase de Proceso");
+          //  TablaFases.addColumn("Fase de Sentencia");
             
             
         cn = con.AbrirConexion();
-            //sql = "EXECUTE FASECURSOR "+ YEAR;
-              sql = "EXECUTE FASES "+ YEAR;
+        try{
+            sql0 = "EXECUTE FASECURSOR "+ YEAR;
+       // sql = "EXECUTE FASECURSOR 2010";
+           //   sql = "EXECUTE FASES "+ YEAR;
+            cmd0 = cn.prepareStatement(sql0);
+            rs0 = cmd0.executeQuery();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Promedio de las Fases por mes, del año " + YEAR);
+        }
+        try {
+        cn = con.AbrirConexion();
+        sql = "exec fases";
+           //   sql = "EXECUTE FASES "+ YEAR;
             cmd = cn.prepareStatement(sql);
             rs = cmd.executeQuery();
+            
             while (rs.next()) {
                 Object dato[] = new Object[TablaFases.getColumnCount()];
                 for (int i = 0; i < TablaFases.getColumnCount(); i++) {
