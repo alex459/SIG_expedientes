@@ -68,7 +68,7 @@ public class LoginUser extends javax.swing.JFrame {
                 BtnIngresarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+        getContentPane().add(BtnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, 30));
 
         BtnCerrar.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         BtnCerrar.setText("Cerrar");
@@ -81,7 +81,7 @@ public class LoginUser extends javax.swing.JFrame {
                 BtnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, -1));
+        getContentPane().add(BtnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, -1, 30));
 
         jLabel1.setFont(new java.awt.Font("Cambria", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
