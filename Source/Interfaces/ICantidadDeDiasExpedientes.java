@@ -7,6 +7,7 @@
 package Interfaces;
 
 import Clases.Expediente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -118,7 +119,13 @@ int anio;
         // TODO add your handling code here:
         anio = jyearEvaluacion.getYear();
        // System.out.println(anio);
-        datos();
+        
+        if(anio <= 2011 && anio >= 1995)
+        {
+         datos();    
+        }else{
+            JOptionPane.showMessageDialog(this, "NO EXISTEN ELEMENTES EN EL AÑO SELECCIONADO");
+        }
 
     }//GEN-LAST:event_txtBuscarActionPerformed
 
