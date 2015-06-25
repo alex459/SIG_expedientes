@@ -173,9 +173,13 @@ public class Usuario {
             TablaUsuarios.addColumn("IDUSUARIO");
             TablaUsuarios.addColumn("IDTIPOUSUARIO");
             TablaUsuarios.addColumn("NOMBREUSUARIO");
-            TablaUsuarios.addColumn("CLAVE");
+            //TablaUsuarios.addColumn("CLAVE");
             TablaUsuarios.addColumn("ESTADOUSUARIO");          
-            String sql = "SELECT * FROM USUARIO";
+            String sql = "SELECT IDUSUARIO,IDTIPOUSUARIO, NOMBREUSUARIO,ESTADOUSUARIO=\n" +
+                            " case ESTADOUSUARIO\n" +
+                                "  when 0 then 'DESACTIVADO'\n" +
+                                "  when 1 then 'ACTIVO'\n" +
+                                " end FROM USUARIO";
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {
