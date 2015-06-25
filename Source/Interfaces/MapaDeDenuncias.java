@@ -549,7 +549,6 @@ private void cargarTabla(){
         Mapa m = new Mapa();
         
         
-        JOptionPane.showMessageDialog(null, f.format(fecha1).toString() + f.format(fecha2).toString());
         JTable table = new JTable(m.consultarDenunciasPorDepartamento("SANTA ANA", f.format(fecha1).toString(), f.format(fecha2).toString()));    
         santaana.setText("<html><center>"+table.getModel().getValueAt(0, 0).toString()+"<br>"+
                                "denuncias: "+table.getModel().getValueAt(0, 1).toString()+"<br>"+

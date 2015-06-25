@@ -208,18 +208,12 @@ public class Mapa {
             TablaJuez.addColumn("municipio"); 
             TablaJuez.addColumn("denuncias");
             TablaJuez.addColumn("jueces");
-            TablaJuez.addColumn("denuncias omitidas");
-            TablaJuez.addColumn("denuncias admitidas");
-            TablaJuez.addColumn("otras denuncias");
                   
             //String sql = "execute JuecesPorGenero 'M',1,1";
             String sql = "select DEPARTAMENTO,\n" +
 "	   Municipio,\n" +
 "(select count(*) from expediente e1, detalleexpediente de1, municipio m1, departamento d1 where e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE and e1.IDMUNICIPIO = m1.IDMUNICIPIO and m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO and d1.DEPARTAMENTO = d.DEPARTAMENTO and de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'denuncias totales',\n" +
-"(select count(DISTINCT(e1.IDJUEZ)) from expediente e1, juez j1, detalleexpediente de1, municipio m1, departamento d1 where e1.IDJUEZ = j1.IDJUEZ AND e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE AND e1.IDMUNICIPIO = m1.IDMUNICIPIO AND m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO AND de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' AND d1.DEPARTAMENTO = d.DEPARTAMENTO and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'Jueces denunciados',\n" +
-"(select count(*) from expediente e1, detalleexpediente de1, municipio m1, departamento d1 where e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE and e1.IDMUNICIPIO = m1.IDMUNICIPIO and m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO and d1.DEPARTAMENTO = d.DEPARTAMENTO and de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' and e1.IDRESOLUCION = 1 and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'denuncias admitidas',\n" +
-"(select count(*) from expediente e1, detalleexpediente de1, municipio m1, departamento d1 where e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE and e1.IDMUNICIPIO = m1.IDMUNICIPIO and m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO and d1.DEPARTAMENTO = d.DEPARTAMENTO and de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' and e1.IDRESOLUCION = 2 and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'denuncias admitidas',\n" +
-"(select count(*) from expediente e1, detalleexpediente de1, municipio m1, departamento d1 where e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE and e1.IDMUNICIPIO = m1.IDMUNICIPIO and m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO and d1.DEPARTAMENTO = d.DEPARTAMENTO and de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' and e1.IDRESOLUCION in (3,4,5,6) and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'otras resoluciones'\n" +
+"(select count(DISTINCT(e1.IDJUEZ)) from expediente e1, juez j1, detalleexpediente de1, municipio m1, departamento d1 where e1.IDJUEZ = j1.IDJUEZ AND e1.NUMEROEXPEDIENTE = de1.NUMEROEXPEDIENTE AND e1.IDMUNICIPIO = m1.IDMUNICIPIO AND m1.IDDEPARTAMENTO = d1.IDDEPARTAMENTO AND de1.FECHADENUNCIA between '"+f1+"' AND '"+f2+"' AND d1.DEPARTAMENTO = d.DEPARTAMENTO and m1.IDMUNICIPIO = m.IDMUNICIPIO) as 'Jueces denunciados'\n" +
 "from departamento d, municipio m\n" +
 "WHERE m.IDDEPARTAMENTO = d.IDDEPARTAMENTO\n" +
 "AND d.IDDEPARTAMENTO="+d+1+";";

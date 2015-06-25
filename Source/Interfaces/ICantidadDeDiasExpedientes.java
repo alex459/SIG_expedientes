@@ -7,7 +7,17 @@
 package Interfaces;
 
 import Clases.Expediente;
+import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -69,6 +79,11 @@ int anio;
 
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtImprimir.setText("Imprimir");
+        txtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImprimirActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, -1, -1));
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -128,6 +143,34 @@ int anio;
         }
 
     }//GEN-LAST:event_txtBuscarActionPerformed
+
+    private void txtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirActionPerformed
+        
+                   try{
+               
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = VariablesGlobales.URLcon;
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("fases.jasper");
+            Map parametros = new HashMap();
+            parametros.put("Autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("anio", Integer.toString(jyearEvaluacion.getYear())); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);
+               
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(null, "jasper. verifique la conexion.");
+               }
+                    
+
+        
+        
+    }//GEN-LAST:event_txtImprimirActionPerformed
 
     /**
      * @param args the command line arguments
