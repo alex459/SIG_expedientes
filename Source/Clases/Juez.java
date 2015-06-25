@@ -305,21 +305,30 @@ public TableModel consultarJuez(){
     
   public TableModel consultarJuezPorGenero(String genero, int tipoOrden, int Orden){
         
+      String sql0, sql;
+      PreparedStatement cmd0, cmd;
+      ResultSet rs0, rs;
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
         DefaultTableModel TablaJuez = new DefaultTableModel();
-        try {
             TablaJuez.addColumn("IDJUEZ");
             TablaJuez.addColumn("NOMBRE");
             TablaJuez.addColumn("APELLIDO");
-            TablaJuez.addColumn("DENUNCIAS TOTALES");          
-            //String sql = "execute JuecesPorGenero 'M',1,1";
-            //String sql = "execute JuecesPorGenero "+"'"+genero+"'"+", "+tipoOrden+", "+ Orden;
-            String sql = "SELECT NUMEROEXPEDIENTE, IDJURIDICO, IDJUEZ, IDESTADO FROM EXPEDIENTE";
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            ResultSet rs = cmd.executeQuery();
+            TablaJuez.addColumn("DENUNCIAS TOTALES");      
+            try {
+            sql0 = "execute JuecesPorGenero '"+genero+"' ,"+tipoOrden+" ,"+Orden;
+            cmd0 = cn.prepareStatement(sql0);
+            rs0 = cmd0.executeQuery();
+            }catch(Exception e){
+             JOptionPane.showMessageDialog(null, "Denuncias de los jueces de genero: "+genero);
+            }
+                        try {
+            sql = "SELECT * FROM TEMPORAL";
+            cmd = cn.prepareStatement(sql);
+            rs = cmd.executeQuery();
+            
             while (rs.next()) {
-                Object dato[] = new Object[TablaJuez.getColumnCount()];//antes era 5
+                Object dato[] = new Object[TablaJuez.getColumnCount()];
                 for (int i = 0; i < TablaJuez.getColumnCount(); i++) {
                     dato[i] = rs.getString(i + 1);
                 }
@@ -328,10 +337,10 @@ public TableModel consultarJuez(){
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
-
+            
         return TablaJuez;
     }
-    public TableModel consultarDenunciasPorJuez(java.util.Date fecha1 , java.util.Date fecha2, int parametro){
+    public TableModel consultarDenunciasPorJuez(String fecha1 , String fecha2, int parametro){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
@@ -343,7 +352,7 @@ public TableModel consultarJuez(){
             TablaJuez.addColumn("Dependencia");
                   
             //String sql = "execute JuecesPorGenero 'M',1,1";
-            String sql = "EXECUTE DenunciasPorJuez '01-jun-2000', '01-may-2010', "+ parametro;
+            String sql = "EXECUTE DenunciasPorJuez '"+fecha1+"', '"+fecha2+"', "+ parametro;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {

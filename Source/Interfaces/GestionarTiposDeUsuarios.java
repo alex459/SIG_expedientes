@@ -101,12 +101,12 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
 
         tblConsultar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "Administrador", "1"},
-                {"2", "Gerencial", "2"},
-                {"3", "Táctico", "3"}
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID TIPO", "DESCRIPCION", "PRIVILEGIO"
+
             }
         ));
         jScrollPane1.setViewportView(tblConsultar);
@@ -204,4 +204,8 @@ public class GestionarTiposDeUsuarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtDescripcionTipoUsuario1;
     private javax.swing.JTextField txtIdTipoUsuario;
     // End of variables declaration//GEN-END:variables
+ public void datos(){
+     
+ }
+
 }

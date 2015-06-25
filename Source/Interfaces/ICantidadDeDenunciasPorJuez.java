@@ -7,7 +7,9 @@
 package Interfaces;
 
 import Clases.Juez;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 /**
  *
@@ -19,7 +21,9 @@ public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
     int intervalo;
     Date fecha1;
     Date fecha2;
-//  SimpleDateFormat formato;
+    String mifecha1;
+    String mifecha2;
+
     
     /**
      * Creates new form RendimientoDeExpediente
@@ -147,9 +151,12 @@ public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
 
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
-        
+
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-dd-MM");
         fecha1 =jDateChooser1.getDate();
-        fecha2 =jDateChooser1.getDate();
+        fecha2 =jDateChooser2.getDate();
+        mifecha1 = f.format(fecha1);
+        mifecha2 = f.format(fecha2);
         intervalo = cbDenunciaPorJuez.getSelectedIndex();
         
         datos();
@@ -222,7 +229,7 @@ public class ICantidadDeDenunciasPorJuez extends javax.swing.JFrame {
     
     public void datos(){
         
-        tblDenunciaPorJuez.setModel(jz.consultarDenunciasPorJuez(fecha1, fecha2, intervalo));
+        tblDenunciaPorJuez.setModel(jz.consultarDenunciasPorJuez(mifecha1, mifecha2, intervalo));
                 
    }
     

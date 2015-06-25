@@ -149,7 +149,7 @@ public class ICantidadDeJuecesPorGenero extends javax.swing.JFrame {
         
         orden = cbOrden.getSelectedIndex();
         
-        JOptionPane.showMessageDialog(this, genero+tipoorden+orden);
+        //JOptionPane.showMessageDialog(this, genero+tipoorden+orden);
         
         datos();
     }//GEN-LAST:event_txtGenerarActionPerformed

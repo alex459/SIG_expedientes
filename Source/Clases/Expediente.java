@@ -97,7 +97,7 @@ public class Expediente {
         this.diasparavencerse = diasparavencerse;
     }
 
-     public TableModel consultarVencimiento(java.util.Date fecha, int day){
+     public TableModel consultarVencimiento(String fecha, int day){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
@@ -108,8 +108,8 @@ public class Expediente {
             TablaVencimiento.addColumn("FECHADENUNCIA");
             TablaVencimiento.addColumn("FECHAVENCIMIENTO");          
             TablaVencimiento.addColumn("VENCE EN (DIAS)");          
-           // String sql = "EXECUTE ExpedientesQueVenceran "+"'"+fecha+"'"+", "+day;
-              String sql = "EXECUTE ExpedientesQueVenceran '01-01-2010' , "+day;
+            String sql = "EXECUTE ExpedientesQueVenceran '"+fecha+"', "+day;
+           //   String sql = "EXECUTE ExpedientesQueVenceran '01-01-2010' , "+day;
             PreparedStatement cmd = cn.prepareStatement(sql);
             ResultSet rs = cmd.executeQuery();
             while (rs.next()) {

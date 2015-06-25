@@ -10,6 +10,8 @@ import Controlador.ControladorBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -74,4 +76,24 @@ public void TipoDeUsuario(int idtipousuario, String descripciontipousuario){
         }
      return resp;
     }
+    
+       public TableModel ConsultaTipoUsuario(String f1, String f2){
+        ControladorBD con = new ControladorBD();
+        cn = con.AbrirConexion();
+        DefaultTableModel TablaTipo = new DefaultTableModel();
+        try {
+            TablaTipo.addColumn("IdTipo");    
+            TablaTipo.addColumn("Descripcion");
+            TablaTipo.addColumn("Privilegio");
+            
+            String sql = "SELECT * FROM TIPODEUSUARIO ";
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+ e);
+        }
+        
+        
+        
+        return TablaTipo;
+       }
 }

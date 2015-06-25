@@ -18,6 +18,7 @@ public class IExpedientesQueVenceran extends javax.swing.JFrame {
 Expediente exp = new Expediente();
     int dia;
     Date fecha;
+    String mifecha = null;
 
     /**
      * Creates new form IExpedientesQueVenceran
@@ -123,7 +124,7 @@ Expediente exp = new Expediente();
                 txtGenerar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(txtGenerar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+        getContentPane().add(txtGenerar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 80, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,7 +132,9 @@ Expediente exp = new Expediente();
     private void txtGenerar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerar1ActionPerformed
         // TODO add your handling code here:
         fecha = jDateChooser1.getDate();
-      
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-dd-MM");
+        
+        mifecha = f.format(fecha);
         //JOptionPane.showMessageDialog(null, "la fecha" + formato.format(fecha));
 
        
@@ -206,7 +209,7 @@ Expediente exp = new Expediente();
 
     public void datos(){
         
-        tblVencimiento.setModel(exp.consultarVencimiento(fecha, dia));
+        tblVencimiento.setModel(exp.consultarVencimiento(mifecha, dia));
         //tblVencimiento.setModel(exp.consultarVencimiento("20100101", dia));
     }
 }

@@ -141,7 +141,7 @@ public class IComparativoDeRendimiento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        this.ANIO=Integer.parseInt(jComboBox_anio.getSelectedItem().toString());
         ComparativoDeRendimiento cr = new ComparativoDeRendimiento();
         jTBL.setModel(cr.consultarRendimientoComparativo(this.ANIO));
         if(jTBL.getRowCount()>=1){
