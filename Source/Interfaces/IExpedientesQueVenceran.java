@@ -7,8 +7,19 @@
 package Interfaces;
 
 import Clases.Expediente;
+import Controlador.VariablesGlobales;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -68,6 +79,11 @@ Expediente exp = new Expediente();
 
         txtImprimir.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
         txtImprimir.setText("Imprimir");
+        txtImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtImprimirActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
@@ -149,6 +165,34 @@ Expediente exp = new Expediente();
         // JOptionPane.showMessageDialog(null, "el dia" + dia);
 
     }//GEN-LAST:event_txtGenerar1ActionPerformed
+
+    private void txtImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtImprimirActionPerformed
+
+           try{
+               
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = VariablesGlobales.URLcon;
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("vencimiento.jasper");
+            Map parametros = new HashMap();
+            //parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("dias", Integer.parseInt(cbIntervalo.getSelectedItem().toString())); //metiendo variables
+            parametros.put("fecha", jDateChooser1.getDate());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);
+               
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(null, "Verifique que este conectado al servidor.");
+               }
+                    
+        
+        
+    }//GEN-LAST:event_txtImprimirActionPerformed
 
     /**
      * @param args the command line arguments
