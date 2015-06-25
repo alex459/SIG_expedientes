@@ -9,22 +9,47 @@ package Interfaces;
 import Controlador.ControladorClases;
 import Controlador.VariablesGlobales;
 import java.util.Calendar;
+import javax.print.event.PrintJobEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Kevin
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    ControladorClases cc = new ControladorClases();
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+        
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        
+         //if (Integer.parseInt(VariablesGlobales.IDTIPOUSUARIO)==1){
+             
+        // }
+         
+         if (Integer.parseInt(VariablesGlobales.IDTIPOUSUARIO)==2){
+             jMenu6.setVisible(false);//
+             frmICantidadDeAsignaciones.setVisible(false); //cantidad de expedientes asignados
+             jMenu7.setVisible(false); //informe comparativo
+              jMenu8.setVisible(false); //vencimiento en 5 10 y 15
+              frmRendimientoDeExpedientes.setVisible(false); // holgura
+              jMenu5.setVisible(false);
+             
+         }
+         
+         if (Integer.parseInt(VariablesGlobales.IDTIPOUSUARIO)==2){
+             frmRendimientoDeDepartamento.setVisible(false); //RENDIMIENTO DE DEP
+             jMenu4.setVisible(false); //MAPA
+             frmICantidadDeDiasExpedientes.setVisible(false); // cantidad de dias
+             frmICantidadDeDenunciasPorJuez.setVisible(false); //cantidad de denuncias por Juez
+             frmICantidadDeJuecesPorGenero.setVisible(false); //Cantidad de jueces por genero
+         }
+         
     }
-    
-    ControladorClases cc = new ControladorClases();
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -414,6 +439,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       
         VariablesGlobales.IDUSUARIO = "";
         VariablesGlobales.IDTIPOUSUARIO = "";
         VariablesGlobales.NOMBREUSUARIO = "";
