@@ -7,21 +7,15 @@
 package Interfaces;
 
 import Clases.Expediente;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Kevin
  */
 public class RendimientoDeExpedientes extends javax.swing.JFrame {
 Expediente exp = new Expediente();
-    int intervalo;
-    Date fecha1;
-    Date fecha2;
     
-    SimpleDateFormat formato;
+    int anio;
+    
     
     
     /**
@@ -29,7 +23,6 @@ Expediente exp = new Expediente();
      */
     public RendimientoDeExpedientes() {
         initComponents();
-        llenarIntervalo();
     }
 
     /**
@@ -48,17 +41,13 @@ Expediente exp = new Expediente();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        cbIntervaloRendimiento = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jYearChooser1 = new com.toedter.calendar.JYearChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("RENDIMIENTO DE EXPEDIENTES");
@@ -101,26 +90,8 @@ Expediente exp = new Expediente();
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel14.setText("Fecha desde");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel15.setText("Fecha hasta");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        jLabel6.setText("Denuncias");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
-
-        cbIntervaloRendimiento.setFont(new java.awt.Font("Cambria", 0, 12)); // NOI18N
-        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbIntervaloRendimiento.setToolTipText("Seleccionar");
-        cbIntervaloRendimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbIntervaloRendimientoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbIntervaloRendimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, -1));
+        jLabel14.setText("Año de evaluación");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Cambria", 2, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 33, 32));
@@ -141,8 +112,7 @@ Expediente exp = new Expediente();
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/top.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 70));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 660, 20));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 140, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 140, -1));
+        getContentPane().add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,30 +120,12 @@ Expediente exp = new Expediente();
     private void txtGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGenerarActionPerformed
         // TODO add your handling code here:
      
-        if(jDateChooser1.getDate() == null){
-            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
-        }else{
-                fecha1 = jDateChooser1.getDate();
-                
-        }
-        if(jDateChooser2.getDate() == null){
-            JOptionPane.showMessageDialog(this, "Ingrese una fecha de inicio y una fin");
-        }else{
-                fecha2 = jDateChooser2.getDate();
-        }
-        
-        if(jDateChooser1.getDate() == null & jDateChooser2.getDate() == null){
-            JOptionPane.showMessageDialog(this, "Llene los parametro de fechas");
-        }else{
+    anio = jYearChooser1.getYear();
             datos();
-        }
+       
        
         
     }//GEN-LAST:event_txtGenerarActionPerformed
-
-    private void cbIntervaloRendimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbIntervaloRendimientoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbIntervaloRendimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,35 +163,25 @@ Expediente exp = new Expediente();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cbIntervaloRendimiento;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private com.toedter.calendar.JYearChooser jYearChooser1;
     private javax.swing.JTable tblRendimientoExp;
     private javax.swing.JButton txtGenerar;
     private javax.swing.JButton txtImprimir;
     // End of variables declaration//GEN-END:variables
 
-    public void llenarIntervalo(){
-        cbIntervaloRendimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"ADMITIDOS", "OMITIDOS"}));
-    }
     
     public void datos(){
-    SimpleDateFormat formato = new SimpleDateFormat("d-MMM-YYYY");
-        formato.format(fecha1);
-        formato.format(fecha2);
-    tblRendimientoExp.setModel(exp.RedimientoExp(fecha1, fecha2, cbIntervaloRendimiento.getSelectedIndex()));    
+    tblRendimientoExp.setModel(exp.RedimientoExp(anio));
         
     }
     

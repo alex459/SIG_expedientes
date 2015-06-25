@@ -209,24 +209,33 @@ public class Expediente {
         }
        return dato;
     } 
-        public TableModel RedimientoExp(java.util.Date fecha1,java.util.Date fecha2, int orden){
+        public TableModel RedimientoExp(int orden){
         
         ControladorBD con = new ControladorBD();
         cn = con.AbrirConexion();
+        String sql0,sql;
+        PreparedStatement cmd0,cmd;
+        ResultSet rs0,rs; 
+                
         DefaultTableModel TablaVencimiento = new DefaultTableModel();
         try {
-            TablaVencimiento.addColumn("Numero de Expediente");
-            TablaVencimiento.addColumn("Nombre Juridico");
-            TablaVencimiento.addColumn("Apellido Juridico");
-            TablaVencimiento.addColumn("Nombre Juez");
-            TablaVencimiento.addColumn("Apellido Juez");
+            TablaVencimiento.addColumn("Nombre");
+            TablaVencimiento.addColumn("Apellido");
+            TablaVencimiento.addColumn("Cantidad");
+            TablaVencimiento.addColumn("Promedio");
             
-            String sql = "EXECUTE RENDIMIENTOEXPEDIENTE '20100101', '20110101', "+orden;
-       //   String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 +", "+ fecha2 + ", " + 1;
-       //   String sql = "EXECUTE RENDIMIENTOEXPEDIENTE "+ fecha1 + ", "+ fecha2 + ", " + orden;
+            sql0 = "exec Rendimientoexp " +orden;
             
-            PreparedStatement cmd = cn.prepareStatement(sql);
-            ResultSet rs = cmd.executeQuery();
+            cmd0 = cn.prepareStatement(sql0);
+            rs0 = cmd0.executeQuery();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Rendimiento de Jueces por Exp del año: "+ orden);
+        }
+        try{
+            sql = "SELECT * FROM TEMPORAL";
+            
+            cmd = cn.prepareStatement(sql);
+            rs = cmd.executeQuery();
             while (rs.next()) {
                 Object dato[] = new Object[TablaVencimiento.getColumnCount()];
                 for (int i = 0; i < TablaVencimiento.getColumnCount(); i++) {
