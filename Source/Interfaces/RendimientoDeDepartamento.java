@@ -240,7 +240,7 @@ public class RendimientoDeDepartamento extends javax.swing.JFrame {
             
             //conectandose a la base
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://"+VariablesGlobales.serverName+":"+VariablesGlobales.tcpip+";database=BDSIGCSJ;integratedSecurity=true;";
+            String url = VariablesGlobales.URLcon;
             Connection cn = DriverManager.getConnection(url);
             
             //proceso de jasper report---------------------------------------------------------------------------

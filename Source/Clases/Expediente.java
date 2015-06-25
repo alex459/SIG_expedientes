@@ -131,29 +131,14 @@ public class Expediente {
         PreparedStatement cmd, cmd0;
         ResultSet rs, rs0;
         ControladorBD con = new ControladorBD();
-//        try {
-//        cn = con.AbrirConexion();
-//            sql = "TRUNCATE TABLE TEMPORAL";
-//            cmd = cn.prepareStatement(sql);
-//            rs = cmd.executeQuery();
-//        }catch(Exception ex){
-//            JOptionPane.showMessageDialog(null, "ERROR:" + ex);
-//        }
         DefaultTableModel TablaFases = new DefaultTableModel();
             TablaFases.addColumn("FASE");
             TablaFases.addColumn("MES");
             TablaFases.addColumn("PROMEDIO (EN DIAS)");
             
-          //  TablaFases.addColumn("Fase Inicial");
-          //  TablaFases.addColumn("Fase de Proceso");
-          //  TablaFases.addColumn("Fase de Sentencia");
-            
-            
         cn = con.AbrirConexion();
         try{
             sql0 = "EXECUTE FASECURSOR "+ YEAR;
-       // sql = "EXECUTE FASECURSOR 2010";
-           //   sql = "EXECUTE FASES "+ YEAR;
             cmd0 = cn.prepareStatement(sql0);
             rs0 = cmd0.executeQuery();
         }catch (Exception e){
@@ -176,7 +161,6 @@ public class Expediente {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error: " + e);
         }
-
         return TablaFases;
     }
      
