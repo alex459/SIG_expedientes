@@ -22,4 +22,5 @@ public class VariablesGlobales {
    public static String VARAUX1 = "";
    public static String VARAUX2 = "";
    public static String VARAUX3 = "";  
+   public static String URLcon = "";
 }
