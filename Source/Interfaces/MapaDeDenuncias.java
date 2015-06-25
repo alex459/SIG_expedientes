@@ -9,14 +9,24 @@ package Interfaces;
 import Clases.Expediente;
 import Clases.Mapa;
 import Controlador.Validar;
+import Controlador.VariablesGlobales;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import sun.util.calendar.LocalGregorianCalendar.Date;
 
 /**
@@ -290,7 +300,31 @@ public class MapaDeDenuncias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     
+                   try{
+               
+            //conectandose a la base
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            String url = VariablesGlobales.URLcon;
+            Connection cn = DriverManager.getConnection(url);
+            
+            //proceso de jasper report---------------------------------------------------------------------------
+            JasperReport jreport = (JasperReport) JRLoader.loadObjectFromFile("nuevomapa.jasper");
+            Map parametros = new HashMap();
+            parametros.put("autor", VariablesGlobales.NOMBREUSUARIO); //metiendo variables
+            parametros.put("fecha1", jDateChooser1.getDate()); //metiendo variables
+            parametros.put("fecha2", jDateChooser2.getDate()); //metiendo variables
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jreport, parametros, cn);
+            JasperViewer ventanavisor = new JasperViewer(jasperPrint, false);
+            ventanavisor.setTitle("CORTE SUPREMA DE JUSTICIA");
+            ventanavisor.setVisible(true);
+               
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(null, "jasper error:"+e);
+               }
+                    
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
